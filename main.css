@@ -1,0 +1,147 @@
+/* original colors
+:root {
+    --black:  #f6f6f6 
+    --gray-light: f2f2f2
+    --gray-blue: #e2e8f0
+    --white: #1a202e
+    --blue: #2e68c0;
+    --blue-light: #2e68c0;
+    --blue-transparent: #e1effe
+    --blue-transparent-light: #c3ddfd
+    --blue-gray: 
+    --blue-white: #364152
+} */
+
+:root {
+    --black: #222222;
+    --gray-light: #252525;
+    --gray-blue: #282d33;
+    --white: #f2f9ff;
+    --blue: #2e68c0;
+    --blue-light: #75a0ff;
+    --blue-transparent: #1e2a35;
+    --blue-transparent-light: #1f3953;
+    --blue-gray: #8797af;
+    --blue-white: #c4d0e4;
+}
+
+body,
+html {
+    /* color-scheme: dark; */
+    background-color: var(--black);
+    color: var(--white)
+}
+
+
+
+main {
+    background-color: var(--black)
+}
+
+/***************************/
+/*** SIDEBAR ***/
+
+aside,
+.tJH3Q,
+.qHlJa {
+    background-color: var(--black);
+}
+
+/* plain text */
+.DIiWA {
+    color: var(--blue-white);
+}
+
+/* header text, "Difficulty level", "Main Info", numbers */
+.V4kyC,
+.CypfN,
+.nFRPI,
+.J0qIH {
+    color: var(--white);
+}
+
+/** buttons **/
+.tDPQ9.nOTLW {
+    background: var(--blue-transparent);
+    color: var(--blue-light);
+}
+
+.tDPQ9.nOTLW:hover {
+    background-color: var(--blue-transparent-light);
+}
+
+/* svg on buttons */
+.n3ERC,
+.n3ERC circle,
+.n3ERC path {
+    fill: var(--blue-light);
+    color: var(--blue-light);
+}
+
+.iqM7z,
+.iqM7z path {
+    fill: var(--blue-white);
+    color: var(--blue-white);
+}
+
+
+/***************************/
+/*** SHEETS OVERVIEW ***/
+
+#jmuse-layout {
+    background-color: var(--gray-light)
+}
+
+/** toolbar **/
+.Nw3SK {
+    background-color: var(--black);
+}
+
+#jmuse-layout .plVkZ.O9yD2 {
+    color: var(--white);
+}
+
+/* buttons svg */
+#jmuse-layout .HFvdW:not(.wSWus) svg path {
+    fill: var(--white);
+}
+
+/* buttons svg blue*/
+#jmuse-layout .HFvdW:not(.wSWus) svg path[fill="#364152"] {
+    fill: var(--blue-white);
+}
+
+/* buttons hover */
+.vI1Jl.vI1Jl:active,
+.vI1Jl.vI1Jl:focus,
+.vI1Jl.vI1Jl:hover {
+    color: var(--blue-white);
+}
+
+.vI1Jl.vI1Jl:hover:before {
+    background-color: var(--gray-blue);
+}
+
+/* text */
+.frGa8 {
+    color: var(--blue-white);
+}
+
+/* speed text */
+.sJkYA {
+    color: var(--white);
+}
+
+
+/** sheet images **/
+#jmuse-scroller-component {
+    background-color: var(--gray-light);
+}
+
+#jmuse-scroller-component img {
+    filter: invert(90%);
+}
+
+#jmuse-scroller-component>div {
+    background-color: var(--black)
+}
