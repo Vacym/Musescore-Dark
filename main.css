@@ -1,42 +1,66 @@
 /* original colors
 :root {
-    --black:  #f6f6f6 
+    --gray:  #f6f6f6 
     --gray-light: f2f2f2
     --gray-blue: #e2e8f0
     --white: #1a202e
+    --blue-dark: #a4cafe;
     --blue: #2e68c0;
+    --blue-medium: #1a4f9f;
     --blue-light: #2e68c0;
     --blue-transparent: #e1effe
     --blue-transparent-light: #c3ddfd
-    --blue-gray: 
+    --blue-gray: #64748b
     --blue-white: #364152
 } */
 
 :root {
-    --black: #222222;
+    --gray: #222222;
     --gray-light: #252525;
     --gray-blue: #282d33;
     --white: #f2f9ff;
-    --blue: #2e68c0;
+    --blue-dark: #123569;
+    --blue: #1a4f9f;
+    --blue-medium: #2e68c0;
     --blue-light: #75a0ff;
     --blue-transparent: #1e2a35;
     --blue-transparent-light: #1f3953;
     --blue-gray: #8797af;
     --blue-white: #c4d0e4;
+
+    --black: #101010;
 }
 
 body,
 html {
-    /* color-scheme: dark; */
-    background-color: var(--black);
+    color-scheme: dark;
+    background-color: var(--gray);
     color: var(--white)
 }
 
 
 
 main {
-    background-color: var(--black)
+    background-color: var(--gray)
 }
+
+/* links */
+.Dhs0s,
+.EXa5J {
+    color: var(--blue-light);
+}
+
+.u_VDg.Dhs0s.O9yD2:hover,
+.Dhs0s.O9yD2:active,
+.Dhs0s.O9yD2:hover,
+.EXa5J:hover {
+    color: var(--white);
+}
+
+.RsvsB {
+    color: var(--blue-gray);
+}
+
 
 /***************************/
 /*** SIDEBAR ***/
@@ -44,7 +68,7 @@ main {
 aside,
 .tJH3Q,
 .qHlJa {
-    background-color: var(--black);
+    background-color: var(--gray);
 }
 
 /* plain text */
@@ -61,6 +85,22 @@ aside,
 }
 
 /** buttons **/
+/* blue buttons */
+.Dhs0s.nOTLW {
+    background-color: var(--blue)
+}
+
+.u_VDg.Dhs0s.nOTLW:hover,
+.Dhs0s:hover {
+    background: var(--blue-medium);
+}
+
+/* inactive blue */
+.Dhs0s.nOTLW.UlZjN {
+    background: var(--blue-dark);
+}
+
+/* transparent blue buttons */
 .tDPQ9.nOTLW {
     background: var(--blue-transparent);
     color: var(--blue-light);
@@ -78,9 +118,47 @@ aside,
     color: var(--blue-light);
 }
 
+/* "Send to YouTube" svg */
+.tDPQ9.nOTLW path {
+    fill: var(--blue-light);
+    color: var(--blue-light);
+
+}
+
 .iqM7z,
 .iqM7z path {
     fill: var(--blue-white);
+    color: var(--blue-white);
+}
+
+/* white buttons */
+.plVkZ.nIsQu,
+.GCNL2.pRBsn {
+    background: var(--black);
+    color: var(--white);
+}
+
+.plVkZ.nIsQu:hover,
+.GCNL2.pRBsn:hover {
+    color: inherit;
+}
+
+.plVkZ.nIsQu svg path {
+    fill: currentColor;
+}
+
+/* Difficulty level */
+.y2ohV {
+    background: var(--gray-blue);
+    color: var(--blue-white);
+}
+
+/* comment textarea */
+.NvccO {
+    background-color: var(--black);
+}
+
+.bkmfh {
     color: var(--blue-white);
 }
 
@@ -94,7 +172,7 @@ aside,
 
 /** toolbar **/
 .Nw3SK {
-    background-color: var(--black);
+    background-color: var(--gray);
 }
 
 #jmuse-layout .plVkZ.O9yD2 {
@@ -143,5 +221,5 @@ aside,
 }
 
 #jmuse-scroller-component>div {
-    background-color: var(--black)
+    background-color: var(--gray)
 }
