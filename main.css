@@ -1,17 +1,23 @@
 /* original colors
 :root {
-    --gray:  #f6f6f6 
-    --gray-light: f2f2f2
-    --gray-blue: #e2e8f0
-    --white: #1a202e
+    --gray:  #f6f6f6;
+    --gray-light: f2f2f2;
+    --gray-blue: #e2e8f0;
+    --white: #1a202e;
     --blue-dark: #a4cafe;
     --blue: #2e68c0;
     --blue-medium: #1a4f9f;
     --blue-light: #2e68c0;
-    --blue-transparent: #e1effe
-    --blue-transparent-light: #c3ddfd
-    --blue-gray: #64748b
-    --blue-white: #364152
+    --blue-magic: #daecfe;
+    --blue-transparent: #e1effe;
+    --blue-transparent-light: #c3ddfd;
+    --blue-gray: #64748b;
+    --blue-white: #364152;
+    --green: #21b275;
+    --green-light: #0b804f;
+
+    --current-measure: rgba(255,0,0,.2)
+    --hover-measure: rgba(255,0,0,.05);
 } */
 
 :root {
@@ -25,23 +31,30 @@
     --blue-light: #75a0ff;
     --blue-transparent: #1e2a35;
     --blue-transparent-light: #1f3953;
+    --blue-magic: #1d2d3b;
     --blue-gray: #8797af;
     --blue-white: #c4d0e4;
-
     --black: #101010;
+    --green: #0b804f;
+    --green-light: #21b275;
+
+    --current-measure: rgba(240, 20, 20, 0.2);
+    --hover-measure: rgba(240, 20, 20, 0.05);
+
+    --score-filter: invert(90%);
+    --discount-filter: opacity(0.3);
+    --avatar-filter: opacity(0.5);
 }
 
 body,
 html {
     color-scheme: dark;
     background-color: var(--gray);
-    color: var(--white)
+    color: var(--white);
 }
 
-
-
 main {
-    background-color: var(--gray)
+    background-color: var(--gray);
 }
 
 /* links */
@@ -57,10 +70,18 @@ main {
     color: var(--white);
 }
 
+.diP_e.iCnHA:hover button {
+    color: var(--white);
+}
+
 .RsvsB {
     color: var(--blue-gray);
 }
 
+.RsvsB.hxVnv,
+.RsvsB.O9yD2.u_VDg:hover {
+    color: var(--blue-white);
+}
 
 /***************************/
 /*** SIDEBAR ***/
@@ -87,7 +108,7 @@ aside,
 /** buttons **/
 /* blue buttons */
 .Dhs0s.nOTLW {
-    background-color: var(--blue)
+    background-color: var(--blue);
 }
 
 .u_VDg.Dhs0s.nOTLW:hover,
@@ -100,13 +121,15 @@ aside,
     background: var(--blue-dark);
 }
 
-/* transparent blue buttons */
-.tDPQ9.nOTLW {
+/* transparent blue buttons, Follow button */
+.tDPQ9.nOTLW,
+.GCNL2 {
     background: var(--blue-transparent);
     color: var(--blue-light);
 }
 
-.tDPQ9.nOTLW:hover {
+.tDPQ9.nOTLW:hover,
+.GCNL2:hover {
     background-color: var(--blue-transparent-light);
 }
 
@@ -122,7 +145,6 @@ aside,
 .tDPQ9.nOTLW path {
     fill: var(--blue-light);
     color: var(--blue-light);
-
 }
 
 .iqM7z,
@@ -162,12 +184,12 @@ aside,
     color: var(--blue-white);
 }
 
-
 /***************************/
 /*** SHEETS OVERVIEW ***/
 
 #jmuse-layout {
-    background-color: var(--gray-light)
+    background-color: var(--gray-light);
+    color: var(--white) !important;
 }
 
 /** toolbar **/
@@ -200,6 +222,11 @@ aside,
     background-color: var(--gray-blue);
 }
 
+/* buttons active */
+.Q7LVH:before {
+    background-color: var(--gray-blue);
+}
+
 /* text */
 .frGa8 {
     color: var(--blue-white);
@@ -210,16 +237,99 @@ aside,
     color: var(--white);
 }
 
-
 /** sheet images **/
 #jmuse-scroller-component {
     background-color: var(--gray-light);
 }
 
 #jmuse-scroller-component img {
-    filter: invert(90%);
+    filter: var(--score-filter);
 }
 
-#jmuse-scroller-component>div {
-    background-color: var(--gray)
+#jmuse-scroller-component > div,
+#jmuse-scroller-component > section > div {
+    background-color: var(--gray);
+}
+
+/* current measure */
+.EPvAl.rMeX4 {
+    background-color: var(--current-measure);
+}
+
+/* hover measure */
+.EPvAl {
+    background-color: var(--hover-measure);
+}
+
+/* rate score popup */
+.KkvbQ {
+    background-color: var(--black) !important;
+}
+
+/* discount */
+.s3Wga .tbdq7 {
+    filter: var(--discount-filter);
+}
+
+/***************************/
+/*** POPUP WINDOWS ***/
+
+.b_r17.aRvRz,
+.ASx44._gyAu {
+    background-color: var(--black);
+}
+
+/* section */
+.SUZeM:hover {
+    background-color: var(--gray);
+}
+
+@media (min-width: 768px) {
+    .diP_e.iCnHA:hover {
+        background-color: var(--gray);
+    }
+}
+
+/* remove button */
+.plVkZ.wXNik {
+    color: var(--white);
+}
+
+.plVkZ.wXNik:hover {
+    color: var(--blue-gray);
+}
+
+/* green button */
+.cuYtG.nOTLW {
+    background-color: var(--green) !important;
+}
+
+.cuYtG.nOTLW:hover {
+    background-color: var(--green-light) !important;
+}
+
+/* selector */
+.FMkpa {
+    background-color: var(--black);
+    fill: var(--blue-gray);
+}
+
+.FMkpa > select {
+    color: var(--blue-gray);
+}
+
+.FMkpa > select option,
+.FMkpa > select optgroup {
+    color: var(--blue-white);
+    background-color: var(--gray);
+}
+
+/* info */
+.T3FEN.Kaa9U {
+    background-color: var(--blue-magic);
+}
+
+/* info svg */
+.T3FEN path {
+    fill: var(--white);
 }
