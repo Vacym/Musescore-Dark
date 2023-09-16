@@ -1,0 +1,21 @@
+# Ignore Node.js modules
+node_modules/
+
+# Ignore any built or compiled CSS files
+*.css.map
+*.min.css
+*.css.gz
+
+# Ignore compiled SASS/SCSS files
+*.sass
+*.scss
+
+# Ignore text editor-specific files
+.vscode/
+
+# Ignore npm debug log
+npm-debug.log
+
+# Ignore log files and error output
+*.log
+logs/

@@ -1,86 +1,86 @@
 /* original colors
 :root {
-    --gray:  #f6f6f6;
-    --gray-light: f2f2f2;
-    --gray-blue: #e2e8f0;
-    --white: #1a202e;
-    --blue-dark: #a4cafe;
-    --blue: #2e68c0;
-    --blue-medium: #1a4f9f;
-    --blue-light: #2e68c0;
-    --blue-magic: #daecfe;
-    --blue-transparent: #e1effe;
-    --blue-transparent-light: #c3ddfd;
-    --blue-gray: #64748b;
-    --blue-white: #364152;
-    --green: #21b275;
-    --green-light: #0b804f;
+  --gray:  #f6f6f6;
+  --gray-light: f2f2f2;
+  --gray-blue: #e2e8f0;
+  --white: #1a202e;
+  --blue-dark: #a4cafe;
+  --blue: #2e68c0;
+  --blue-medium: #1a4f9f;
+  --blue-light: #2e68c0;
+  --blue-magic: #daecfe;
+  --blue-transparent: #e1effe;
+  --blue-transparent-light: #c3ddfd;
+  --blue-gray: #64748b;
+  --blue-white: #364152;
+  --green: #21b275;
+  --green-light: #0b804f;
 
-    --current-measure: rgba(255,0,0,.2)
-    --hover-measure: rgba(255,0,0,.05);
+  --current-measure: rgba(255,0,0,.2)
+  --hover-measure: rgba(255,0,0,.05);
 } */
 
 :root {
-    --gray: #222222;
-    --gray-light: #252525;
-    --gray-blue: #282d33;
-    --white: #f2f9ff;
-    --blue-dark: #123569;
-    --blue: #1a4f9f;
-    --blue-medium: #2e68c0;
-    --blue-light: #75a0ff;
-    --blue-transparent: #1e2a35;
-    --blue-transparent-light: #1f3953;
-    --blue-magic: #1d2d3b;
-    --blue-gray: #8797af;
-    --blue-white: #c4d0e4;
-    --black: #101010;
-    --green: #0b804f;
-    --green-light: #21b275;
+  --gray: #222222;
+  --gray-light: #252525;
+  --gray-blue: #282d33;
+  --white: #f2f9ff;
+  --blue-dark: #123569;
+  --blue: #1a4f9f;
+  --blue-medium: #2e68c0;
+  --blue-light: #75a0ff;
+  --blue-transparent: #1e2a35;
+  --blue-transparent-light: #1f3953;
+  --blue-magic: #1d2d3b;
+  --blue-gray: #8797af;
+  --blue-white: #c4d0e4;
+  --black: #101010;
+  --green: #0b804f;
+  --green-light: #21b275;
 
-    --current-measure: rgba(240, 20, 20, 0.2);
-    --hover-measure: rgba(240, 20, 20, 0.05);
+  --current-measure: rgba(240, 20, 20, 0.2);
+  --hover-measure: rgba(240, 20, 20, 0.05);
 
-    --score-filter: invert(90%);
-    --discount-filter: opacity(0.3);
-    --avatar-filter: opacity(0.5);
+  --score-filter: invert(90%);
+  --discount-filter: opacity(0.3);
+  --avatar-filter: opacity(0.5);
 }
 
 body,
 html {
-    color-scheme: dark;
-    background-color: var(--gray);
-    color: var(--white);
+  color-scheme: dark;
+  background-color: var(--gray);
+  color: var(--white);
 }
 
 main {
-    background-color: var(--gray);
+  background-color: var(--gray);
 }
 
 /* links */
 .Dhs0s,
 .EXa5J {
-    color: var(--blue-light);
+  color: var(--blue-light);
 }
 
 .u_VDg.Dhs0s.O9yD2:hover,
 .Dhs0s.O9yD2:active,
 .Dhs0s.O9yD2:hover,
 .EXa5J:hover {
-    color: var(--white);
+  color: var(--white);
 }
 
 .diP_e.iCnHA:hover button {
-    color: var(--white);
+  color: var(--white);
 }
 
 .RsvsB {
-    color: var(--blue-gray);
+  color: var(--blue-gray);
 }
 
 .RsvsB.hxVnv,
 .RsvsB.O9yD2.u_VDg:hover {
-    color: var(--blue-white);
+  color: var(--blue-white);
 }
 
 /***************************/
@@ -89,12 +89,12 @@ main {
 aside,
 .tJH3Q,
 .qHlJa {
-    background-color: var(--gray);
+  background-color: var(--gray);
 }
 
 /* plain text */
 .DIiWA {
-    color: var(--blue-white);
+  color: var(--blue-white);
 }
 
 /* header text, "Difficulty level", "Main Info", numbers */
@@ -102,173 +102,173 @@ aside,
 .CypfN,
 .nFRPI,
 .J0qIH {
-    color: var(--white);
+  color: var(--white);
 }
 
 /** buttons **/
 /* blue buttons */
 .Dhs0s.nOTLW {
-    background-color: var(--blue);
+  background-color: var(--blue);
 }
 
 .u_VDg.Dhs0s.nOTLW:hover,
 .Dhs0s:hover {
-    background: var(--blue-medium);
+  background: var(--blue-medium);
 }
 
 /* inactive blue */
 .Dhs0s.nOTLW.UlZjN {
-    background: var(--blue-dark);
+  background: var(--blue-dark);
 }
 
 /* transparent blue buttons, Follow button */
 .tDPQ9.nOTLW,
 .GCNL2 {
-    background: var(--blue-transparent);
-    color: var(--blue-light);
+  background: var(--blue-transparent);
+  color: var(--blue-light);
 }
 
 .tDPQ9.nOTLW:hover,
 .GCNL2:hover {
-    background-color: var(--blue-transparent-light);
+  background-color: var(--blue-transparent-light);
 }
 
 /* svg on buttons */
 .n3ERC,
 .n3ERC circle,
 .n3ERC path {
-    fill: var(--blue-light);
-    color: var(--blue-light);
+  fill: var(--blue-light);
+  color: var(--blue-light);
 }
 
 /* "Send to YouTube" svg */
 .tDPQ9.nOTLW path {
-    fill: var(--blue-light);
-    color: var(--blue-light);
+  fill: var(--blue-light);
+  color: var(--blue-light);
 }
 
 .iqM7z,
 .iqM7z path {
-    fill: var(--blue-white);
-    color: var(--blue-white);
+  fill: var(--blue-white);
+  color: var(--blue-white);
 }
 
 /* white buttons */
 .plVkZ.nIsQu,
 .GCNL2.pRBsn {
-    background: var(--black);
-    color: var(--white);
+  background: var(--black);
+  color: var(--white);
 }
 
 .plVkZ.nIsQu:hover,
 .GCNL2.pRBsn:hover {
-    color: inherit;
+  color: inherit;
 }
 
 .plVkZ.nIsQu svg path {
-    fill: currentColor;
+  fill: currentColor;
 }
 
 /* Difficulty level */
 .y2ohV {
-    background: var(--gray-blue);
-    color: var(--blue-white);
+  background: var(--gray-blue);
+  color: var(--blue-white);
 }
 
 /* comment textarea */
 .NvccO {
-    background-color: var(--black);
+  background-color: var(--black);
 }
 
 .bkmfh {
-    color: var(--blue-white);
+  color: var(--blue-white);
 }
 
 /***************************/
 /*** SHEETS OVERVIEW ***/
 
 #jmuse-layout {
-    background-color: var(--gray-light);
-    color: var(--white) !important;
+  background-color: var(--gray-light);
+  color: var(--white) !important;
 }
 
 /** toolbar **/
 .Nw3SK {
-    background-color: var(--gray);
+  background-color: var(--gray);
 }
 
 #jmuse-layout .plVkZ.O9yD2 {
-    color: var(--white);
+  color: var(--white);
 }
 
 /* buttons svg */
 #jmuse-layout .HFvdW:not(.wSWus) svg path {
-    fill: var(--white);
+  fill: var(--white);
 }
 
 /* buttons svg blue*/
 #jmuse-layout .HFvdW:not(.wSWus) svg path[fill="#364152"] {
-    fill: var(--blue-white);
+  fill: var(--blue-white);
 }
 
 /* buttons hover */
 .vI1Jl.vI1Jl:active,
 .vI1Jl.vI1Jl:focus,
 .vI1Jl.vI1Jl:hover {
-    color: var(--blue-white);
+  color: var(--blue-white);
 }
 
 .vI1Jl.vI1Jl:hover:before {
-    background-color: var(--gray-blue);
+  background-color: var(--gray-blue);
 }
 
 /* buttons active */
 .Q7LVH:before {
-    background-color: var(--gray-blue);
+  background-color: var(--gray-blue);
 }
 
 /* text */
 .frGa8 {
-    color: var(--blue-white);
+  color: var(--blue-white);
 }
 
 /* speed text */
 .sJkYA {
-    color: var(--white);
+  color: var(--white);
 }
 
 /** sheet images **/
 #jmuse-scroller-component {
-    background-color: var(--gray-light);
+  background-color: var(--gray-light);
 }
 
 #jmuse-scroller-component img {
-    filter: var(--score-filter);
+  filter: var(--score-filter);
 }
 
 #jmuse-scroller-component > div,
 #jmuse-scroller-component > section > div {
-    background-color: var(--gray);
+  background-color: var(--gray);
 }
 
 /* current measure */
 .EPvAl.rMeX4 {
-    background-color: var(--current-measure);
+  background-color: var(--current-measure);
 }
 
 /* hover measure */
 .EPvAl {
-    background-color: var(--hover-measure);
+  background-color: var(--hover-measure);
 }
 
 /* rate score popup */
 .KkvbQ {
-    background-color: var(--black) !important;
+  background-color: var(--black) !important;
 }
 
 /* discount */
 .s3Wga .tbdq7 {
-    filter: var(--discount-filter);
+  filter: var(--discount-filter);
 }
 
 /***************************/
@@ -276,60 +276,60 @@ aside,
 
 .b_r17.aRvRz,
 .ASx44._gyAu {
-    background-color: var(--black);
+  background-color: var(--black);
 }
 
 /* section */
 .SUZeM:hover {
-    background-color: var(--gray);
+  background-color: var(--gray);
 }
 
 @media (min-width: 768px) {
-    .diP_e.iCnHA:hover {
-        background-color: var(--gray);
-    }
+  .diP_e.iCnHA:hover {
+    background-color: var(--gray);
+  }
 }
 
 /* remove button */
 .plVkZ.wXNik {
-    color: var(--white);
+  color: var(--white);
 }
 
 .plVkZ.wXNik:hover {
-    color: var(--blue-gray);
+  color: var(--blue-gray);
 }
 
 /* green button */
 .cuYtG.nOTLW {
-    background-color: var(--green) !important;
+  background-color: var(--green) !important;
 }
 
 .cuYtG.nOTLW:hover {
-    background-color: var(--green-light) !important;
+  background-color: var(--green-light) !important;
 }
 
 /* selector */
 .FMkpa {
-    background-color: var(--black);
-    fill: var(--blue-gray);
+  background-color: var(--black);
+  fill: var(--blue-gray);
 }
 
 .FMkpa > select {
-    color: var(--blue-gray);
+  color: var(--blue-gray);
 }
 
 .FMkpa > select option,
 .FMkpa > select optgroup {
-    color: var(--blue-white);
-    background-color: var(--gray);
+  color: var(--blue-white);
+  background-color: var(--gray);
 }
 
 /* info */
 .T3FEN.Kaa9U {
-    background-color: var(--blue-magic);
+  background-color: var(--blue-magic);
 }
 
 /* info svg */
 .T3FEN path {
-    fill: var(--white);
+  fill: var(--white);
 }
