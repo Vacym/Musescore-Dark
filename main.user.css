@@ -1,8 +1,8 @@
 /* ==UserStyle==
 @name           Musescore dark
 @namespace      https://github.com/Vacym
-@version        0.0.3
-@description    Dark theme for musescore with score inverting
+@version        0.0.4
+@description    Dark theme for MuseScore with score inverting
 @author         Vacym
 @homepageURL    https://github.com/Vacym/Musescore-Dark
 @updateURL      https://raw.githubusercontent.com/Vacym/Musescore-Dark/main/main.user.css
@@ -32,6 +32,7 @@
   } */
 
   :root {
+    --black: #101010;
     --gray: #222222;
     --gray-light: #252525;
     --gray-blue: #282d33;
@@ -45,7 +46,6 @@
     --blue-magic: #1d2d3b;
     --blue-gray: #8797af;
     --blue-white: #c4d0e4;
-    --black: #101010;
     --green: #0b804f;
     --green-light: #21b275;
 
@@ -60,24 +60,30 @@
   body,
   html {
     color-scheme: dark;
-    background-color: var(--gray);
+    background-color: var(--black);
     color: var(--white);
   }
 
   main {
-    background-color: var(--gray);
+    background-color: var(--black);
   }
 
-  /* links */
+  /*** Common styles ***/
+
+  /** text **/
+
+  /* blue links */
   .Dhs0s,
-  .EXa5J {
+  .EXa5J,
+  .Ggd5G {
     color: var(--blue-light);
   }
 
   .u_VDg.Dhs0s.O9yD2:hover,
   .Dhs0s.O9yD2:active,
   .Dhs0s.O9yD2:hover,
-  .EXa5J:hover {
+  .EXa5J:hover,
+  .Ggd5G:hover {
     color: var(--white);
   }
 
@@ -85,6 +91,7 @@
     color: var(--white);
   }
 
+  /* white links */
   .RsvsB {
     color: var(--blue-gray);
   }
@@ -94,13 +101,12 @@
     color: var(--blue-white);
   }
 
-  /***************************/
-  /*** SIDEBAR ***/
-
-  aside,
-  .tJH3Q,
-  .qHlJa {
-    background-color: var(--gray);
+  /* header text, "Difficulty level", "Main Info", numbers */
+  .V4kyC,
+  .CypfN,
+  .nFRPI,
+  .J0qIH {
+    color: var(--white);
   }
 
   /* plain text */
@@ -108,12 +114,17 @@
     color: var(--blue-white);
   }
 
-  /* header text, "Difficulty level", "Main Info", numbers */
-  .V4kyC,
-  .CypfN,
-  .nFRPI,
-  .J0qIH {
-    color: var(--white);
+  /* secondary text text */
+  .WJGhZ {
+    color: var(--blue-gray);
+  }
+
+  /* svg on buttons and links */
+  .n3ERC,
+  .n3ERC circle,
+  .n3ERC path {
+    fill: var(--blue-light);
+    color: var(--blue-light);
   }
 
   /** buttons **/
@@ -144,26 +155,6 @@
     background-color: var(--blue-transparent-light);
   }
 
-  /* svg on buttons */
-  .n3ERC,
-  .n3ERC circle,
-  .n3ERC path {
-    fill: var(--blue-light);
-    color: var(--blue-light);
-  }
-
-  /* "Send to YouTube" svg */
-  .tDPQ9.nOTLW path {
-    fill: var(--blue-light);
-    color: var(--blue-light);
-  }
-
-  .iqM7z,
-  .iqM7z path {
-    fill: var(--blue-white);
-    color: var(--blue-white);
-  }
-
   /* white buttons */
   .plVkZ.nIsQu,
   .GCNL2.pRBsn {
@@ -180,18 +171,38 @@
     fill: currentColor;
   }
 
-  /* Difficulty level */
-  .y2ohV {
-    background: var(--gray-blue);
-    color: var(--blue-white);
-  }
-
-  /* comment textarea */
+  /* textarea */
   .NvccO {
     background-color: var(--black);
   }
 
   .bkmfh {
+    color: var(--blue-white);
+  }
+
+  /***************************/
+  /*** SIDEBAR ***/
+
+  aside,
+  .BxFu3 {
+    background-color: var(--gray) !important;
+  }
+
+  /* "Send to YouTube" svg */
+  .tDPQ9.nOTLW path {
+    fill: var(--blue-light);
+    color: var(--blue-light);
+  }
+
+  .iqM7z,
+  .iqM7z path {
+    fill: var(--blue-white);
+    color: var(--blue-white);
+  }
+
+  /* Difficulty level */
+  .y2ohV {
+    background: var(--gray-blue);
     color: var(--blue-white);
   }
 
@@ -344,4 +355,9 @@
   .T3FEN path {
     fill: var(--white);
   }
+}
+
+/*** PROFILE ***/
+.Zf301.K8vI0::after {
+  background: linear-gradient(180deg, transparent 0, #222222e0);
 }
