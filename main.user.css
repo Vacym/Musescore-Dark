@@ -4,6 +4,8 @@
 @version        0.0.3
 @description    Dark theme for musescore with score inverting
 @author         Vacym
+@homepageURL    https://github.com/Vacym/Musescore-Dark
+@updateURL      https://raw.githubusercontent.com/Vacym/Musescore-Dark/main/main.user.css
 ==/UserStyle== */
 
 @-moz-document domain("musescore.com") {
