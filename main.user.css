@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Musescore dark
 @namespace      https://github.com/Vacym
-@version        0.0.4
+@version        0.0.4.1
 @description    Dark theme for MuseScore with score inverting
 @author         Vacym
 @homepageURL    https://github.com/Vacym/Musescore-Dark
@@ -355,9 +355,9 @@
   .T3FEN path {
     fill: var(--white);
   }
-}
 
-/*** PROFILE ***/
-.Zf301.K8vI0::after {
-  background: linear-gradient(180deg, transparent 0, #222222e0);
+  /*** PROFILE ***/
+  .Zf301.K8vI0::after {
+    background: linear-gradient(180deg, transparent 0, #222222e0);
+  }
 }
