@@ -53,8 +53,9 @@
     --hover-measure: rgba(240, 20, 20, 0.05);
 
     --score-filter: invert(90%);
-    --discount-filter: opacity(0.3);
-    --avatar-filter: opacity(0.5);
+    --score-preview: brightness(50%);
+    --discount-filter: brightness(30%);
+    --avatar-filter: brightness(80%);
   }
 
   body,
@@ -180,6 +181,110 @@
     color: var(--blue-white);
   }
 
+  /* selector */
+  .FMkpa {
+    background-color: var(--black);
+    fill: var(--blue-gray);
+  }
+
+  .FMkpa > select {
+    color: var(--blue-gray);
+  }
+
+  .FMkpa > select option,
+  .FMkpa > select optgroup {
+    color: var(--blue-white);
+    background-color: var(--gray);
+  }
+
+  /** custom selector **/
+  .AU7yR.nOTLW {
+    background-color: var(--black);
+    color: var(--blue-white);
+  }
+
+  .HFvdW:not(.wSWus) svg path {
+    fill: currentColor;
+  }
+
+  /* drop-down menu */
+  .ZcIR_.g3QeU .MfuCz {
+    background-color: var(--black);
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, 0.05),
+      0 10px 15px -3px rgba(255, 255, 255, 0.1),
+      0 4px 6px -2px rgba(255, 255, 255, 0.05);
+  }
+
+  .uBrVm.OX2Fm:hover,
+  .uBrVm.cMYM6 {
+    background-color: var(--blue);
+  }
+
+  .uBrVm.OX2Fm {
+    color: var(--white) !important;
+  }
+
+  /** score preview */
+  .T_xXu {
+    filter: var(--score-preview);
+  }
+
+  /** signs **/
+  /* "pro" sign */
+  .Bnh13,
+  .Bnh13:focus,
+  .Bnh13:hover {
+    background-color: var(--green);
+  }
+
+  /* "original" sign */
+  .JnqFx {
+    background: var(--blue-transparent);
+    color: var(--blue-light);
+  }
+
+  /* "public domain" sign */
+  .o1QE0 {
+    background-color: var(--blue);
+  }
+
+  .dwVOQ {
+    background-color: var(--black);
+  }
+
+  .xFow5 {
+    background-color: var(--black);
+  }
+
+  .MKeqF .dwVOQ {
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.17);
+  }
+
+  /* avatars */
+  .CrCMp {
+    filter: var(--avatar-filter);
+  }
+
+  .Zf301.K8vI0::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+
+    display: block;
+    width: 100%;
+    height: 100%;
+    z-index: 2; /* strange behavior at 1 */
+
+    backdrop-filter: brightness(80%);
+  }
+
+  /* additional section */
+  .ASx44.hQ6hq {
+    background-color: var(--gray);
+  }
+
   /***************************/
   /*** SIDEBAR ***/
 
@@ -301,6 +406,13 @@
     background-color: var(--black);
   }
 
+  .b_r17 {
+    box-shadow:
+      0 0 0 0 transparent,
+      0 0 0 0 transparent,
+      0 25px 50px -12px rgba(255, 255, 255, 0.25);
+  }
+
   /* section */
   .SUZeM:hover {
     background-color: var(--gray);
@@ -330,22 +442,6 @@
     background-color: var(--green-light) !important;
   }
 
-  /* selector */
-  .FMkpa {
-    background-color: var(--black);
-    fill: var(--blue-gray);
-  }
-
-  .FMkpa > select {
-    color: var(--blue-gray);
-  }
-
-  .FMkpa > select option,
-  .FMkpa > select optgroup {
-    color: var(--blue-white);
-    background-color: var(--gray);
-  }
-
   /* info */
   .T3FEN.Kaa9U {
     background-color: var(--blue-magic);
@@ -354,10 +450,5 @@
   /* info svg */
   .T3FEN path {
     fill: var(--white);
-  }
-
-  /*** PROFILE ***/
-  .Zf301.K8vI0::after {
-    background: linear-gradient(180deg, transparent 0, #222222e0);
   }
 }
