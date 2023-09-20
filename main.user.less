@@ -1,83 +1,102 @@
-/* ==UserStyle==
+/* ==UserStyle==text
 @name           Musescore dark
 @namespace      https://github.com/Vacym
-@version        0.0.4.1
+@version        0.1.0
 @description    Dark theme for MuseScore with score inverting
 @author         Vacym
 @homepageURL    https://github.com/Vacym/Musescore-Dark
 @updateURL      https://raw.githubusercontent.com/Vacym/Musescore-Dark/main/main.user.css
+@preprocessor   less
+
+@var checkbox is-dark-scheme     "is dark scheme"             1
+
+@var color background-main       "main background color"      #101010
+@var color background-secondary  "secondary background color" #222222
+@var color background-tertiary   "tertiary background color"  #252525
+@var color background-accent     "accent background color"    #282d33
+@var color text-main             "main text color"            #f2f9ff
+@var color text-secondary        "plain text color"           #c4d0e4
+@var color text-tertiary         "tertiary text color"        #8797af
+@var color link                  "links color"                #75a0ff
+@var color main                  "main color"                 #1a4f9f
+@var color main-transparent      "main transparent color"     #1e2a35
+@var color secondary             "secondary color"            #0b804f
+@var color measure-current       "measure color"              rgba(240, 20, 20, 0.2)
+
+@var text  score-filter          "score filter"                "invert(90%)"
+@var text  score-preview-filter  "score preview filter"        "brightness(50%)"
+@var text  discount-filter       "discount filter"             "brightness(30%)"
+@var text  avatar-filter         "avatar filter"               "brightness(80%)"
+
 ==/UserStyle== */
 
 @-moz-document domain("musescore.com") {
   /* original colors
-  :root {
-    --gray:  #f6f6f6;
-    --gray-light: f2f2f2;
-    --gray-blue: #e2e8f0;
-    --white: #1a202e;
-    --blue-dark: #a4cafe;
-    --blue: #2e68c0;
-    --blue-medium: #1a4f9f;
-    --blue-light: #2e68c0;
-    --blue-magic: #daecfe;
-    --blue-transparent: #e1effe;
-    --blue-transparent-light: #c3ddfd;
-    --blue-gray: #64748b;
-    --blue-white: #364152;
-    --green: #21b275;
-    --green-light: #0b804f;
-  
-    --current-measure: rgba(255,0,0,.2)
-    --hover-measure: rgba(255,0,0,.05);
-  } */
+  @background-main: #ffffff;
+  @background-secondary: #f6f6f6;
+  @background-tertiary: f2f2f2;
+  @background-accent: #e2e8f0;
+  @text-main: #1a202e;
+  @text-secondary: #364152;
+  @text-tertiary: #64748b;
+  @link: #2e68c0;
+  @main: #2e68c0;
+  @main-transparent: #e1effe;
+  @blue-dark: #a4cafe;
+  @main-medium: #1a4f9f;
+  @blue-magic: #daecfe;
+  @main-transparent-hover: #c3ddfd;
+  @green: #21b275;
+  @green-light: #0b804f;
 
-  :root {
-    --black: #101010;
-    --gray: #222222;
-    --gray-light: #252525;
-    --gray-blue: #282d33;
-    --white: #f2f9ff;
-    --blue-dark: #123569;
-    --blue: #1a4f9f;
-    --blue-medium: #2e68c0;
-    --blue-light: #75a0ff;
-    --blue-transparent: #1e2a35;
-    --blue-transparent-light: #1f3953;
-    --blue-magic: #1d2d3b;
-    --blue-gray: #8797af;
-    --blue-white: #c4d0e4;
-    --green: #0b804f;
-    --green-light: #21b275;
+  @measure-current: rgba(255,0,0,.2);
+  @measure-hover: rgba(255,0,0,.05);
+  */
 
-    --current-measure: rgba(240, 20, 20, 0.2);
-    --hover-measure: rgba(240, 20, 20, 0.05);
+  @main-hover: if(@is-dark-scheme = 1, lighten(@main, 10%), darken(@main, 10%));
+  @main-transparent-hover: if(
+    @is-dark-scheme = 1,
+    lighten(@main-transparent, 6%),
+    darken(@main-transparent, 6%)
+  );
 
-    --score-filter: invert(90%);
-    --score-preview: brightness(50%);
-    --discount-filter: brightness(30%);
-    --avatar-filter: brightness(80%);
-  }
+  @blue-dark: if(
+    @is-dark-scheme = 1,
+    saturate(darken(@main, 18%), 10%),
+    saturate(lighten(@main, 35%), 10%)
+  );
+
+  @blue-magic: #1d2d3b;
+  @secondary-hover: if(
+    @is-dark-scheme = 1,
+    lighten(@secondary, 8%),
+    darken(@secondary, 8%)
+  );
+
+  @measure-hover: fadeout(@measure-current, 75%, relative);
+
+  @shadow-color: if(@is-dark-scheme = 1, white, black);
 
   body,
   html {
-    color-scheme: dark;
-    background-color: var(--black);
-    color: var(--white);
+    color-scheme: if(@is-dark-scheme = 1, dark, light);
+    background-color: @background-main;
+    color: @text-main;
   }
 
   main {
-    background-color: var(--black);
+    background-color: @background-main;
   }
 
   /*** Common styles ***/
 
   /** text **/
 
-  /* blue links */
+  /* main links */
   .Dhs0s,
   .EXa5J,
   .Ggd5G {
-    color: var(--blue-light);
+    color: @link;
   }
 
   .u_VDg.Dhs0s.O9yD2:hover,
@@ -85,21 +104,21 @@
   .Dhs0s.O9yD2:hover,
   .EXa5J:hover,
   .Ggd5G:hover {
-    color: var(--white);
+    color: @text-main;
   }
 
   .diP_e.iCnHA:hover button {
-    color: var(--white);
+    color: @text-main;
   }
 
   /* white links */
   .RsvsB {
-    color: var(--blue-gray);
+    color: @text-tertiary;
   }
 
   .RsvsB.hxVnv,
   .RsvsB.O9yD2.u_VDg:hover {
-    color: var(--blue-white);
+    color: @text-secondary;
   }
 
   /* header text, "Difficulty level", "Main Info", numbers */
@@ -107,60 +126,60 @@
   .CypfN,
   .nFRPI,
   .J0qIH {
-    color: var(--white);
+    color: @text-main;
   }
 
   /* plain text */
   .DIiWA {
-    color: var(--blue-white);
+    color: @text-secondary;
   }
 
   /* secondary text text */
   .WJGhZ {
-    color: var(--blue-gray);
+    color: @text-tertiary;
   }
 
   /* svg on buttons and links */
   .n3ERC,
   .n3ERC circle,
   .n3ERC path {
-    fill: var(--blue-light);
-    color: var(--blue-light);
+    fill: @link;
+    color: @link;
   }
 
   /** buttons **/
-  /* blue buttons */
+  /* main buttons */
   .Dhs0s.nOTLW {
-    background-color: var(--blue);
+    background-color: @main;
   }
 
   .u_VDg.Dhs0s.nOTLW:hover,
   .Dhs0s:hover {
-    background: var(--blue-medium);
+    background: @main-hover;
   }
 
-  /* inactive blue */
+  /* inactive main */
   .Dhs0s.nOTLW.UlZjN {
-    background: var(--blue-dark);
+    background: @blue-dark;
   }
 
-  /* transparent blue buttons, Follow button */
+  /* transparent main buttons, Follow button */
   .tDPQ9.nOTLW,
   .GCNL2 {
-    background: var(--blue-transparent);
-    color: var(--blue-light);
+    background: @main-transparent;
+    color: @link;
   }
 
   .tDPQ9.nOTLW:hover,
   .GCNL2:hover {
-    background-color: var(--blue-transparent-light);
+    background-color: @main-transparent-hover;
   }
 
   /* white buttons */
   .plVkZ.nIsQu,
   .GCNL2.pRBsn {
-    background: var(--black);
-    color: var(--white);
+    background: @background-main;
+    color: @text-main;
   }
 
   .plVkZ.nIsQu:hover,
@@ -174,33 +193,33 @@
 
   /* textarea */
   .NvccO {
-    background-color: var(--black);
+    background-color: @background-main;
   }
 
   .bkmfh {
-    color: var(--blue-white);
+    color: @text-secondary;
   }
 
   /* selector */
   .FMkpa {
-    background-color: var(--black);
-    fill: var(--blue-gray);
+    background-color: @background-main;
+    fill: @text-tertiary;
   }
 
   .FMkpa > select {
-    color: var(--blue-gray);
+    color: @text-tertiary;
   }
 
   .FMkpa > select option,
   .FMkpa > select optgroup {
-    color: var(--blue-white);
-    background-color: var(--gray);
+    color: @text-secondary;
+    background-color: @background-secondary;
   }
 
   /** custom selector **/
   .AU7yR.nOTLW {
-    background-color: var(--black);
-    color: var(--blue-white);
+    background-color: @background-main;
+    color: @text-secondary;
   }
 
   .HFvdW:not(.wSWus) svg path {
@@ -209,25 +228,25 @@
 
   /* drop-down menu */
   .ZcIR_.g3QeU .MfuCz {
-    background-color: var(--black);
+    background-color: @background-main;
     box-shadow:
-      0 0 0 1px rgba(255, 255, 255, 0.05),
-      0 10px 15px -3px rgba(255, 255, 255, 0.1),
-      0 4px 6px -2px rgba(255, 255, 255, 0.05);
+      0 0 0 1px fade(@shadow-color, 0.05),
+      0 10px 15px -3px fade(@shadow-color, 0.1),
+      0 4px 6px -2px fade(@shadow-color, 0.05);
   }
 
   .uBrVm.OX2Fm:hover,
   .uBrVm.cMYM6 {
-    background-color: var(--blue);
+    background-color: @main;
   }
 
   .uBrVm.OX2Fm {
-    color: var(--white) !important;
+    color: @text-main !important;
   }
 
   /** score preview */
   .T_xXu {
-    filter: var(--score-preview);
+    filter: @score-preview-filter;
   }
 
   /** signs **/
@@ -235,35 +254,36 @@
   .Bnh13,
   .Bnh13:focus,
   .Bnh13:hover {
-    background-color: var(--green);
+    background-color: @secondary;
   }
 
   /* "original" sign */
   .JnqFx {
-    background: var(--blue-transparent);
-    color: var(--blue-light);
+    background: @main-transparent;
+    color: @link;
   }
 
   /* "public domain" sign */
   .o1QE0 {
-    background-color: var(--blue);
+    background-color: @main;
   }
 
+  /* sign popup */
   .dwVOQ {
-    background-color: var(--black);
+    background-color: @background-main;
   }
 
   .xFow5 {
-    background-color: var(--black);
+    background-color: @background-main;
   }
 
   .MKeqF .dwVOQ {
-    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.17);
+    box-shadow: 0 4px 12px fade(@shadow-color, 0.17);
   }
 
   /* avatars */
   .CrCMp {
-    filter: var(--avatar-filter);
+    filter: @avatar-filter;
   }
 
   .Zf301.K8vI0::before {
@@ -282,7 +302,7 @@
 
   /* additional section */
   .ASx44.hQ6hq {
-    background-color: var(--gray);
+    background-color: @background-secondary;
   }
 
   /***************************/
@@ -290,112 +310,112 @@
 
   aside,
   .BxFu3 {
-    background-color: var(--gray) !important;
+    background-color: @background-secondary !important;
   }
 
   /* "Send to YouTube" svg */
   .tDPQ9.nOTLW path {
-    fill: var(--blue-light);
-    color: var(--blue-light);
+    fill: @link;
+    color: @link;
   }
 
   .iqM7z,
   .iqM7z path {
-    fill: var(--blue-white);
-    color: var(--blue-white);
+    fill: @text-secondary;
+    color: @text-secondary;
   }
 
   /* Difficulty level */
   .y2ohV {
-    background: var(--gray-blue);
-    color: var(--blue-white);
+    background: @background-accent;
+    color: @text-secondary;
   }
 
   /***************************/
   /*** SHEETS OVERVIEW ***/
 
   #jmuse-layout {
-    background-color: var(--gray-light);
-    color: var(--white) !important;
+    background-color: @background-tertiary;
+    color: @text-main !important;
   }
 
   /** toolbar **/
   .Nw3SK {
-    background-color: var(--gray);
+    background-color: @background-secondary;
   }
 
   #jmuse-layout .plVkZ.O9yD2 {
-    color: var(--white);
+    color: @text-main;
   }
 
   /* buttons svg */
   #jmuse-layout .HFvdW:not(.wSWus) svg path {
-    fill: var(--white);
+    fill: @text-main;
   }
 
-  /* buttons svg blue*/
+  /* buttons svg main*/
   #jmuse-layout .HFvdW:not(.wSWus) svg path[fill="#364152"] {
-    fill: var(--blue-white);
+    fill: @text-secondary;
   }
 
   /* buttons hover */
   .vI1Jl.vI1Jl:active,
   .vI1Jl.vI1Jl:focus,
   .vI1Jl.vI1Jl:hover {
-    color: var(--blue-white);
+    color: @text-secondary;
   }
 
   .vI1Jl.vI1Jl:hover:before {
-    background-color: var(--gray-blue);
+    background-color: @background-accent;
   }
 
   /* buttons active */
   .Q7LVH:before {
-    background-color: var(--gray-blue);
+    background-color: @background-accent;
   }
 
   /* text */
   .frGa8 {
-    color: var(--blue-white);
+    color: @text-secondary;
   }
 
   /* speed text */
   .sJkYA {
-    color: var(--white);
+    color: @text-main;
   }
 
   /** sheet images **/
   #jmuse-scroller-component {
-    background-color: var(--gray-light);
+    background-color: @background-tertiary;
   }
 
   #jmuse-scroller-component img {
-    filter: var(--score-filter);
+    filter: @score-filter;
   }
 
   #jmuse-scroller-component > div,
   #jmuse-scroller-component > section > div {
-    background-color: var(--gray);
+    background-color: @background-secondary;
   }
 
   /* current measure */
   .EPvAl.rMeX4 {
-    background-color: var(--current-measure);
+    background-color: @measure-current;
   }
 
   /* hover measure */
   .EPvAl {
-    background-color: var(--hover-measure);
+    background-color: @measure-hover;
   }
 
   /* rate score popup */
   .KkvbQ {
-    background-color: var(--black) !important;
+    background-color: @background-main !important;
   }
 
   /* discount */
   .s3Wga .tbdq7 {
-    filter: var(--discount-filter);
+    filter: @discount-filter;
   }
 
   /***************************/
@@ -403,52 +423,52 @@
 
   .b_r17.aRvRz,
   .ASx44._gyAu {
-    background-color: var(--black);
+    background-color: @background-main;
   }
 
   .b_r17 {
     box-shadow:
       0 0 0 0 transparent,
       0 0 0 0 transparent,
-      0 25px 50px -12px rgba(255, 255, 255, 0.25);
+      0 25px 50px -12px fade(@shadow-color, 0.25);
   }
 
   /* section */
   .SUZeM:hover {
-    background-color: var(--gray);
+    background-color: @background-secondary;
   }
 
   @media (min-width: 768px) {
     .diP_e.iCnHA:hover {
-      background-color: var(--gray);
+      background-color: @background-secondary;
     }
   }
 
   /* remove button */
   .plVkZ.wXNik {
-    color: var(--white);
+    color: @text-main;
   }
 
   .plVkZ.wXNik:hover {
-    color: var(--blue-gray);
+    color: @text-tertiary;
   }
 
   /* green button */
   .cuYtG.nOTLW {
-    background-color: var(--green) !important;
+    background-color: @secondary !important;
   }
 
   .cuYtG.nOTLW:hover {
-    background-color: var(--green-light) !important;
+    background-color: @secondary-hover !important;
   }
 
   /* info */
   .T3FEN.Kaa9U {
-    background-color: var(--blue-magic);
+    background-color: @blue-magic;
   }
 
   /* info svg */
   .T3FEN path {
-    fill: var(--white);
+    fill: @text-main;
   }
 }
