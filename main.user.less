@@ -1,7 +1,7 @@
 /* ==UserStyle==text
 @name           Musescore dark
 @namespace      https://github.com/Vacym
-@version        0.1.0
+@version        0.1.1
 @description    Dark theme for MuseScore with score inverting
 @author         Vacym
 @homepageURL    https://github.com/Vacym/Musescore-Dark
@@ -191,6 +191,11 @@
     fill: currentColor;
   }
 
+  /* other buttons */
+  .N0P7K {
+    color: @text-tertiary;
+  }
+
   /* textarea */
   .NvccO {
     background-color: @background-main;
@@ -216,6 +221,37 @@
     background-color: @background-secondary;
   }
 
+  /** main navbar **/
+
+  .xlHp4 {
+    background-color: @main;
+  }
+
+  .u_VDg.Dhs0s.wXNik.MXKfV:hover,
+  .Dhs0s.wXNik.MXKfV:active,
+  .Dhs0s.nIsQu:hover,
+  .Dhs0s.MXKfV.nIsQu:hover:after {
+    background-color: @main-hover;
+  }
+
+  /** search **/
+
+  .ic0KS {
+    background-color: @background-main;
+  }
+  .wMbIR {
+    background-color: @background-main;
+    border-radius: 6px;
+  }
+
+  .Yf0HJ {
+    background: transparent !important;
+  }
+
+  .OHeqn {
+    background-color: @background-secondary;
+  }
+
   /** custom selector **/
   .AU7yR.nOTLW {
     background-color: @background-main;
@@ -230,9 +266,9 @@
   .ZcIR_.g3QeU .MfuCz {
     background-color: @background-main;
     box-shadow:
-      0 0 0 1px fade(@shadow-color, 0.05),
-      0 10px 15px -3px fade(@shadow-color, 0.1),
-      0 4px 6px -2px fade(@shadow-color, 0.05);
+      0 0 0 1px fade(@shadow-color, 5),
+      0 10px 15px -3px fade(@shadow-color, 10),
+      0 4px 6px -2px fade(@shadow-color, 5);
   }
 
   .uBrVm.OX2Fm:hover,
@@ -278,7 +314,7 @@
   }
 
   .MKeqF .dwVOQ {
-    box-shadow: 0 4px 12px fade(@shadow-color, 0.17);
+    box-shadow: 0 4px 12px fade(@shadow-color, 17);
   }
 
   /* avatars */
@@ -430,7 +466,7 @@
     box-shadow:
       0 0 0 0 transparent,
       0 0 0 0 transparent,
-      0 25px 50px -12px fade(@shadow-color, 0.25);
+      0 25px 50px -12px fade(@shadow-color, 25);
   }
 
   /* section */
@@ -470,5 +506,58 @@
   /* info svg */
   .T3FEN path {
     fill: @text-main;
+  }
+
+  /*** MY SCORES ***/
+  .V2I3c .jd4he {
+    background-color: @background-main;
+  }
+
+  /* score name */
+  .qvkQr .thXCZ {
+    color: @text-main;
+  }
+
+  /* score toolbar */
+  .JVNmZ {
+    background-color: @background-main;
+  }
+
+  .TW7p7 {
+    transition: opacity 0.5s;
+  }
+
+  /* info boxes */
+  .jQgT5:hover .TW7p7 {
+    opacity: 0;
+  }
+
+  .McuYj path {
+    fill: @link;
+  }
+
+  .UWYmr {
+    background-color: @background-accent;
+    color: @text-main;
+  }
+
+  .aB_mX > svg path {
+    fill: @text-secondary;
+    color: @text-secondary;
+  }
+
+  /* user score preview */
+  .QSRn8 {
+    background-color: fade(@shadow-color, 5);
+    /*z-index: 1; /*can improve color */
+  }
+
+  .PEjlU img {
+    filter: @score-preview-filter;
+    border-radius: 6px;
+  }
+
+  .V2I3c th {
+    color: @text-main;
   }
 }
