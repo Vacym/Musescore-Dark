@@ -1,7 +1,7 @@
 /* ==UserStyle==text
 @name           Musescore dark
 @namespace      https://github.com/Vacym
-@version        0.1.1
+@version        0.1.2
 @description    Dark theme for MuseScore with score inverting
 @author         Vacym
 @homepageURL    https://github.com/Vacym/Musescore-Dark
@@ -121,11 +121,12 @@
     color: @text-secondary;
   }
 
-  /* header text, "Difficulty level", "Main Info", numbers */
+  /* header text, "Difficulty level", "Main Info", numbers, popup text */
   .V4kyC,
   .CypfN,
   .nFRPI,
-  .J0qIH {
+  .J0qIH,
+  .rsfUn {
     color: @text-main;
   }
 
@@ -278,6 +279,15 @@
 
   .uBrVm.OX2Fm {
     color: @text-main !important;
+  }
+
+  /** popup notifications **/
+  .R0wae {
+    background-color: @background-main;
+  }
+
+  .FPzhg:hover {
+    background-color: @background-secondary;
   }
 
   /** score preview */
