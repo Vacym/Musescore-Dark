@@ -1,11 +1,11 @@
 /* ==UserStyle==text
 @name           Musescore dark
 @namespace      https://github.com/Vacym
-@version        0.1.3
+@version        0.1.4
 @description    Dark theme for MuseScore with score inverting
 @author         Vacym
 @homepageURL    https://github.com/Vacym/Musescore-Dark
-@updateURL      https://raw.githubusercontent.com/Vacym/Musescore-Dark/main/main.user.css
+@updateURL      https://raw.githubusercontent.com/Vacym/Musescore-Dark/main/main.user.less
 @preprocessor   less
 
 @var checkbox is-dark-scheme     "is dark scheme"             1
@@ -27,6 +27,7 @@
 @var text  score-preview-filter  "score preview filter"        "brightness(50%)"
 @var text  discount-filter       "discount filter"             "brightness(30%)"
 @var text  avatar-filter         "avatar filter"               "brightness(80%)"
+@var text  cover-filter          "cover filter"                "brightness(80%)"
 
 ==/UserStyle== */
 
@@ -96,7 +97,8 @@
   a,
   .Dhs0s,
   .EXa5J,
-  .Ggd5G {
+  .Ggd5G,
+  .eANU2 {
     color: @link;
   }
 
@@ -106,7 +108,10 @@
   .Dhs0s.O9yD2:active,
   .Dhs0s.O9yD2:hover,
   .EXa5J:hover,
-  .Ggd5G:hover {
+  .Ggd5G:hover,
+  .eANU2:hover,
+  .u_VDg.Dhs0s.wXNik:hover,
+  .Dhs0s.wXNik:active {
     color: @text-main;
   }
 
@@ -226,6 +231,33 @@
     background-color: @background-secondary;
   }
 
+  /** checkbox **/
+  .T2luU:before {
+    background-color: @background-main;
+  }
+
+  .T2luU.wTCVi:before {
+    background-color: @main;
+    border-color: @main;
+  }
+
+  /** radio button **/
+  .WY0tX {
+    background-color: @background-main;
+    color: @background-main;
+  }
+
+  .oyc_A.hSiSi .WY0tX {
+    background: @main;
+    border-color: @main;
+    color: @main;
+  }
+
+  .WY0tX:after,
+  .oyc_A.hSiSi .WY0tX:after {
+    background-color: @background-main;
+  }
+
   /** main navbar **/
 
   .xlHp4 {
@@ -241,7 +273,8 @@
 
   /** search **/
 
-  .ic0KS {
+  .ic0KS,
+  .LMYIU {
     background-color: @background-main;
   }
   .wMbIR {
@@ -294,6 +327,10 @@
     background-color: @background-secondary;
   }
 
+  .YmBV2.xIk5_ path {
+    fill: @main;
+  }
+
   /** score preview */
   .T_xXu {
     filter: @score-preview-filter;
@@ -336,7 +373,16 @@
     filter: @avatar-filter;
   }
 
-  .Zf301.K8vI0::before {
+  /* profile cover */
+
+  .Zf301.K8vI0,
+  .WGuoB.zFW_9 {
+    background-color: @main;
+  }
+
+  .Zf301.K8vI0[style*="background-image"]
+    [style*="cache"]:not([style*="cache=0"])::before {
+    /* filter only if there is a cover. hope this works */
     content: "";
     position: absolute;
     left: 0;
@@ -347,7 +393,7 @@
     height: 100%;
     z-index: 2; /* strange behavior at 1 */
 
-    backdrop-filter: brightness(80%);
+    backdrop-filter: @cover-filter;
   }
 
   /* additional section */
@@ -473,7 +519,7 @@
 
   .b_r17.aRvRz,
   .ASx44._gyAu {
-    background-color: @background-main;
+    background-color: @background-main !important;
   }
 
   .b_r17 {
@@ -590,5 +636,25 @@
   .ngGDM,
   .Y1TdU {
     color: @text-main;
+  }
+
+  /*** OTHER ***/
+
+  /* instruments circle */
+  .xIlNZ,
+  .WGuoB .kH0xm {
+    background-color: @background-secondary;
+  }
+
+  /* group card */
+  .seCWY.T3UE8,
+  .seCWY.T3UE8 section {
+    background-color: @background-main;
+  }
+
+  /* page selection */
+  .wXNik:active,
+  .wXNik:hover {
+    background: none;
   }
 }
