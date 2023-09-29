@@ -1,7 +1,7 @@
 /* ==UserStyle==text
 @name           Musescore dark
 @namespace      https://github.com/Vacym
-@version        0.1.6
+@version        0.1.7
 @description    Dark theme for MuseScore with score inverting
 @author         Vacym
 @homepageURL    https://github.com/Vacym/Musescore-Dark
@@ -42,18 +42,21 @@
   @text-secondary: #364152;
   @text-tertiary: #64748b;
   @link: #2e68c0;
+  @link-hover: #1a4f9f;
   @main: #2e68c0;
+  @main-hover: #1a4f9f;
   @main-transparent: #e1effe;
-  @blue-dark: #a4cafe;
-  @main-medium: #1a4f9f;
-  @blue-magic: #daecfe;
   @main-transparent-hover: #c3ddfd;
+  @blue-dark: #a4cafe;
+  @blue-magic: #daecfe;
   @green: #21b275;
   @green-light: #0b804f;
 
   @measure-current: rgba(255,0,0,.2);
   @measure-hover: rgba(255,0,0,.05);
   */
+
+  @link-hover: @main-hover;
 
   @main-hover: if(@is-dark-scheme = 1, lighten(@main, 10%), darken(@main, 10%));
   @main-transparent-hover: if(
@@ -124,7 +127,7 @@
   .u_VDg.Dhs0s.wXNik:hover,
   .Dhs0s.wXNik:active,
   .oz9dW:hover {
-    color: @text-main;
+    color: @link-hover;
   }
 
   .diP_e.iCnHA:hover button {
@@ -470,6 +473,23 @@
     color: @text-secondary;
   }
 
+  /* score visibility box */
+  .xhN57 {
+    background-color: @main-transparent;
+  }
+
+  /* "Add the missing information" button */
+  .GCNL2.sJCgc {
+    background-color: @background-main;
+    border-color: @link;
+    color: @link;
+  }
+
+  .GCNL2.sJCgc:hover {
+    border-color: @main-hover;
+    color: @main-hover;
+  }
+
   /***************************/
   /*** SHEETS OVERVIEW ***/
 
@@ -742,6 +762,23 @@
   /* upload date */
   .AIjmp {
     background: @background-accent;
+    color: @link;
+  }
+
+  /* process bar */
+  .ws02l {
+    background-color: @background-main;
+  }
+
+  ._RqxF.ws02l {
+    border-color: @main;
+  }
+
+  ._RqxF .iURGe {
+    background-color: @main-transparent;
+  }
+
+  ._RqxF .SEF42 {
     color: @link;
   }
 
