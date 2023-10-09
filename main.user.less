@@ -48,7 +48,7 @@
   @main-transparent: #e1effe;
   @main-transparent-hover: #c3ddfd;
   @blue-dark: #a4cafe;
-  @blue-magic: #daecfe;
+  @main-magic: #daecfe;
   @green: #21b275;
   @green-light: #0b804f;
 
@@ -71,7 +71,22 @@
     saturate(lighten(@main, 35%), 10%)
   );
 
-  @blue-magic: #1d2d3b;
+  @main-magic: if(
+    @is-dark-scheme = 1,
+    hsla(
+      hsvhue(@main),
+      if(saturation(@main) = 0, 0%, 0.5 * saturation(@main)),
+      0.35 * lightness(@main) + -0,
+      alpha(@main)
+    ),
+    hsla(
+      hsvhue(@main),
+      if(saturation(@main) = 0, 0%, 0.125 * saturation(@main) + 87.5),
+      0.2 * lightness(@main) + 80%,
+      alpha(@main)
+    )
+  );
+
   @secondary-hover: if(
     @is-dark-scheme = 1,
     lighten(@secondary, 8%),
@@ -214,7 +229,7 @@
 
   .plVkZ.nIsQu:hover,
   .GCNL2.pRBsn:hover {
-    color: inherit;
+    color: @text-main;
   }
 
   .plVkZ.nIsQu svg path {
@@ -372,6 +387,7 @@
   .wtKHS,
   .ySV7C {
     filter: @score-preview-filter;
+    background: white;
   }
 
   /** signs **/
@@ -426,8 +442,9 @@
     background-color: @main;
   }
 
-  .Zf301.K8vI0[style*="background-image"]
-    [style*="cache"]:not([style*="cache=0"])::before {
+  .Zf301.K8vI0[style*="background-image"][style*="cache"]:not(
+      [style*="cache=0"]
+    )::before {
     /* filter only if there is a cover. hope this works */
     content: "";
     position: absolute;
@@ -664,12 +681,17 @@
   }
 
   .T3FEN.Kaa9U {
-    background-color: @blue-magic;
+    background-color: @main-magic;
   }
 
   /* info svg */
   .T3FEN path {
     fill: @text-main;
+  }
+
+  /* important section */
+  .xY4g6 {
+    background-color: @background-accent;
   }
 
   /*** MY SCORES ***/
