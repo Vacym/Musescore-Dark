@@ -1,7 +1,7 @@
 /* ==UserStyle==text
 @name           Musescore dark
 @namespace      https://github.com/Vacym
-@version        0.1.7
+@version        0.2
 @description    Dark theme for MuseScore with score inverting
 @author         Vacym
 @homepageURL    https://github.com/Vacym/Musescore-Dark
@@ -54,6 +54,11 @@
 
   @measure-current: rgba(255,0,0,.2);
   @measure-hover: rgba(255,0,0,.05);
+  
+  @border-main: #cfd8e3;
+  @border-secondary: #d2d6dc;
+  @border-secondary-hover: #94a0b0; #97a6ba;
+  @border-magic: #a4cafe;
   */
 
   @link-hover: @main-hover;
@@ -76,7 +81,7 @@
     hsla(
       hsvhue(@main),
       if(saturation(@main) = 0, 0%, 0.5 * saturation(@main)),
-      0.35 * lightness(@main) + -0,
+      0.35 * lightness(@main) + 4,
       alpha(@main)
     ),
     hsla(
@@ -96,6 +101,48 @@
   @measure-hover: fadeout(@measure-current, 75%, relative);
 
   @shadow-color: if(@is-dark-scheme = 1, white, black);
+
+  @border-main: if(
+    @is-dark-scheme = 1,
+    hsl(
+      hsvhue(@main),
+      if(saturation(@main) = 0, 0%, 0.15 * saturation(@main)),
+      1.7 * lightness(@background-secondary)
+    ),
+    hsl(
+      hsvhue(@main),
+      if(saturation(@main) = 0, 0%, 0.4 * saturation(@main)),
+      0.9 * lightness(@background-secondary)
+    )
+  );
+
+  @border-secondary: if(
+    @is-dark-scheme = 1,
+    hsl(
+      hsvhue(@main),
+      if(saturation(@main) = 0, 0%, 0.05 * saturation(@main)),
+      1.4 * lightness(@background-secondary)
+    ),
+    hsl(
+      hsvhue(@main),
+      if(saturation(@main) = 0, 0%, 0.15 * saturation(@main)),
+      0.9 * lightness(@background-secondary)
+    )
+  );
+
+  @border-secondary-hover: if(
+    @is-dark-scheme = 1,
+    hsl(
+      hsvhue(@main),
+      if(saturation(@main) = 0, 0%, 0.1 * saturation(@main)),
+      2.5 * lightness(@background-secondary)
+    ),
+    hsl(
+      hsvhue(@main),
+      if(saturation(@main) = 0, 0%, 0.2 * saturation(@main)),
+      0.65 * lightness(@background-secondary)
+    )
+  );
 
   body,
   html {
@@ -194,11 +241,13 @@
 
   /** buttons **/
   /* main buttons */
-  .Dhs0s.nOTLW {
+  .Dhs0s.nOTLW,
+  .qVgEp {
     background-color: @main;
   }
 
   .u_VDg.Dhs0s.nOTLW:hover,
+  .qVgEp:hover,
   .Dhs0s:hover {
     background: @main-hover;
   }
@@ -225,11 +274,21 @@
   .GCNL2.pRBsn {
     background: @background-main;
     color: @text-main;
+    border-color: @border-secondary;
   }
 
   .plVkZ.nIsQu:hover,
   .GCNL2.pRBsn:hover {
     color: @text-main;
+    border-color: @border-secondary-hover;
+  }
+
+  .plVkZ.nIsQu:after {
+    border-color: @border-main;
+  }
+
+  .plVkZ.nIsQu:hover:after {
+    border-color: @border-secondary-hover;
   }
 
   .plVkZ.nIsQu svg path {
@@ -249,6 +308,11 @@
   /* textarea */
   .NvccO {
     background-color: @background-main;
+    border-color: @border-main;
+  }
+
+  ._ZikE {
+    border-left-color: @border-main;
   }
 
   .bkmfh {
@@ -259,6 +323,7 @@
   .FMkpa {
     background-color: @background-main;
     fill: @text-tertiary;
+    border-color: @border-main;
   }
 
   .FMkpa > select {
@@ -274,6 +339,7 @@
   /** checkbox **/
   .T2luU:before {
     background-color: @background-main;
+    border-color: @border-main;
   }
 
   .T2luU.wTCVi:before {
@@ -285,6 +351,7 @@
   .WY0tX {
     background-color: @background-main;
     color: @background-main;
+    border-color: @border-main;
   }
 
   .oyc_A.hSiSi .WY0tX {
@@ -324,6 +391,11 @@
   .LMYIU {
     background-color: @background-main;
   }
+
+  .ic0KS.EGfQI {
+    border-color: @border-main;
+  }
+
   .wMbIR {
     background-color: @background-main;
     border-radius: 6px;
@@ -341,6 +413,7 @@
   .AU7yR.nOTLW {
     background-color: @background-main;
     color: @text-secondary;
+    border-color: @background-accent;
   }
 
   .HFvdW:not(.wSWus) svg path {
@@ -369,9 +442,19 @@
     color: @text-main !important;
   }
 
+  .GgGe4.ehbCW + .GgGe4 {
+    border-top-color: @background-secondary;
+  }
+
   /** popup notifications **/
   .R0wae {
     background-color: @background-main;
+    border-color: @background-accent;
+  }
+
+  .FPzhg,
+  .WRH37 {
+    border-bottom-color: @background-accent;
   }
 
   .FPzhg:hover {
@@ -470,6 +553,26 @@
   aside,
   .BxFu3 {
     background-color: @background-secondary !important;
+    border-color: @border-main !important;
+  }
+
+  .SqnhX + .SqnhX {
+    border-top-color: @border-main;
+  }
+
+  /* "Ensamble solo" */
+  .MiLb3.Wus7S.qiCX5 {
+    border-bottom-color: @background-accent;
+  }
+
+  /* Bottom divider */
+  .IqPzy.yXl79 .talZR {
+    background-color: @background-accent;
+  }
+
+  /* active tab */
+  .PV4Ea {
+    border-bottom-color: @link;
   }
 
   /* "Send to YouTube" svg */
@@ -623,6 +726,7 @@
   /* rate score popup */
   .KkvbQ {
     background-color: @background-main !important;
+    border-color: @background-accent;
   }
 
   /* discount */
@@ -636,6 +740,14 @@
   .b_r17.aRvRz,
   .ASx44._gyAu {
     background-color: @background-main !important;
+  }
+
+  .ASx44 {
+    border-color: @background-accent;
+  }
+
+  .CZtD5.YCAHV {
+    border-top-color: @background-accent;
   }
 
   .b_r17 {
@@ -682,6 +794,7 @@
 
   .T3FEN.Kaa9U {
     background-color: @main-magic;
+    border-color: @blue-dark;
   }
 
   /* info svg */
@@ -810,6 +923,7 @@
   .xIlNZ,
   .WGuoB .kH0xm {
     background-color: @background-secondary;
+    border-color: @background-accent;
   }
 
   /* group card */
