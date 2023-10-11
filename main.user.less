@@ -1,7 +1,7 @@
 /* ==UserStyle==text
 @name           Musescore dark
 @namespace      https://github.com/Vacym
-@version        0.2
+@version        0.2.1
 @description    Dark theme for MuseScore with score inverting
 @author         Vacym
 @homepageURL    https://github.com/Vacym/Musescore-Dark
@@ -26,6 +26,7 @@
 @var text  score-filter          "score filter"                "invert(90%)"
 @var text  score-preview-filter  "score preview filter"        "brightness(50%)"
 @var text  discount-filter       "discount filter"             "brightness(30%)"
+@var text  ad-filter             "ad filter"                   "none"
 @var text  avatar-filter         "avatar filter"               "brightness(80%)"
 @var text  cover-filter          "cover filter"                "brightness(80%)"
 @var text  svg-filter            "svg filter"                  "contrast(117%) brightness(80%)"
@@ -383,6 +384,16 @@
 
   .Dhs0s.nIsQu:hover:after {
     border-color: @main-hover;
+  }
+
+  /* nav discount */
+  header nav + div {
+    filter: @discount-filter;
+  }
+
+  /* nav ad */
+  .etnW4 {
+    background-color: @background-secondary;
   }
 
   /** search **/
@@ -918,6 +929,13 @@
   }
 
   /*** OTHER ***/
+
+  /** ad **/
+  header .QPTJc iframe,
+  aside > div > div > div.primisslate,
+  aside > section > div > div > iframe {
+    filter: @ad-filter;
+  }
 
   /* instruments circle */
   .xIlNZ,
