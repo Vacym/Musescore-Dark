@@ -1,7 +1,7 @@
 /* ==UserStyle==text
 @name           Musescore dark
 @namespace      https://github.com/Vacym
-@version        0.2.1
+@version        0.2.2
 @description    Dark theme for MuseScore with score inverting
 @author         Vacym
 @homepageURL    https://github.com/Vacym/Musescore-Dark
@@ -25,7 +25,7 @@
 
 @var text  score-filter          "score filter"                "invert(90%)"
 @var text  score-preview-filter  "score preview filter"        "brightness(50%)"
-@var text  discount-filter       "discount filter"             "brightness(30%)"
+@var text  discount-filter       "discount filter"             "brightness(40%)"
 @var text  ad-filter             "ad filter"                   "none"
 @var text  avatar-filter         "avatar filter"               "brightness(80%)"
 @var text  cover-filter          "cover filter"                "brightness(80%)"
@@ -41,7 +41,7 @@
   @background-accent: #e2e8f0;
   @text-main: #1a202e;
   @text-secondary: #364152;
-  @text-tertiary: #64748b;
+  @text-tertiary: #64748b; #94a0b0;
   @link: #2e68c0;
   @link-hover: #1a4f9f;
   @main: #2e68c0;
@@ -214,7 +214,12 @@
   .J0qIH,
   .rsfUn,
   .FHjkC,
-  .Ldf02 {
+  .Ldf02,
+  .mtQ2J,
+  .qgEgI,
+  .m_eHc,
+  .IgMdr,
+  .aR8EV {
     color: @text-main;
   }
 
@@ -253,6 +258,10 @@
     background: @main-hover;
   }
 
+  .qVgEp:disabled {
+    background-color: @background-tertiary;
+  }
+
   /* inactive main */
   .Dhs0s.nOTLW.UlZjN {
     background: @blue-dark;
@@ -282,6 +291,12 @@
   .GCNL2.pRBsn:hover {
     color: @text-main;
     border-color: @border-secondary-hover;
+  }
+
+  .GCNL2.pRBsn:disabled {
+    background: @background-main;
+    color: @text-tertiary;
+    border-color: @border-secondary;
   }
 
   .plVkZ.nIsQu:after {
@@ -387,7 +402,7 @@
   }
 
   /* nav discount */
-  header nav + div {
+  header.NnZeV > nav + div {
     filter: @discount-filter;
   }
 
@@ -450,6 +465,12 @@
   }
 
   .uBrVm.OX2Fm {
+    color: @text-main !important;
+  }
+
+  .gU2P9.gU2P9.gU2P9.gU2P9,
+  .gU2P9.gU2P9.gU2P9.gU2P9:hover {
+    background-color: @background-accent;
     color: @text-main !important;
   }
 
