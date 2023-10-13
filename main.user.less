@@ -1,7 +1,7 @@
 /* ==UserStyle==text
 @name           Musescore dark
 @namespace      https://github.com/Vacym
-@version        0.2.2
+@version        0.2.3
 @description    Dark theme for MuseScore with score inverting
 @author         Vacym
 @homepageURL    https://github.com/Vacym/Musescore-Dark
@@ -333,6 +333,19 @@
 
   .bkmfh {
     color: @text-secondary;
+  }
+
+  input.bkmfh::-webkit-input-placeholder,
+  input.bkmfh::placeholder,
+  textarea::-webkit-input-placeholder,
+  textarea::placeholder {
+    color: @text-secondary;
+  }
+
+  /* textarea 2 */
+  ._Mpht {
+    color: @text-main;
+    border-color: @border-secondary;
   }
 
   /* selector */
@@ -924,6 +937,7 @@
   /* upload score preview */
   .M8LHw {
     background-color: @background-secondary;
+    border-color: @background-accent;
   }
 
   /* upload date */
@@ -935,6 +949,10 @@
   /* process bar */
   .ws02l {
     background-color: @background-main;
+  }
+
+  .SZinB.ws02l {
+    border-color: @background-accent;
   }
 
   ._RqxF.ws02l {
