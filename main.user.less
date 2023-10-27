@@ -1,7 +1,7 @@
 /* ==UserStyle==text
 @name           Musescore dark
 @namespace      https://github.com/Vacym
-@version        0.2.3
+@version        0.2.4
 @description    Dark theme for MuseScore with score inverting
 @author         Vacym
 @homepageURL    https://github.com/Vacym/Musescore-Dark
@@ -995,7 +995,23 @@
     background: none;
   }
 
-  /* svg filter */
+  /** best fit your skills **/
+  /* usual fit */
+  .RTFym {
+    border-color: @background-accent;
+  }
+
+  .RTFym:hover {
+    border-color: @text-tertiary;
+  }
+
+  /* best fit */
+  .r2T2w {
+    background-color: @main-transparent;
+    border-color: @border-main;
+  }
+
+  /** svg filter **/
   .et8v_,
   .L3qPH canvas {
     filter: @svg-filter;
