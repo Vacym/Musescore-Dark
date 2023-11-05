@@ -1,7 +1,7 @@
 /* ==UserStyle==text
 @name           Musescore dark
 @namespace      https://github.com/Vacym
-@version        0.2.4.1
+@version        0.2.5
 @description    Dark theme for MuseScore with score inverting
 @author         Vacym
 @homepageURL    https://github.com/Vacym/Musescore-Dark
@@ -13,7 +13,7 @@
 @var color background-main       "main background color"      #101010
 @var color background-secondary  "secondary background color" #222222
 @var color background-tertiary   "tertiary background color"  #252525
-@var color background-accent     "accent background color"    #282d33
+@var color accent                "accent background color"    #282d33
 @var color text-main             "main text color"            #f2f9ff
 @var color text-secondary        "plain text color"           #c4d0e4
 @var color text-tertiary         "tertiary text color"        #8797af
@@ -38,7 +38,7 @@
   @background-main: #ffffff;
   @background-secondary: #f6f6f6;
   @background-tertiary: f2f2f2;
-  @background-accent: #e2e8f0;
+  @accent: #e2e8f0; #dbe3e9;
   @text-main: #1a202e;
   @text-secondary: #364152;
   @text-tertiary: #64748b; #94a0b0;
@@ -101,7 +101,8 @@
 
   @measure-hover: fadeout(@measure-current, 75%, relative);
 
-  @shadow-color: if(@is-dark-scheme = 1, white, black);
+  @opposite: if(@is-dark-scheme = 1, white, black);
+  @gray: if(@is-dark-scheme = 1, #ccc, #444);
 
   @border-main: if(
     @is-dark-scheme = 1,
@@ -348,7 +349,12 @@
     border-color: @border-secondary;
   }
 
-  /* selector */
+  /** tables **/
+  table tr:nth-child(odd) td {
+    background-color: @background-secondary;
+  }
+
+  /** selector **/
   .FMkpa {
     background-color: @background-main;
     fill: @text-tertiary;
@@ -452,7 +458,7 @@
   .AU7yR.nOTLW {
     background-color: @background-main;
     color: @text-secondary;
-    border-color: @background-accent;
+    border-color: @accent;
   }
 
   .HFvdW:not(.wSWus) svg path {
@@ -464,9 +470,9 @@
   .ZcIR_.SRzzT .MfuCz {
     background-color: @background-main;
     box-shadow:
-      0 0 0 1px fade(@shadow-color, 5),
-      0 10px 15px -3px fade(@shadow-color, 10),
-      0 4px 6px -2px fade(@shadow-color, 5);
+      0 0 0 1px fade(@opposite, 5),
+      0 10px 15px -3px fade(@opposite, 10),
+      0 4px 6px -2px fade(@opposite, 5);
   }
 
   .uBrVm.OX2Fm:hover,
@@ -483,7 +489,7 @@
 
   .gU2P9.gU2P9.gU2P9.gU2P9,
   .gU2P9.gU2P9.gU2P9.gU2P9:hover {
-    background-color: @background-accent;
+    background-color: @accent;
     color: @text-main !important;
   }
 
@@ -494,12 +500,12 @@
   /** popup notifications **/
   .R0wae {
     background-color: @background-main;
-    border-color: @background-accent;
+    border-color: @accent;
   }
 
   .FPzhg,
   .WRH37 {
-    border-bottom-color: @background-accent;
+    border-bottom-color: @accent;
   }
 
   .FPzhg:hover {
@@ -554,7 +560,7 @@
 
   .MKeqF .dwVOQ,
   .U8wvj {
-    box-shadow: 0 4px 12px fade(@shadow-color, 17);
+    box-shadow: 0 4px 12px fade(@opposite, 17);
   }
 
   /* avatars */
@@ -607,12 +613,12 @@
 
   /* "Ensamble solo" */
   .MiLb3.Wus7S.qiCX5 {
-    border-bottom-color: @background-accent;
+    border-bottom-color: @accent;
   }
 
   /* Bottom divider */
   .IqPzy.yXl79 .talZR {
-    background-color: @background-accent;
+    background-color: @accent;
   }
 
   /* active tab */
@@ -634,7 +640,7 @@
 
   /* Difficulty level */
   .y2ohV {
-    background: @background-accent;
+    background: @accent;
     color: @text-secondary;
   }
 
@@ -690,12 +696,12 @@
   }
 
   .vI1Jl.vI1Jl:hover:before {
-    background-color: @background-accent;
+    background-color: @accent;
   }
 
   /* buttons active */
   .Q7LVH:before {
-    background-color: @background-accent;
+    background-color: @accent;
   }
 
   /* text */
@@ -724,7 +730,7 @@
   }
 
   .FwRCf {
-    background-color: @background-accent;
+    background-color: @accent;
   }
 
   /* speed bar */
@@ -775,7 +781,7 @@
   /* rate score popup */
   .KkvbQ {
     background-color: @background-main !important;
-    border-color: @background-accent;
+    border-color: @accent;
   }
 
   /* discount */
@@ -792,18 +798,18 @@
   }
 
   .ASx44 {
-    border-color: @background-accent;
+    border-color: @accent;
   }
 
   .CZtD5.YCAHV {
-    border-top-color: @background-accent;
+    border-top-color: @accent;
   }
 
   .b_r17 {
     box-shadow:
       0 0 0 0 transparent,
       0 0 0 0 transparent,
-      0 25px 50px -12px fade(@shadow-color, 25);
+      0 25px 50px -12px fade(@opposite, 25);
   }
 
   /* section */
@@ -838,7 +844,7 @@
 
   /* info */
   .T3FEN.T3FEN {
-    background-color: @background-accent;
+    background-color: @accent;
   }
 
   .T3FEN.Kaa9U {
@@ -853,7 +859,7 @@
 
   /* important section */
   .xY4g6 {
-    background-color: @background-accent;
+    background-color: @accent;
   }
 
   /*** MY SCORES ***/
@@ -885,7 +891,7 @@
   }
 
   .UWYmr {
-    background-color: @background-accent;
+    background-color: @accent;
     color: @text-main;
   }
 
@@ -896,7 +902,7 @@
 
   /* user score preview */
   .QSRn8 {
-    background-color: fade(@shadow-color, 5);
+    background-color: fade(@opposite, 5);
     /*z-index: 1; /*can improve color */
   }
 
@@ -941,12 +947,12 @@
   /* upload score preview */
   .M8LHw {
     background-color: @background-secondary;
-    border-color: @background-accent;
+    border-color: @accent;
   }
 
   /* upload date */
   .AIjmp {
-    background: @background-accent;
+    background: @accent;
     color: @link;
   }
 
@@ -956,7 +962,7 @@
   }
 
   .SZinB.ws02l {
-    border-color: @background-accent;
+    border-color: @accent;
   }
 
   ._RqxF.ws02l {
@@ -984,7 +990,7 @@
   .xIlNZ,
   .WGuoB .kH0xm {
     background-color: @background-secondary;
-    border-color: @background-accent;
+    border-color: @accent;
   }
 
   /* group card */
@@ -999,10 +1005,69 @@
     background: none;
   }
 
+  /** group comment **/
+  /* comment input */
+  .JPrRu {
+    background-color: @background-main;
+    border-color: @accent;
+  }
+
+  .hiGSN {
+    background-color: @background-secondary;
+  }
+
+  /* style button */
+  .jbHSP:hover,
+  .Rl6iu {
+    background-color: @accent;
+    color: @link;
+  }
+
+  .jbHSP path {
+    fill: currentColor !important;
+  }
+
+  .html-content__blockquote,
+  .RKUX6 blockquote {
+    background: @background-secondary;
+    border-color: @accent;
+    color: @text-secondary;
+  }
+
+  .html-content__mention,
+  .html-content__mention:hover {
+    color: @link;
+  }
+
+  /* hints */
+  .zn7aG {
+    background-color: @background-main;
+    border-color: @gray;
+    border-color: fade(@opposite, 15%);
+    box-shadow: 0 6px 12px fade(@opposite, 17.5%);
+  }
+
+  .at9xB {
+    color: @gray;
+  }
+
+  .yqQnt {
+    background-color: @main;
+  }
+
+  /** comments lines **/
+  .a1y6x {
+    border-bottom-color: @accent;
+  }
+
+  .RKUX6:after {
+    background-color: @accent;
+  }
+
   /** best fit your skills **/
   /* usual fit */
   .RTFym {
-    border-color: @background-accent;
+    border-color: @accent;
   }
 
   .RTFym:hover {
