@@ -1,7 +1,7 @@
 /* ==UserStyle==text
 @name           Musescore dark
 @namespace      https://github.com/Vacym
-@version        0.2.5
+@version        0.2.6
 @description    Dark theme for MuseScore with score inverting
 @author         Vacym
 @homepageURL    https://github.com/Vacym/Musescore-Dark
@@ -23,7 +23,7 @@
 @var color secondary             "secondary color"            #0b804f
 @var color measure-current       "measure color"              rgba(240, 20, 20, 0.2)
 
-@var text  score-filter          "score filter"                "invert(90%)"
+@var text  score-filter          "score filter"                "invert(90%) hue-rotate(180deg)"
 @var text  score-preview-filter  "score preview filter"        "brightness(50%)"
 @var text  discount-filter       "discount filter"             "brightness(40%)"
 @var text  ad-filter             "ad filter"                   "none"
@@ -36,9 +36,9 @@
 @-moz-document domain("musescore.com") {
   /* original colors
   @background-main: #ffffff;
-  @background-secondary: #f6f6f6;
+  @background-secondary: #f6f6f6, #f7f9fc;
   @background-tertiary: f2f2f2;
-  @accent: #e2e8f0; #dbe3e9;
+  @accent: #e2e8f0; #dbe3e9, #e2e9ef;
   @text-main: #1a202e;
   @text-secondary: #364152;
   @text-tertiary: #64748b; #94a0b0;
@@ -862,6 +862,11 @@
     background-color: @accent;
   }
 
+  /* correction section */
+  .BEm3T {
+    background-color: @background-secondary;
+  }
+
   /*** MY SCORES ***/
   .V2I3c .jd4he {
     background-color: @background-main;
@@ -1039,6 +1044,11 @@
     color: @link;
   }
 
+  /* sent comment */
+  .QHTNx {
+    background-color: @accent;
+  }
+
   /* hints */
   .zn7aG {
     background-color: @background-main;
@@ -1056,7 +1066,8 @@
   }
 
   /** comments lines **/
-  .a1y6x {
+  .a1y6x,
+  .rHSBQ {
     border-bottom-color: @accent;
   }
 
