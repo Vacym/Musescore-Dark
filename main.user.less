@@ -1,54 +1,56 @@
 /* ==UserStyle==text
 @name           Musescore dark
 @namespace      https://github.com/Vacym
-@version        0.2.6
+@version        0.3
 @description    Dark theme for MuseScore with score inverting
 @author         Vacym
 @homepageURL    https://github.com/Vacym/Musescore-Dark
 @updateURL      https://raw.githubusercontent.com/Vacym/Musescore-Dark/main/main.user.less
 @preprocessor   less
 
-@var checkbox is-dark-scheme     "is dark scheme"             1
+@var checkbox is-dark-scheme      "is dark scheme"               1
+@var checkbox is-alt-score-filter "use alternative score filter" 0
 
-@var color background-main       "main background color"      #101010
-@var color background-secondary  "secondary background color" #222222
-@var color background-tertiary   "tertiary background color"  #252525
-@var color accent                "accent background color"    #282d33
+@var color bg-main               "main background color"      #101010
+@var color bg-sub                "secondary background color" #222222
+@var color bg-extra              "tertiary background color"  #252525
+@var color accent                "accent color"               #282d33
 @var color text-main             "main text color"            #f2f9ff
-@var color text-secondary        "plain text color"           #c4d0e4
-@var color text-tertiary         "tertiary text color"        #8797af
+@var color text-sub              "plain text color"           #c4d0e4
+@var color text-extra            "tertiary text color"        #8797af
 @var color link                  "links color"                #6492f7
 @var color main                  "main color"                 #1a4f9f
-@var color main-transparent      "main transparent color"     #1e2a35
 @var color secondary             "secondary color"            #0b804f
 @var color measure-current       "measure color"              rgba(240, 20, 20, 0.2)
 
-@var text  score-filter          "score filter"                "invert(90%) hue-rotate(180deg)"
-@var text  score-preview-filter  "score preview filter"        "brightness(50%)"
-@var text  discount-filter       "discount filter"             "brightness(40%)"
-@var text  ad-filter             "ad filter"                   "none"
-@var text  avatar-filter         "avatar filter"               "brightness(80%)"
-@var text  cover-filter          "cover filter"                "brightness(80%)"
-@var text  svg-filter            "svg filter"                  "contrast(117%) brightness(80%)"
+@var text  main-score-filter     "score filter"               "invert(90%) hue-rotate(180deg)"
+@var text  alt-score-filter      "alternative score filter"   "brightness(50%)"
+@var text  score-preview-filter  "score preview filter"       "brightness(50%)"
+@var text  discount-filter       "discount filter"            "brightness(40%)"
+@var text  ad-filter             "ad filter"                  "none"
+@var text  avatar-filter         "avatar filter"              "brightness(80%)"
+@var text  cover-filter          "cover filter"               "brightness(80%)"
+@var text  svg-filter            "svg filter"                 "contrast(117%) brightness(80%)"
 
 ==/UserStyle== */
 
 @-moz-document domain("musescore.com") {
   /* original colors
-  @background-main: #ffffff;
-  @background-secondary: #f6f6f6, #f7f9fc;
-  @background-tertiary: f2f2f2;
+  @bg-main: #ffffff;
+  @bg-sub: #f6f6f6, #f7f9fc;
+  @bg-extra: f2f2f2;
   @accent: #e2e8f0; #dbe3e9, #e2e9ef;
   @text-main: #1a202e;
-  @text-secondary: #364152;
-  @text-tertiary: #64748b; #94a0b0;
+  @text-sub: #364152;
+  @text-extra: #64748b; #94a0b0; #607087;
+  @text-add: #475569; #97a6ba; #94a0b0;
   @link: #2e68c0;
   @link-hover: #1a4f9f;
   @main: #2e68c0;
   @main-hover: #1a4f9f;
   @main-transparent: #e1effe;
   @main-transparent-hover: #c3ddfd;
-  @blue-dark: #a4cafe;
+  @main-inactive: #a4cafe;
   @main-magic: #daecfe;
   @green: #21b275;
   @green-light: #0b804f;
@@ -57,12 +59,22 @@
   @measure-hover: rgba(255,0,0,.05);
   
   @border-main: #cfd8e3;
-  @border-secondary: #d2d6dc;
-  @border-secondary-hover: #94a0b0; #97a6ba;
+  @border-sub: #d2d6dc;
+  @border-sub-hover: #94a0b0; #97a6ba;
   @border-magic: #a4cafe;
   */
 
-  @link-hover: @main-hover;
+  @score-filter: if(
+    @is-alt-score-filter = 1,
+    @alt-score-filter,
+    @main-score-filter
+  );
+
+  @link-hover: if(
+    @is-dark-scheme = 1,
+    saturate(lighten(@link, 25%, relative), 300%, relative),
+    saturate(darken(@link, 50%, relative), 15%, relative)
+  );
 
   @main-hover: if(@is-dark-scheme = 1, lighten(@main, 10%), darken(@main, 10%));
   @main-transparent-hover: if(
@@ -71,10 +83,16 @@
     darken(@main-transparent, 6%)
   );
 
-  @blue-dark: if(
+  @main-inactive: if(
     @is-dark-scheme = 1,
-    saturate(darken(@main, 18%), 10%),
-    saturate(lighten(@main, 35%), 10%)
+    desaturate(darken(@main, 13%), 60%, relative),
+    saturate(lighten(@main, 35%), 20%, relative)
+  );
+
+  @main-transparent: if(
+    @is-dark-scheme = 1,
+    desaturate(darken(@main, 55%, relative), 60%, relative),
+    hsl(hue(@main), 94%, 94%)
   );
 
   @main-magic: if(
@@ -104,63 +122,69 @@
   @opposite: if(@is-dark-scheme = 1, white, black);
   @gray: if(@is-dark-scheme = 1, #ccc, #444);
 
+  @text-add: if(
+    @is-dark-scheme = 1,
+    desaturate(darken(@text-extra, 25%, relative), 60%, relative),
+    saturate(darken(@text-extra, 25%, relative), 20%, relative)
+  );
+
   @border-main: if(
     @is-dark-scheme = 1,
     hsl(
       hsvhue(@main),
       if(saturation(@main) = 0, 0%, 0.15 * saturation(@main)),
-      1.7 * lightness(@background-secondary)
+      1.7 * lightness(@bg-sub)
     ),
     hsl(
       hsvhue(@main),
       if(saturation(@main) = 0, 0%, 0.4 * saturation(@main)),
-      0.9 * lightness(@background-secondary)
+      0.9 * lightness(@bg-sub)
     )
   );
 
-  @border-secondary: if(
+  @border-sub: if(
     @is-dark-scheme = 1,
     hsl(
       hsvhue(@main),
       if(saturation(@main) = 0, 0%, 0.05 * saturation(@main)),
-      1.4 * lightness(@background-secondary)
+      1.4 * lightness(@bg-sub)
     ),
     hsl(
       hsvhue(@main),
       if(saturation(@main) = 0, 0%, 0.15 * saturation(@main)),
-      0.9 * lightness(@background-secondary)
+      0.9 * lightness(@bg-sub)
     )
   );
 
-  @border-secondary-hover: if(
+  @border-sub-hover: if(
     @is-dark-scheme = 1,
     hsl(
       hsvhue(@main),
       if(saturation(@main) = 0, 0%, 0.1 * saturation(@main)),
-      2.5 * lightness(@background-secondary)
+      2.5 * lightness(@bg-sub)
     ),
     hsl(
       hsvhue(@main),
       if(saturation(@main) = 0, 0%, 0.2 * saturation(@main)),
-      0.65 * lightness(@background-secondary)
+      0.65 * lightness(@bg-sub)
     )
   );
 
   body,
   html {
     color-scheme: if(@is-dark-scheme = 1, dark, light);
-    background-color: @background-main;
+    background-color: @bg-main;
     color: @text-main;
   }
 
   main,
   .OWn3l {
-    background-color: @background-main;
+    background-color: @bg-main;
   }
 
   body.maintenance-page,
   body.page-boxed-content {
-    background-color: @background-secondary;
+    background-color: @bg-sub;
   }
 
   /*** Common styles ***/
@@ -200,12 +224,35 @@
 
   /* white links */
   .RsvsB {
-    color: @text-tertiary;
+    color: @text-extra;
   }
 
   .RsvsB.hxVnv,
   .RsvsB.O9yD2.u_VDg:hover {
-    color: @text-secondary;
+    color: @text-sub;
+  }
+
+  /* additional text */
+  .CuFrh.g82qd,
+  .KPcif.YkBjH,
+  .YkBjH {
+    color: @text-add;
+  }
+
+  /* extra text */
+  .WJGhZ,
+  .CuFrh,
+  .A8YmZ,
+  .njnZK,
+  .NSJni,
+  .NSJni path {
+    color: @text-extra;
+  }
+
+  /* plain text, special text */
+  .DIiWA,
+  .LuX7k {
+    color: @text-sub;
   }
 
   /* header text, "Difficulty level", "Main Info", numbers, popup text */
@@ -220,22 +267,9 @@
   .qgEgI,
   .m_eHc,
   .IgMdr,
-  .aR8EV {
+  .aR8EV,
+  .RsovW.TQzQH {
     color: @text-main;
-  }
-
-  /* plain text, special text */
-  .DIiWA,
-  .LuX7k {
-    color: @text-secondary;
-  }
-
-  /* tertiary text */
-  .WJGhZ,
-  .CuFrh,
-  .NSJni,
-  .NSJni path {
-    color: @text-tertiary;
   }
 
   /* svg on buttons and links */
@@ -260,12 +294,12 @@
   }
 
   .qVgEp:disabled {
-    background-color: @background-tertiary;
+    background-color: @bg-extra;
   }
 
   /* inactive main */
   .Dhs0s.nOTLW.UlZjN {
-    background: @blue-dark;
+    background: @main-inactive;
   }
 
   /* transparent main buttons, Follow button */
@@ -283,21 +317,21 @@
   /* white buttons */
   .plVkZ.nIsQu,
   .GCNL2.pRBsn {
-    background: @background-main;
+    background: @bg-main;
     color: @text-main;
-    border-color: @border-secondary;
+    border-color: @border-sub;
   }
 
   .plVkZ.nIsQu:hover,
   .GCNL2.pRBsn:hover {
     color: @text-main;
-    border-color: @border-secondary-hover;
+    border-color: @border-sub-hover;
   }
 
   .GCNL2.pRBsn:disabled {
-    background: @background-main;
-    color: @text-tertiary;
-    border-color: @border-secondary;
+    background: @bg-main;
+    color: @text-add;
+    border-color: @border-sub;
   }
 
   .plVkZ.nIsQu:after {
@@ -305,7 +339,7 @@
   }
 
   .plVkZ.nIsQu:hover:after {
-    border-color: @border-secondary-hover;
+    border-color: @border-sub-hover;
   }
 
   .plVkZ.nIsQu svg path {
@@ -314,17 +348,17 @@
 
   /* other buttons */
   .N0P7K {
-    color: @text-tertiary;
+    color: @text-extra;
   }
 
   .u_VDg.N0P7K.O9yD2:hover {
-    fill: @text-secondary;
-    color: @text-secondary;
+    fill: @text-sub;
+    color: @text-sub;
   }
 
   /* textarea */
   .NvccO {
-    background-color: @background-main;
+    background-color: @bg-main;
     border-color: @border-main;
   }
 
@@ -333,47 +367,47 @@
   }
 
   .bkmfh {
-    color: @text-secondary;
+    color: @text-sub;
   }
 
   input.bkmfh::-webkit-input-placeholder,
   input.bkmfh::placeholder,
   textarea::-webkit-input-placeholder,
   textarea::placeholder {
-    color: @text-secondary;
+    color: @text-sub;
   }
 
   /* textarea 2 */
   ._Mpht {
     color: @text-main;
-    border-color: @border-secondary;
+    border-color: @border-sub;
   }
 
   /** tables **/
   table tr:nth-child(odd) td {
-    background-color: @background-secondary;
+    background-color: @bg-sub;
   }
 
   /** selector **/
   .FMkpa {
-    background-color: @background-main;
-    fill: @text-tertiary;
+    background-color: @bg-main;
+    fill: @text-extra;
     border-color: @border-main;
   }
 
   .FMkpa > select {
-    color: @text-tertiary;
+    color: @text-extra;
   }
 
   .FMkpa > select option,
   .FMkpa > select optgroup {
-    color: @text-secondary;
-    background-color: @background-secondary;
+    color: @text-sub;
+    background-color: @bg-sub;
   }
 
   /** checkbox **/
   .T2luU:before {
-    background-color: @background-main;
+    background-color: @bg-main;
     border-color: @border-main;
   }
 
@@ -384,8 +418,8 @@
 
   /** radio button **/
   .WY0tX {
-    background-color: @background-main;
-    color: @background-main;
+    background-color: @bg-main;
+    color: @bg-main;
     border-color: @border-main;
   }
 
@@ -397,7 +431,7 @@
 
   .WY0tX:after,
   .oyc_A.hSiSi .WY0tX:after {
-    background-color: @background-main;
+    background-color: @bg-main;
   }
 
   /** main navbar **/
@@ -427,14 +461,14 @@
 
   /* nav ad */
   .etnW4 {
-    background-color: @background-secondary;
+    background-color: @bg-sub;
   }
 
   /** search **/
 
   .ic0KS,
   .LMYIU {
-    background-color: @background-main;
+    background-color: @bg-main;
   }
 
   .ic0KS.EGfQI {
@@ -442,7 +476,7 @@
   }
 
   .wMbIR {
-    background-color: @background-main;
+    background-color: @bg-main;
     border-radius: 6px;
   }
 
@@ -451,13 +485,13 @@
   }
 
   .OHeqn {
-    background-color: @background-secondary;
+    background-color: @bg-sub;
   }
 
   /** custom selector **/
   .AU7yR.nOTLW {
-    background-color: @background-main;
-    color: @text-secondary;
+    background-color: @bg-main;
+    color: @text-sub;
     border-color: @accent;
   }
 
@@ -468,7 +502,7 @@
   /* drop-down menu */
   .ZcIR_.g3QeU .MfuCz,
   .ZcIR_.SRzzT .MfuCz {
-    background-color: @background-main;
+    background-color: @bg-main;
     box-shadow:
       0 0 0 1px fade(@opposite, 5),
       0 10px 15px -3px fade(@opposite, 10),
@@ -494,12 +528,12 @@
   }
 
   .GgGe4.ehbCW + .GgGe4 {
-    border-top-color: @background-secondary;
+    border-top-color: @bg-sub;
   }
 
   /** popup notifications **/
   .R0wae {
-    background-color: @background-main;
+    background-color: @bg-main;
     border-color: @accent;
   }
 
@@ -509,7 +543,7 @@
   }
 
   .FPzhg:hover {
-    background-color: @background-secondary;
+    background-color: @bg-sub;
   }
 
   .YmBV2.xIk5_ path {
@@ -550,12 +584,12 @@
   /* sign popup */
   .dwVOQ,
   .U8wvj {
-    background-color: @background-main;
+    background-color: @bg-main;
   }
 
   .xFow5,
   .x6Vqy {
-    background-color: @background-main;
+    background-color: @bg-main;
   }
 
   .MKeqF .dwVOQ,
@@ -595,7 +629,7 @@
 
   /* additional section */
   .ASx44.hQ6hq {
-    background-color: @background-secondary;
+    background-color: @bg-sub;
   }
 
   /***************************/
@@ -603,7 +637,7 @@
 
   aside,
   .BxFu3 {
-    background-color: @background-secondary !important;
+    background-color: @bg-sub !important;
     border-color: @border-main !important;
   }
 
@@ -634,14 +668,14 @@
 
   .iqM7z,
   .iqM7z path {
-    fill: @text-secondary;
-    color: @text-secondary;
+    fill: @text-sub;
+    color: @text-sub;
   }
 
   /* Difficulty level */
   .y2ohV {
     background: @accent;
-    color: @text-secondary;
+    color: @text-sub;
   }
 
   /* score visibility box */
@@ -651,27 +685,27 @@
 
   /* "Add the missing information" button */
   .GCNL2.sJCgc {
-    background-color: @background-main;
+    background-color: @bg-main;
     border-color: @link;
     color: @link;
   }
 
   .GCNL2.sJCgc:hover {
-    border-color: @main-hover;
-    color: @main-hover;
+    border-color: @link-hover;
+    color: @link-hover;
   }
 
   /***************************/
   /*** SHEETS OVERVIEW ***/
 
   #jmuse-layout {
-    background-color: @background-tertiary;
+    background-color: @bg-extra;
     color: @text-main !important;
   }
 
   /** toolbar **/
   .Nw3SK {
-    background-color: @background-secondary;
+    background-color: @bg-sub;
   }
 
   #jmuse-layout .plVkZ.O9yD2 {
@@ -685,14 +719,14 @@
 
   /* buttons svg main*/
   #jmuse-layout .HFvdW:not(.wSWus) svg path[fill="#364152"] {
-    fill: @text-secondary;
+    fill: @text-sub;
   }
 
   /* buttons hover */
   .vI1Jl.vI1Jl:active,
   .vI1Jl.vI1Jl:focus,
   .vI1Jl.vI1Jl:hover {
-    color: @text-secondary;
+    color: @text-sub;
   }
 
   .vI1Jl.vI1Jl:hover:before {
@@ -706,7 +740,7 @@
 
   /* text */
   .frGa8 {
-    color: @text-secondary;
+    color: @text-sub;
   }
 
   /* speed text */
@@ -720,7 +754,7 @@
   }
 
   .vBIaU {
-    background-color: @background-secondary;
+    background-color: @bg-sub;
   }
 
   .hKxIH,
@@ -736,27 +770,27 @@
   /* speed bar */
   .HI02X .hKxIH,
   .HI02X .j9sb8 {
-    background-color: @text-secondary;
+    background-color: @text-sub;
   }
 
   /* videoplayer */
   .KhcJt {
-    background-color: @background-tertiary;
+    background-color: @bg-extra;
     border-color: #aaa;
   }
 
   /* row resize */
   .Fjl2q {
-    background-color: @background-main;
+    background-color: @bg-main;
   }
 
   .Fjl2q path {
-    fill: @text-tertiary;
+    fill: @text-extra;
   }
 
   /** sheet images **/
   #jmuse-scroller-component {
-    background-color: @background-tertiary;
+    background-color: @bg-extra;
   }
 
   #jmuse-scroller-component img {
@@ -765,7 +799,7 @@
 
   #jmuse-scroller-component > div,
   #jmuse-scroller-component > section > div {
-    background-color: @background-secondary;
+    background-color: @bg-sub;
   }
 
   /* current measure */
@@ -780,7 +814,7 @@
 
   /* rate score popup */
   .KkvbQ {
-    background-color: @background-main !important;
+    background-color: @bg-main !important;
     border-color: @accent;
   }
 
@@ -794,7 +828,7 @@
 
   .b_r17.aRvRz,
   .ASx44._gyAu {
-    background-color: @background-main !important;
+    background-color: @bg-main !important;
   }
 
   .ASx44 {
@@ -814,12 +848,12 @@
 
   /* section */
   .SUZeM:hover {
-    background-color: @background-secondary;
+    background-color: @bg-sub;
   }
 
   @media (min-width: 768px) {
     .diP_e.iCnHA:hover {
-      background-color: @background-secondary;
+      background-color: @bg-sub;
     }
   }
 
@@ -829,7 +863,7 @@
   }
 
   .plVkZ.wXNik:hover {
-    color: @text-tertiary;
+    color: @text-extra;
   }
 
   /* green button */
@@ -849,7 +883,7 @@
 
   .T3FEN.Kaa9U {
     background-color: @main-magic;
-    border-color: @blue-dark;
+    border-color: @main-inactive;
   }
 
   /* info svg */
@@ -864,12 +898,12 @@
 
   /* correction section */
   .BEm3T {
-    background-color: @background-secondary;
+    background-color: @bg-sub;
   }
 
   /*** MY SCORES ***/
   .V2I3c .jd4he {
-    background-color: @background-main;
+    background-color: @bg-main;
   }
 
   /* score name */
@@ -879,7 +913,7 @@
 
   /* score toolbar */
   .JVNmZ {
-    background-color: @background-main;
+    background-color: @bg-main;
   }
 
   .TW7p7 {
@@ -901,8 +935,8 @@
   }
 
   .aB_mX > svg path {
-    fill: @text-secondary;
-    color: @text-secondary;
+    fill: @text-sub;
+    color: @text-sub;
   }
 
   /* user score preview */
@@ -928,7 +962,7 @@
 
   /* parameters table */
   .qMWEs:nth-child(2n) {
-    background-color: @background-secondary;
+    background-color: @bg-sub;
   }
 
   /** bottom box **/
@@ -941,17 +975,17 @@
   /* file choose */
   .SGoND,
   .qIyhT {
-    background-color: @background-secondary;
+    background-color: @bg-sub;
   }
 
   /* file name */
   .SZinB .iURGe {
-    background-color: @background-main;
+    background-color: @bg-main;
   }
 
   /* upload score preview */
   .M8LHw {
-    background-color: @background-secondary;
+    background-color: @bg-sub;
     border-color: @accent;
   }
 
@@ -963,7 +997,7 @@
 
   /* process bar */
   .ws02l {
-    background-color: @background-main;
+    background-color: @bg-main;
   }
 
   .SZinB.ws02l {
@@ -985,7 +1019,7 @@
   /*** OTHER ***/
 
   /** ad **/
-  header .QPTJc iframe,
+  iframe[id^="google_ads_iframe"],
   aside > div > div > div.primisslate,
   aside > section > div > div > iframe {
     filter: @ad-filter;
@@ -994,14 +1028,14 @@
   /* instruments circle */
   .xIlNZ,
   .WGuoB .kH0xm {
-    background-color: @background-secondary;
+    background-color: @bg-sub;
     border-color: @accent;
   }
 
   /* group card */
   .seCWY.T3UE8,
   .seCWY.T3UE8 section {
-    background-color: @background-main;
+    background-color: @bg-main;
   }
 
   /* page selection */
@@ -1013,12 +1047,12 @@
   /** group comment **/
   /* comment input */
   .JPrRu {
-    background-color: @background-main;
+    background-color: @bg-main;
     border-color: @accent;
   }
 
   .hiGSN {
-    background-color: @background-secondary;
+    background-color: @bg-sub;
   }
 
   /* style button */
@@ -1034,9 +1068,9 @@
 
   .html-content__blockquote,
   .RKUX6 blockquote {
-    background: @background-secondary;
+    background: @bg-sub;
     border-color: @accent;
-    color: @text-secondary;
+    color: @text-sub;
   }
 
   .html-content__mention,
@@ -1051,7 +1085,7 @@
 
   /* hints */
   .zn7aG {
-    background-color: @background-main;
+    background-color: @bg-main;
     border-color: @gray;
     border-color: fade(@opposite, 15%);
     box-shadow: 0 6px 12px fade(@opposite, 17.5%);
@@ -1082,7 +1116,7 @@
   }
 
   .RTFym:hover {
-    border-color: @text-tertiary;
+    border-color: @border-sub-hover;
   }
 
   /* best fit */
@@ -1108,6 +1142,6 @@
   .uM_OT,
   .IqPzy.TNdPJ .rrPcD,
   .IqPzy.kuNz6 .rrPcD {
-    background-color: @background-main;
+    background-color: @bg-main;
   }
 }
