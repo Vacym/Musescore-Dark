@@ -1,7 +1,7 @@
 /* ==UserStyle==text
 @name           Musescore dark
 @namespace      https://github.com/Vacym
-@version        0.3
+@version        0.3.1
 @description    Dark theme for MuseScore with score inverting
 @author         Vacym
 @homepageURL    https://github.com/Vacym/Musescore-Dark
@@ -46,20 +46,20 @@
   @text-add: #475569; #97a6ba; #94a0b0;
   @link: #2e68c0;
   @link-hover: #1a4f9f;
-  @main: #2e68c0;
-  @main-hover: #1a4f9f;
+  @main: #2e68c0; #1f74bd;
+  @main-hover: #1a4f9f; #0e5a94;
   @main-transparent: #e1effe;
   @main-transparent-hover: #c3ddfd;
   @main-inactive: #a4cafe;
   @main-magic: #daecfe;
-  @green: #21b275;
-  @green-light: #0b804f;
+  @secondary: #21b275; #3ac696;
+  @secondary-hover: #0b804f;
 
   @measure-current: rgba(255,0,0,.2);
   @measure-hover: rgba(255,0,0,.05);
   
   @border-main: #cfd8e3;
-  @border-sub: #d2d6dc;
+  @border-sub: #d2d6dc; #b1bac2;
   @border-sub-hover: #94a0b0; #97a6ba;
   @border-magic: #a4cafe;
   */
@@ -121,6 +121,7 @@
 
   @opposite: if(@is-dark-scheme = 1, white, black);
   @gray: if(@is-dark-scheme = 1, #ccc, #444);
+  @gray-medium: if(@is-dark-scheme = 1, #888, #777);
 
   @text-add: if(
     @is-dark-scheme = 1,
@@ -233,6 +234,7 @@
   }
 
   /* additional text */
+  h4,
   .CuFrh.g82qd,
   .KPcif.YkBjH,
   .YkBjH {
@@ -282,11 +284,13 @@
 
   /** buttons **/
   /* main buttons */
+  .form-actions .form-submit,
   .Dhs0s.nOTLW,
   .qVgEp {
     background-color: @main;
   }
 
+  .form-submit:hover,
   .u_VDg.Dhs0s.nOTLW:hover,
   .qVgEp:hover,
   .Dhs0s:hover {
@@ -1016,6 +1020,98 @@
     color: @link;
   }
 
+  /*** DIRECT MESSAGES ***/
+  /* (old page) */
+
+  /* "Message text" */
+  .chat-wrapper .messenger-form > h4 {
+    color: @gray-medium;
+  }
+
+  /* textarea */
+  .chat-wrapper .messenger-form textarea {
+    background-color: @bg-main;
+    border-color: @accent;
+  }
+
+  /* "messages" */
+  .two-col-wrapper .aside-col h3 {
+    color: @gray;
+  }
+
+  /** sidebar **/
+  .two-col-wrapper .aside-col {
+    background-color: @bg-sub;
+  }
+
+  .two-col-wrapper .aside-col.aside-col-first {
+    border-right-color: @border-sub;
+  }
+
+  /* chat item */
+  .chat-wrapper .chats-list .user-chat-item.active,
+  .chat-wrapper .chats-list .user-chat-item:hover {
+    background-color: @accent;
+  }
+
+  /* "pro" sign */
+  .badge.badge.badge {
+    background-color: @secondary;
+  }
+
+  /* other */
+
+  .block-facets a,
+  .block-filters a,
+  .block-musescore-search-sort-block a,
+  .block-score-search-cc-block a {
+    color: @gray-medium;
+  }
+
+  .block-facets a:focus,
+  .block-facets a:hover,
+  .block-filters a:focus,
+  .block-filters a:hover,
+  .block-musescore-search-sort-block a:focus,
+  .block-musescore-search-sort-block a:hover,
+  .block-score-search-cc-block a:focus,
+  .block-score-search-cc-block a:hover {
+    color: @gray;
+  }
+
+  .comment.highlight {
+    background-color: @accent;
+  }
+
+  .meta {
+    color: @text-extra;
+  }
+
+  .avatar-wrapper .avatar {
+    filter: @avatar-filter;
+  }
+
+  /* dropdown menu */
+  .dropdown-menu {
+    background-color: @bg-main;
+    border-color: @accent;
+  }
+
+  .chat-wrapper .chats-list .user-chat-item .chat-options .dropdown li button {
+    background-color: @bg-main;
+    color: @gray;
+  }
+
+  .chat-wrapper
+    .chats-list
+    .user-chat-item
+    .chat-options
+    .dropdown
+    li
+    button:hover {
+    background-color: @main;
+  }
+
   /*** OTHER ***/
 
   /** ad **/
@@ -1143,5 +1239,21 @@
   .IqPzy.TNdPJ .rrPcD,
   .IqPzy.kuNz6 .rrPcD {
     background-color: @bg-main;
+  }
+}
+
+@-moz-document url-prefix("https://musescore.com/user/settings"),
+url-prefix("https://musescore.com/user/message"),
+regexp("https?://(www\\.)?musescore\\.com/user/\\d+/(billing|edit|subscription|gifts|notifications).*")
+{
+  /***** OLD PAGES *****/
+  *::selection {
+    background-color: #fff;
+    color: #000;
+  }
+
+  *::-moz-selection {
+    background-color: #fff;
+    color: #000;
   }
 }
