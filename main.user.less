@@ -1,7 +1,7 @@
 /* ==UserStyle==text
 @name           Musescore dark
 @namespace      https://github.com/Vacym
-@version        0.3.1
+@version        0.4.0
 @description    Dark theme for MuseScore with score inverting
 @author         Vacym
 @homepageURL    https://github.com/Vacym/Musescore-Dark
@@ -37,8 +37,9 @@
 @-moz-document domain("musescore.com") {
   /* original colors
   @bg-main: #ffffff;
-  @bg-sub: #f6f6f6, #f7f9fc;
+  @bg-sub: #f6f6f6; #f7f9fc; #f9f9f9;
   @bg-extra: f2f2f2;
+  @bg-add: #e5e5e5;
   @accent: #e2e8f0; #dbe3e9, #e2e9ef;
   @text-main: #1a202e;
   @text-sub: #364152;
@@ -170,6 +171,8 @@
       0.65 * lightness(@bg-sub)
     )
   );
+
+  @bg-add: @bg-extra;
 
   body,
   html {
@@ -716,11 +719,6 @@
     color: @text-main;
   }
 
-  /* buttons svg */
-  #jmuse-layout .HFvdW:not(.wSWus) svg path {
-    fill: @text-main;
-  }
-
   /* buttons svg main*/
   #jmuse-layout .HFvdW:not(.wSWus) svg path[fill="#364152"] {
     fill: @text-sub;
@@ -1240,10 +1238,115 @@
   .IqPzy.kuNz6 .rrPcD {
     background-color: @bg-main;
   }
+
+  /***************************/
+  /***** MOBILE STYLE*****/
+
+  /*** Common ***/
+  /* "Download mobile app" */
+  .xUZUO,
+  .TCmcx,
+  .O0p11 {
+    background-color: @secondary;
+  }
+
+  .plVkZ.nIsQu.MXKfV {
+    background-color: @bg-main;
+    color: @text-main;
+  }
+
+  .plVkZ.nIsQu.MXKfV:after {
+    border-color: @bg-main;
+  }
+
+  /** upbar **/
+  .jNRNN {
+    background-color: @main;
+  }
+
+  /** sidebar **/
+  .GaxkR {
+    background-color: @bg-main;
+  }
+
+  .oVvCb {
+    background-color: @main;
+  }
+
+  .GcyA7 .giJEG {
+    color: @gray;
+  }
+
+  .GcyA7 .giJEG:not(.KKZ64) svg,
+  .GcyA7 .giJEG:not(.KKZ64) svg path {
+    fill: @gray-medium;
+  }
+  /* line */
+  .V_OIw {
+    background-color: @border-main;
+  }
+
+  /*** Score view ***/
+  /* "It's easier to view scores in app" */
+  .d90OC,
+  .QlWvk {
+    background-color: @bg-main;
+  }
+
+  .NSJni,
+  .NSJni path {
+    fill: @text-extra;
+    color: @text-extra;
+  }
+
+  /* Page selection */
+  .YlyIX {
+    background-color: @bg-add;
+  }
+  .Oi_40 {
+    background-color: @main;
+  }
+
+  /* "Download" and "Print" bar */
+  .ZXcO4.UumDQ {
+    background-color: @bg-main;
+  }
+  .ZXcO4 {
+    border-top-color: @bg-sub;
+  }
+
+  /* top back bar */
+  .f2jX9.eVTj1.x5O32 .G26v7,
+  .LnnUL {
+    border-bottom-color: @border-main;
+  }
+
+  /* strange things on page load */
+  main div[style*="rgb(255, 255, 255)"] {
+    background-color: @bg-main !important;
+  }
+
+  /*** Other ***/
+  /** selector **/
+  /* "Download" and "Print" bar */
+  .mdx84.ABzyk {
+    background-color: @bg-main;
+  }
+
+  /** setting nav **/
+  .NWUxH.YoENW,
+  .OrIKD.YoENW {
+    color: @text-main;
+  }
+
+  .u1QJs.YoENW {
+    border-bottom-color: @text-main;
+  }
 }
 
 @-moz-document url-prefix("https://musescore.com/user/settings"),
 url-prefix("https://musescore.com/user/message"),
+url-prefix("https://musescore.com/user/notification"),
 regexp("https?://(www\\.)?musescore\\.com/user/\\d+/(billing|edit|subscription|gifts|notifications).*")
 {
   /***** OLD PAGES *****/
