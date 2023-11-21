@@ -1,7 +1,7 @@
 /* ==UserStyle==text
 @name           Musescore dark
 @namespace      https://github.com/Vacym
-@version        0.4.0
+@version        0.4.1
 @description    Dark theme for MuseScore with score inverting
 @author         Vacym
 @homepageURL    https://github.com/Vacym/Musescore-Dark
@@ -240,7 +240,8 @@
   h4,
   .CuFrh.g82qd,
   .KPcif.YkBjH,
-  .YkBjH {
+  .YkBjH,
+  .SsZVp {
     color: @text-add;
   }
 
@@ -249,6 +250,7 @@
   .CuFrh,
   .A8YmZ,
   .njnZK,
+  .QxBxN,
   .NSJni,
   .NSJni path {
     color: @text-extra;
@@ -256,6 +258,7 @@
 
   /* plain text, special text */
   .DIiWA,
+  .ZYtYj,
   .LuX7k {
     color: @text-sub;
   }
@@ -273,8 +276,13 @@
   .m_eHc,
   .IgMdr,
   .aR8EV,
+  .rgQ9P,
   .RsovW.TQzQH {
     color: @text-main;
+  }
+
+  .qFBnv {
+    color: inherit;
   }
 
   /* svg on buttons and links */
@@ -607,6 +615,14 @@
   /* avatars */
   .CrCMp {
     filter: @avatar-filter;
+  }
+
+  .kH0xm {
+    border-color: @accent;
+  }
+
+  .nzGkj {
+    border-color: @bg-main;
   }
 
   /* profile cover */
@@ -973,11 +989,20 @@
     color: @text-main;
   }
 
+  /* mobile instructions */
+  .KFN1N {
+    background-color: @bg-sub;
+  }
+
   /*** FILE UPLOAD ***/
   /* file choose */
-  .SGoND,
   .qIyhT {
     background-color: @bg-sub;
+  }
+
+  .SGoND {
+    background-color: @bg-sub;
+    border-color: @border-main;
   }
 
   /* file name */
@@ -1345,8 +1370,7 @@
 }
 
 @-moz-document url-prefix("https://musescore.com/user/settings"),
-url-prefix("https://musescore.com/user/message"),
-url-prefix("https://musescore.com/user/notification"),
+url-prefix("https://musescore.com/user/message"), url-prefix("https://musescore.com/user/notification"),
 regexp("https?://(www\\.)?musescore\\.com/user/\\d+/(billing|edit|subscription|gifts|notifications).*")
 {
   /***** OLD PAGES *****/
