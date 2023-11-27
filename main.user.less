@@ -1,8 +1,8 @@
 /* ==UserStyle==text
 @name           Musescore dark
 @namespace      https://github.com/Vacym
-@version        1.0.0
-@description    Dark theme for MuseScore with score inverting
+@version        1.0.1
+@description    Dark theme for musescore.com with score inverting and customizable colors
 @author         Vacym
 @homepageURL    https://github.com/Vacym/Musescore-Dark
 @updateURL      https://raw.githubusercontent.com/Vacym/Musescore-Dark/main/main.user.less
@@ -393,7 +393,7 @@
   input.bkmfh::placeholder,
   textarea::-webkit-input-placeholder,
   textarea::placeholder {
-    color: @text-sub;
+    color: @text-add;
   }
 
   /* textarea 2 */
@@ -604,6 +604,13 @@
     background-color: @secondary;
   }
 
+  /* "Official Scores" sign */
+  .uB6NV,
+  .uB6NV path {
+    fill: @secondary;
+    color: @secondary;
+  }
+
   /* "original" sign */
   .JnqFx {
     background: @main-transparent;
@@ -636,7 +643,8 @@
   }
 
   /* avatars */
-  .CrCMp {
+  .CrCMp,
+  .UIlkK .seCWY.T3UE8 .xIlNZ img {
     filter: @avatar-filter;
   }
 
