@@ -1,7 +1,7 @@
 /* ==UserStyle==text
 @name           Musescore dark
 @namespace      https://github.com/Vacym
-@version        1.0.3
+@version        1.0.4
 @description    Dark theme for musescore.com with score inverting and customizable colors
 @author         Vacym
 @homepageURL    https://github.com/Vacym/Musescore-Dark
@@ -35,6 +35,8 @@
 ==/UserStyle== */
 
 @-moz-document domain("musescore.com") {
+  /* Main style */
+
   /* original colors
   @bg-main: #ffffff;
   @bg-sub: #f6f6f6;
@@ -123,6 +125,7 @@
   @opposite: if(@is-dark-scheme = 1, white, black);
   @gray: if(@is-dark-scheme = 1, #ccc, #444);
   @gray-medium: if(@is-dark-scheme = 1, #888, #777);
+  @gray-faint: if(@is-dark-scheme = 1, #333, #ddd);
 
   @text-add: if(
     @is-dark-scheme = 1,
@@ -239,6 +242,15 @@
     color: @text-sub;
   }
 
+  .RsvsB.nIsQu:after {
+    border-color: @accent;
+  }
+
+  .RsvsB.nIsQu.u_VDg:hover {
+    border-color: @text-add;
+    color: @text-add;
+  }
+
   /* additional text */
   h4,
   .CuFrh.g82qd,
@@ -282,6 +294,7 @@
   .rgQ9P,
   .kC8ua,
   .mBsU8,
+  .oco96,
   .RsovW.TQzQH {
     color: @text-main;
   }
@@ -721,6 +734,11 @@
     color: @link;
   }
 
+  .tUVo_ path {
+    fill: currentColor;
+    color: currentColor;
+  }
+
   .iqM7z,
   .iqM7z path {
     fill: @text-sub;
@@ -800,7 +818,7 @@
 
   /* playback bar */
   .ZGQOx._va4s {
-    background-color: fade(@main-transparent, 70%);
+    background-color: fade(@border-main, 75%);
   }
 
   .vBIaU {
@@ -826,7 +844,7 @@
   /* videoplayer */
   .KhcJt {
     background-color: @bg-extra;
-    border-color: #aaa;
+    border-color: @gray-faint;
   }
 
   /* row resize */
@@ -866,6 +884,12 @@
   .KkvbQ {
     background-color: @bg-main !important;
     border-color: @accent;
+  }
+
+  /* right-click menu */
+  .zcY04 {
+    background-color: @bg-main;
+    box-shadow: 0 4px 20px 0 fade(@opposite, 20%);
   }
 
   /* discount */
@@ -1435,7 +1459,7 @@
 url-prefix("https://musescore.com/user/message"), url-prefix("https://musescore.com/user/notification"),
 regexp("https?://(www\\.)?musescore\\.com/user/\\d+/(billing|edit|subscription|gifts|notifications).*")
 {
-  /***** OLD PAGES *****/
+  /* Old pages */
   *::selection {
     background-color: #fff;
     color: #000;
