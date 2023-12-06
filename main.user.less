@@ -1,7 +1,7 @@
 /* ==UserStyle==text
 @name           Musescore dark
 @namespace      https://github.com/Vacym
-@version        1.0.4
+@version        1.0.5
 @description    Dark theme for musescore.com with score inverting and customizable colors
 @author         Vacym
 @homepageURL    https://github.com/Vacym/Musescore-Dark
@@ -123,6 +123,7 @@
   @measure-hover: fadeout(@measure-current, 75%, relative);
 
   @opposite: if(@is-dark-scheme = 1, white, black);
+  @same: if(@is-dark-scheme = 1, black, white);
   @gray: if(@is-dark-scheme = 1, #ccc, #444);
   @gray-medium: if(@is-dark-scheme = 1, #888, #777);
   @gray-faint: if(@is-dark-scheme = 1, #333, #ddd);
@@ -266,6 +267,9 @@
   .A8YmZ,
   .njnZK,
   .QxBxN,
+  .gaVbJ,
+  .u778z,
+  .YST90,
   .NSJni,
   .NSJni path {
     color: @text-extra;
@@ -521,6 +525,11 @@
     background-color: @bg-sub;
   }
 
+  /* search icon */
+  .ic0KS .OHeqn button svg path {
+    fill: @text-main;
+  }
+
   /* tips */
   .ifsT0 {
     background-color: @bg-main;
@@ -774,6 +783,13 @@
   #jmuse-layout {
     background-color: @bg-extra;
     color: @text-main !important;
+  }
+
+  /* 3-dot button */
+  .MZ7fT,
+  .MZ7fT path {
+    color: @text-main;
+    fill: @text-main;
   }
 
   /** toolbar **/
@@ -1034,6 +1050,11 @@
     color: @text-main;
   }
 
+  /* Browsing History svg */
+  .HFvdW:not(.wSWus) svg path[stroke="#364152"] {
+    stroke: currentColor;
+  }
+
   /* parameters table */
   .qMWEs:nth-child(2n) {
     background-color: @bg-sub;
@@ -1214,6 +1235,14 @@
     filter: @ad-filter;
   }
 
+  .Wjhvd:after {
+    color: @main;
+  }
+
+  .Wjhvd:hover:after {
+    color: @main-hover;
+  }
+
   /* instruments circle */
   .xIlNZ,
   .WGuoB .kH0xm {
@@ -1305,6 +1334,11 @@
 
   .RKUX6:after {
     background-color: @accent;
+  }
+
+  /* update fade */
+  .G0g4K.WjdCw:before {
+    background-color: fade(@same, 60%);
   }
 
   /** best fit your skills **/
@@ -1457,7 +1491,8 @@
 
 @-moz-document url-prefix("https://musescore.com/user/settings"),
 url-prefix("https://musescore.com/user/message"), url-prefix("https://musescore.com/user/notification"),
-regexp("https?://(www\\.)?musescore\\.com/user/\\d+/(billing|edit|subscription|gifts|notifications).*")
+regexp("https?://(www\\.)?musescore\\.com/user/\\d+/(billing|edit|subscription|gifts|notifications).*"),
+url-prefix("https://musescore.com/licensing")
 {
   /* Old pages */
   *::selection {
@@ -1468,5 +1503,14 @@ regexp("https?://(www\\.)?musescore\\.com/user/\\d+/(billing|edit|subscription|g
   *::-moz-selection {
     background-color: #fff;
     color: #000;
+  }
+}
+
+@-moz-document domain("musescore.com") {
+  /* Fixes */
+
+  /* search */
+  .ic0KS {
+    z-index: 1049;
   }
 }
