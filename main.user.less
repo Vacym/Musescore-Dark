@@ -1,7 +1,7 @@
 /* ==UserStyle==text
 @name           Musescore dark
 @namespace      https://github.com/Vacym
-@version        1.0.6
+@version        1.0.7
 @description    Dark theme for musescore.com with score inverting and customizable colors
 @author         Vacym
 @homepageURL    https://github.com/Vacym/Musescore-Dark
@@ -127,6 +127,11 @@
   @gray: if(@is-dark-scheme = 1, #ccc, #444);
   @gray-medium: if(@is-dark-scheme = 1, #888, #777);
   @gray-faint: if(@is-dark-scheme = 1, #333, #ddd);
+
+  @advanced: if(@is-dark-scheme = 1, #d1333b, #f05252);
+  @intermediate: if(@is-dark-scheme = 1, #dd8600, #f19e38);
+  @beginner: if(@is-dark-scheme = 1, #00804e, #11965e);
+  @acc-transcr: if(@is-dark-scheme = 1, #313c37, #def7ec);
 
   @text-add: if(
     @is-dark-scheme = 1,
@@ -471,6 +476,10 @@
     background-color: @bg-main;
   }
 
+  .z7aOQ {
+    background-color: @bg-main;
+  }
+
   /** main navbar **/
 
   .xlHp4 {
@@ -647,6 +656,31 @@
 
   .zeFu4.o1QE0 {
     color: @main;
+  }
+
+  /* "Advanced" sign */
+  .a0naR {
+    background: @advanced;
+  }
+
+  /* "Intermediate" sign */
+  .Al3lQ {
+    background: @intermediate;
+  }
+
+  /* "Beginner" sign */
+  .Au_pg {
+    background: @beginner;
+  }
+
+  /* "Accurate Transcription" sign*/
+  .XnSm_ {
+    color: @text-main;
+    background-color: @acc-transcr;
+  }
+
+  .XxyZ8 {
+    fill: @text-main;
   }
 
   /* sign popup */
@@ -1492,7 +1526,8 @@
 @-moz-document url-prefix("https://musescore.com/user/settings"),
 url-prefix("https://musescore.com/user/message"), url-prefix("https://musescore.com/user/notification"),
 regexp("https?://(www\\.)?musescore\\.com/user/\\d+/(billing|edit|subscription|gifts|notifications).*"),
-url-prefix("https://musescore.com/licensing")
+url-prefix("https://musescore.com/licensing"),
+url-prefix("https://musescore.com/my-scores")
 {
   /* Old pages */
   *::selection {
