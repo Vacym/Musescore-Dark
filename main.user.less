@@ -1,7 +1,7 @@
 /* ==UserStyle==text
 @name           Musescore dark
 @namespace      https://github.com/Vacym
-@version        1.0.8
+@version        1.0.9
 @description    Dark theme for musescore.com with score inverting and customizable colors
 @author         Vacym
 @homepageURL    https://github.com/Vacym/Musescore-Dark
@@ -39,7 +39,7 @@
 
   /* original colors
   @bg-main: #ffffff;
-  @bg-sub: #f6f6f6; #f4f9ff;
+  @bg-sub: #f6f6f6; #f4f9ff; #f9fafb;
   @bg-extra: f2f2f2;
   @bg-peculiar: #f4f5f7, #f7f9fc;
   @accent: #e2e8f0; #dbe3e9, #e2e9ef;
@@ -305,6 +305,7 @@
   .mBsU8,
   .oco96,
   .i3hv8,
+  .cuYtG.O9yD2,
   .RsovW.TQzQH {
     color: @text-main;
   }
@@ -1098,6 +1099,15 @@
     border-bottom-color: @accent;
   }
 
+  /* like prewiew button */
+  .bXUN6 {
+    background-color: @bg-main;
+  }
+
+  .bXUN6:hover {
+    background-color: @bg-sub;
+  }
+
   /*** SETTINGS PAGE ***/
   /** setting sections **/
   .dhE8S {
@@ -1541,23 +1551,21 @@
   .u1QJs.YoENW {
     border-bottom-color: @text-main;
   }
-}
 
-@-moz-document url-prefix("https://musescore.com/user/settings"),
-url-prefix("https://musescore.com/user/message"), url-prefix("https://musescore.com/user/notification"),
-regexp("https?://(www\\.)?musescore\\.com/user/\\d+/(billing|edit|subscription|gifts|notifications).*"),
-url-prefix("https://musescore.com/licensing"),
-url-prefix("https://musescore.com/my-scores")
-{
-  /* Old pages */
-  *::selection {
-    background-color: #fff;
-    color: #000;
-  }
+  /*** OLD PAGES ***/
 
-  *::-moz-selection {
-    background-color: #fff;
-    color: #000;
+  /* black-and-white highlighting */
+  html:has(link[href^="https://musescore.com/static/public/build/musescore_old/index_desktop"])
+  {
+    *::selection {
+      background-color: @opposite;
+      color: @same;
+    }
+
+    *::-moz-selection {
+      background-color: @opposite;
+      color: @same;
+    }
   }
 }
 
