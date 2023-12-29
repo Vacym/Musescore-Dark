@@ -1,7 +1,7 @@
 /* ==UserStyle==text
 @name           Musescore dark
 @namespace      https://github.com/Vacym
-@version        1.0.9
+@version        1.1.0
 @description    Dark theme for musescore.com with score inverting and customizable colors
 @author         Vacym
 @homepageURL    https://github.com/Vacym/Musescore-Dark
@@ -358,6 +358,12 @@
     background-color: @main-transparent-hover;
   }
 
+  /* invite button */
+  .YJltQ[disabled] {
+    background-color: @accent;
+    color: @text-add;
+  }
+
   /* white buttons */
   .plVkZ.nIsQu,
   .GCNL2.pRBsn {
@@ -441,6 +447,7 @@
 
   .FMkpa > select {
     color: @text-extra;
+    background-color: inherit;
   }
 
   .FMkpa > select option,
@@ -961,7 +968,8 @@
   /*** POPUP WINDOWS ***/
 
   .b_r17.aRvRz,
-  .ASx44._gyAu {
+  .ASx44._gyAu,
+  .zUf1i {
     background-color: @bg-main !important;
   }
 
@@ -1033,6 +1041,33 @@
   /* correction section */
   .BEm3T {
     background-color: @bg-peculiar;
+  }
+
+  /** users list **/
+  .iy9Az {
+    border-color: @border-sub;
+  }
+
+  .iy9Az > input {
+    background-color: inherit;
+  }
+
+  .H785C {
+    background: @bg-peculiar;
+    border-top-color: @main;
+    box-shadow: 0 2px 4px fade(@opposite, 25);
+  }
+
+  .kXPIJ:hover {
+    background-color: @bg-main;
+  }
+
+  .n6j3E {
+    background-color: @border-sub;
+  }
+
+  .fvzoJ {
+    background-color: @border-sub-hover!important;
   }
 
   /*** MY SCORES ***/
@@ -1387,7 +1422,8 @@
   }
 
   .rHSBQ._VOFS:last-of-type,
-  .rHSBQ.Nb1H4 {
+  .rHSBQ.Nb1H4,
+  .a1y6x.olcxJ {
     border-bottom-color: @border-main;
   }
 
