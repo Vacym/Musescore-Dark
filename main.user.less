@@ -1,7 +1,7 @@
 /* ==UserStyle==text
 @name           Musescore dark
 @namespace      https://github.com/Vacym
-@version        1.1.0
+@version        1.1.1
 @description    Dark theme for musescore.com with score inverting and customizable colors
 @author         Vacym
 @homepageURL    https://github.com/Vacym/Musescore-Dark
@@ -275,6 +275,7 @@
   .gaVbJ,
   .u778z,
   .YST90,
+  .AmlGR,
   .NSJni,
   .NSJni path {
     color: @text-extra;
@@ -632,6 +633,7 @@
   /** score preview */
   .T_xXu,
   .wtKHS,
+  .gLt3K,
   .ySV7C {
     filter: @score-preview-filter;
     background: white;
@@ -1427,6 +1429,7 @@
     border-bottom-color: @border-main;
   }
 
+  .b3g4u.g41eL,
   .a1y6x,
   .rHSBQ {
     border-bottom-color: @accent;
@@ -1479,7 +1482,8 @@
 
   /** "Other versions of this composition" **/
   /** hopefully temporarily **/
-  .t_IQr > .VkU1C > a {
+  .t_IQr > .VkU1C > a,
+  .MMpxf > .LGF5_ > a {
     background-color: @bg-main !important;
     border-color: @border-sub !important;
   }
@@ -1558,6 +1562,13 @@
   }
   .ZXcO4 {
     border-top-color: @bg-sub;
+  }
+
+  /* playback box */
+  @media (max-width: 768px) {
+    .WgEfJ {
+      background: @bg-sub;
+    }
   }
 
   /* top back bar */
