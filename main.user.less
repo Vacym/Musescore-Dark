@@ -1,7 +1,7 @@
 /* ==UserStyle==text
 @name           Musescore dark
 @namespace      https://github.com/Vacym
-@version        1.1.2
+@version        1.1.3
 @description    Dark theme for musescore.com with score inverting and customizable colors
 @author         Vacym
 @homepageURL    https://github.com/Vacym/Musescore-Dark
@@ -30,7 +30,7 @@
 @var text  ad-filter             "ad filter"                  "none"
 @var text  avatar-filter         "avatar filter"              "brightness(80%)"
 @var text  cover-filter          "cover filter"               "brightness(80%)"
-@var text  svg-filter            "svg filter"                 "contrast(117%) brightness(80%)"
+@var text  svg-filter            "svg filter"                 "contrast(117%) brightness(85%)"
 
 ==/UserStyle== */
 
@@ -311,6 +311,7 @@
   .mBsU8,
   .oco96,
   .i3hv8,
+  .GxpAQ,
   .cuYtG.O9yD2,
   .RsovW.TQzQH {
     color: @text-main;
@@ -890,7 +891,7 @@
     color: @text-main;
   }
 
-  /* bpm controller */
+  /* bpm frame */
   .Np_8H {
     border-color: fadeout(@text-main, 90%);
   }
@@ -1495,11 +1496,36 @@
   }
 
   /** "Other versions of this composition" **/
-  /** hopefully temporarily **/
-  .t_IQr > .VkU1C > a,
-  .MMpxf > .LGF5_ > a {
-    background-color: @bg-main !important;
-    border-color: @border-sub !important;
+  .jZA4e {
+    border-color: @border-sub;
+    filter: @score-preview-filter;
+  }
+
+  /* tabs */
+  .GxpAQ.rJfut {
+    border-bottom-color: @link;
+    color: @text-extra;
+  }
+
+  .GxpAQ:hover {
+    border-bottom-color: @link;
+  }
+
+  /** Related playlists **/
+  .Liftu {
+    background-color: @bg-peculiar;
+  }
+
+  .a6m2q {
+    filter: @score-preview-filter;
+  }
+
+  .yXguV {
+    background-color: @same;
+
+    .XxyZ8 {
+      color: @opposite;
+    }
   }
 
   /***************************/
