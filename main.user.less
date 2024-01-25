@@ -1,7 +1,7 @@
 /* ==UserStyle==text
 @name           Musescore dark
 @namespace      https://github.com/Vacym
-@version        1.1.3
+@version        1.1.4
 @description    Dark theme for musescore.com with score inverting and customizable colors
 @author         Vacym
 @homepageURL    https://github.com/Vacym/Musescore-Dark
@@ -215,6 +215,7 @@
   .oz9dW,
   .TGAsX,
   .NvZOY,
+  .fXlrf,
   .z5wmd,
   .z5wmd a {
     color: @link;
@@ -1496,7 +1497,8 @@
   }
 
   /** "Other versions of this composition" **/
-  .jZA4e {
+  .jZA4e,
+  .fnqaJ {
     border-color: @border-sub;
     filter: @score-preview-filter;
   }
@@ -1509,6 +1511,10 @@
 
   .GxpAQ:hover {
     border-bottom-color: @link;
+  }
+
+  .wAojZ {
+    background-color: @border-sub;
   }
 
   /** Related playlists **/
@@ -1528,10 +1534,29 @@
     }
   }
 
+  /** Curated playlists **/
+  .n08HO {
+    background-color: @bg-peculiar;
+    filter: @score-preview-filter;
+  }
+
   /***************************/
   /***** MOBILE STYLE*****/
 
   /*** Common ***/
+  /* Search */
+  .i1o3q {
+    background-color: @bg-main;
+  }
+
+  .Ubx29 {
+    background-color: @bg-main;
+    box-shadow:
+      0 0 0 1px fade(@opposite, 5%),
+      0 10px 15px -3px fade(@opposite, 1%),
+      0 4px 6px -2px fade(@opposite, 5%);
+  }
+
   /* "Download mobile app" */
   .xUZUO,
   .TCmcx,
@@ -1658,9 +1683,5 @@
 
 @-moz-document domain("musescore.com") {
   /* Fixes */
-
-  /* search */
-  .ic0KS {
-    z-index: 1000;
-  }
+  /* no fixes now */
 }
