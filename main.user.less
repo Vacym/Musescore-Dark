@@ -1,7 +1,7 @@
 /* ==UserStyle==text
 @name           Musescore dark
 @namespace      https://github.com/Vacym
-@version        1.1.4
+@version        1.1.5
 @description    Dark theme for musescore.com with score inverting and customizable colors
 @author         Vacym
 @homepageURL    https://github.com/Vacym/Musescore-Dark
@@ -48,7 +48,7 @@
   @text-extra: #64748b; #94a0b0; #607087;
   @text-add: #475569; #97a6ba; #94a0b0;
   @link: #2e68c0;
-  @link-hover: #1a4f9f;
+  @link-hover: #1a4f9f; #123569;
   @main: #2e68c0; #1f74bd;
   @main-hover: #1a4f9f; #0e5a94;
   @main-transparent: #e1effe;
@@ -75,8 +75,8 @@
 
   @link-hover: if(
     @is-dark-scheme = 1,
-    saturate(lighten(@link, 25%, relative), 300%, relative),
-    saturate(darken(@link, 50%, relative), 15%, relative)
+    desaturate(lighten(@link, 25%, relative), 20%, relative),
+    desaturate(darken(@link, 60%, relative), 20%, relative)
   );
 
   @main-hover: if(@is-dark-scheme = 1, lighten(@main, 10%), darken(@main, 10%));
@@ -282,8 +282,10 @@
   .u778z,
   .YST90,
   .AmlGR,
+  .BaucG,
   .NSJni,
-  .NSJni path {
+  .NSJni path,
+  .AyWMK > a {
     color: @text-extra;
   }
 
@@ -313,6 +315,9 @@
   .oco96,
   .i3hv8,
   .GxpAQ,
+  .PWGaj,
+  .a_IJV,
+  .PriGL > a,
   .cuYtG.O9yD2,
   .RsovW.TQzQH {
     color: @text-main;
@@ -518,7 +523,7 @@
   }
 
   /* nav discount */
-  header.NnZeV > nav + div {
+  .lQmTM {
     filter: @discount-filter;
   }
 
@@ -652,6 +657,10 @@
 
   .T_xXu:hover {
     border-color: @border-sub-hover;
+  }
+
+  .KM6bP {
+    fill: @text-extra;
   }
 
   /** signs **/
@@ -835,6 +844,11 @@
   .GCNL2.sJCgc:hover {
     border-color: @link-hover;
     color: @link-hover;
+  }
+
+  /* mobile app discount*/
+  .W0JQ7 {
+    filter: @discount-filter;
   }
 
   /***************************/
