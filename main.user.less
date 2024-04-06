@@ -1,7 +1,7 @@
 /* ==UserStyle==text
 @name           Musescore dark
 @namespace      https://github.com/Vacym
-@version        1.1.5
+@version        1.1.6
 @description    Dark theme for musescore.com with score inverting and customizable colors
 @author         Vacym
 @homepageURL    https://github.com/Vacym/Musescore-Dark
@@ -30,7 +30,7 @@
 @var text  ad-filter             "ad filter"                  "none"
 @var text  avatar-filter         "avatar filter"              "brightness(80%)"
 @var text  cover-filter          "cover filter"               "brightness(80%)"
-@var text  svg-filter            "svg filter"                 "contrast(117%) brightness(85%)"
+@var text  svg-filter            "svg filter"                 "hue-rotate(5deg) brightness(120%) saturate(95%)"
 
 ==/UserStyle== */
 
@@ -812,6 +812,13 @@
     color: @link;
   }
 
+  /* "Explore sheet music" exception */
+  .pDYxK,
+  .pDYxK path {
+    fill: #e82c2c;
+    color: #e82c2c;
+  }
+
   .tUVo_ path {
     fill: currentColor;
     color: currentColor;
@@ -1173,6 +1180,10 @@
 
   .bXUN6:hover {
     background-color: @bg-sub;
+  }
+
+  .I3QFq {
+    fill: @text-main;
   }
 
   /*** SETTINGS PAGE ***/
