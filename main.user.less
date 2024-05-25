@@ -1,7 +1,7 @@
 /* ==UserStyle==text
 @name           Musescore dark
 @namespace      https://github.com/Vacym
-@version        1.1.9
+@version        1.2.0
 @description    Dark theme for musescore.com with score inverting and customizable colors
 @author         Vacym
 @license        MIT
@@ -260,7 +260,8 @@
   }
 
   /* high contrast text */
-  .J8pNU {
+  .J8pNU,
+  .XhWTP {
     color: @opposite;
   }
 
@@ -318,6 +319,7 @@
   .GxpAQ,
   .PWGaj,
   .a_IJV,
+  .MuxLs,
   .PriGL > a,
   .cuYtG.O9yD2,
   .RsovW.TQzQH {
@@ -413,6 +415,13 @@
 
   .plVkZ.nIsQu svg path {
     fill: currentColor;
+  }
+
+  /* transparent buttons */
+  .Tf9QF .mMxym {
+    background-color: transparent;
+    color: @text-main;
+    border-color: fade(@text-main, 10.2%);
   }
 
   /* other buttons */
@@ -1471,6 +1480,26 @@
     color: @link;
   }
 
+  /* broken comment */
+  .JPrRu {
+    button {
+      width: 30px;
+      height: 30px;
+      margin-right: 2px;
+
+      background-color: @gray-faint;
+      border-radius: 5px;
+
+      svg > path {
+        fill: @gray-medium;
+      }
+    }
+
+    div[role="textbox"] {
+      margin: 10px;
+    }
+  }
+
   /* sent comment */
   .QHTNx {
     background-color: @accent;
@@ -1741,5 +1770,11 @@
 
 @-moz-document domain("musescore.com") {
   /* Fixes */
-  /* no fixes now */
+
+  /* fullscreen */
+  @media (orientation: landscape) {
+    .YKX96 {
+      height: 100%;
+    }
+  }
 }
