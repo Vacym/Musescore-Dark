@@ -1,7 +1,7 @@
 /* ==UserStyle==text
 @name           Musescore dark
 @namespace      https://github.com/Vacym
-@version        1.2.0
+@version        1.2.1
 @description    Dark theme for musescore.com with score inverting and customizable colors
 @author         Vacym
 @license        MIT
@@ -192,6 +192,11 @@
     color: @text-main;
   }
 
+  body,
+  button {
+    color: @text-main;
+  }
+
   main,
   .OWn3l {
     background-color: @bg-main;
@@ -286,6 +291,8 @@
   .AmlGR,
   .BaucG,
   .NSJni,
+  .U9oHr,
+  .NSIzH path,
   .NSJni path,
   .AyWMK > a {
     color: @text-extra;
@@ -1489,14 +1496,16 @@
 
       background-color: @gray-faint;
       border-radius: 5px;
+      border-color: @border-sub;
+      cursor: pointer;
 
       svg > path {
         fill: @gray-medium;
       }
     }
 
-    div[role="textbox"] {
-      margin: 10px;
+    div[role="combobox"] {
+      padding: 10px;
     }
   }
 

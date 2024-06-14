@@ -11,7 +11,7 @@ Musescore Dark is a customizable dark theme for musescore.com, designed to enhan
 
 ### Installation
 
-To use Musescore Dark, install the Stylus browser extension. If you don't have it, follow the [Stylus Wiki](https://github.com/openstyles/stylus/wiki/Usercss) for installation instructions.
+To use Musescore Dark, install the Stylus browser extension. If you don't have it, follow the [Stylus Wiki](https://github.com/openstyles/stylus/wiki/Usercss#how-do-i-install-usercss) for installation instructions.
 
 ### Limitations
 
