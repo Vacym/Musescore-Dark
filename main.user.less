@@ -1,7 +1,7 @@
 /* ==UserStyle==text
 @name           Musescore dark
 @namespace      https://github.com/Vacym
-@version        1.4.2
+@version        2.0.0
 @description    Dark theme for musescore.com with score inverting and customizable colors
 @author         Vacym
 @license        MIT
@@ -20,8 +20,8 @@
 @var color text-main             "main text color"            #f2f9ff
 @var color text-sub              "plain text color"           #c4d0e4
 @var color text-extra            "tertiary text color"        #8797af
-@var color link                  "links color"                #6492f7
-@var color main                  "main color"                 #1a4f9f
+@var color link                  "links color"                #a189ff
+@var color main                  "main color"                 #4f44e5
 @var color secondary             "secondary color"            #0b804f
 @var color measure-current       "measure color"              rgba(240, 20, 20, 0.2)
 
@@ -41,22 +41,21 @@
 
   /* original colors
   @bg-main: #ffffff;
-  @bg-sub: #f6f6f6; #f4f9ff; #f9fafb;
+  @bg-sub: #ffffff; #f4f9ff; #f9fafb;
   @bg-extra: f2f2f2;
   @bg-peculiar: #f4f5f7, #f7f9fc;
   @accent: #e2e8f0; #dbe3e9, #e2e9ef;
-  @text-main: #1a202e;
-  @text-sub: #364152;
-  @text-extra: #64748b; #94a0b0; #607087;
-  @text-add: #475569; #97a6ba; #94a0b0;
-  @link: #2e68c0;
-  @link-hover: #1a4f9f; #123569;
-  @main: #2e68c0; #1f74bd;
-  @main-hover: #1a4f9f; #0e5a94;
-  @main-transparent: #e1effe;
-  @main-transparent-hover: #c3ddfd;
+  @text-main: #180036;
+  @text-sub: #180036;
+  @text-extra: #6e5f79; #94a0b0; #607087;
+  @text-add: #475569; #97a6ba; #94a0b0; #8f8993;
+  @link: #6b5dfe;
+  @link-hover: #4f44e5; #5c51f2; #123569;
+  @main: #6b5dfe; #1f74bd;
+  @main-hover: #4f44e5; #0e5a94;
+  @main-transparent: #f5eeff;
   @main-inactive: #a4cafe;
-  @main-magic: #daecfe;
+  @main-magic: #f5eeff;
   @secondary: #21b275; #3ac696;
   @secondary-hover: #0b804f;
 
@@ -77,7 +76,7 @@
 
   @link-hover: if(
     @is-dark-scheme = 1,
-    desaturate(lighten(@link, 25%, relative), 20%, relative),
+    desaturate(lighten(@link, 10%, relative), 20%, relative),
     desaturate(darken(@link, 60%, relative), 20%, relative)
   );
 
@@ -96,25 +95,11 @@
 
   @main-transparent: if(
     @is-dark-scheme = 1,
-    desaturate(darken(@main, 55%, relative), 60%, relative),
+    desaturate(darken(@main, 70%, relative), 80%, relative),
     hsl(hue(@main), 94%, 94%)
   );
 
-  @main-magic: if(
-    @is-dark-scheme = 1,
-    hsla(
-      hsvhue(@main),
-      if(saturation(@main) = 0, 0%, 0.5 * saturation(@main)),
-      0.35 * lightness(@main) + 4,
-      alpha(@main)
-    ),
-    hsla(
-      hsvhue(@main),
-      if(saturation(@main) = 0, 0%, 0.125 * saturation(@main) + 87.5),
-      0.2 * lightness(@main) + 80%,
-      alpha(@main)
-    )
-  );
+  @main-magic: @main-transparent;
 
   @secondary-hover: if(
     @is-dark-scheme = 1,
@@ -146,7 +131,7 @@
     hsl(
       hsvhue(@main),
       if(saturation(@main) = 0, 0%, 0.15 * saturation(@main)),
-      1.7 * lightness(@bg-sub)
+      lightness(@bg-sub) + 15
     ),
     hsl(
       hsvhue(@main),
@@ -293,6 +278,7 @@
   .BaucG,
   .NSJni,
   .U9oHr,
+  .pzVsO,
   .NSIzH path,
   .NSJni path,
   .AyWMK > a {
@@ -340,6 +326,10 @@
     color: @text-main;
   }
 
+  .kYRNn {
+    color: @text-extra;
+  }
+
   .qFBnv {
     color: inherit;
   }
@@ -379,13 +369,13 @@
   /* transparent main buttons, Follow button */
   .tDPQ9.nOTLW,
   .GCNL2 {
-    background: @main-transparent;
-    color: @link;
+    background: @bg-extra;
+    color: @text-main;
   }
 
   .tDPQ9.nOTLW:hover,
   .GCNL2:hover {
-    background-color: @main-transparent-hover;
+    background-color: @gray-faint;
   }
 
   /* invite button */
@@ -533,22 +523,24 @@
 
   /** main navbar **/
 
+  .NnZeV {
+    border-bottom: 1px solid @border-main;
+  }
+
   .xlHp4 {
-    background-color: @main;
+    background-color: @bg-main;
   }
 
-  .u_VDg.Dhs0s.wXNik.MXKfV:hover,
-  .Dhs0s.wXNik.MXKfV:active,
-  .Dhs0s.MXKfV.nIsQu:hover:after {
-    background-color: @main-hover;
+  .yImAZ,
+  .yImAZ:hover {
+    color: @text-main !important;
   }
 
-  .Dhs0s.nIsQu:hover {
-    color: @link;
+  .plVkZ.O9yD2 {
+    color: @text-main;
   }
-
-  .Dhs0s.nIsQu:hover:after {
-    border-color: @main-hover;
+  .plVkZ.O9yD2:hover {
+    color: @gray;
   }
 
   /* nav discount */
@@ -568,27 +560,16 @@
     background-color: @bg-main;
   }
 
+  .ic0KS {
+    border-color: @gray-faint;
+  }
+
   .ic0KS.EGfQI {
     border-color: @border-main;
   }
 
-  .wMbIR {
-    background-color: @bg-main;
-    border-radius: 6px;
-  }
-
   .Yf0HJ {
     background: transparent !important;
-  }
-
-  .OHeqn {
-    background-color: @bg-sub;
-  }
-
-  @media (max-width: 959px) {
-    .hzbdu {
-      background: @main;
-    }
   }
 
   /* search icon */
@@ -842,7 +823,7 @@
   }
 
   /* "Send to YouTube" svg */
-  path[fill="#2E68C0"] {
+  path[fill="#6b5dfe"] {
     fill: @link;
     color: @link;
   }
@@ -1720,8 +1701,8 @@
 
   .NSJni,
   .NSJni path {
-    fill: @text-extra;
-    color: @text-extra;
+    fill: @text-add;
+    color: @text-add;
   }
 
   /* Page selection */
