@@ -1,7 +1,7 @@
 /* ==UserStyle==text
 @name           Musescore dark
 @namespace      https://github.com/Vacym
-@version        2.0.0
+@version        2.1.0
 @description    Dark theme for musescore.com with score inverting and customizable colors
 @author         Vacym
 @license        MIT
@@ -15,24 +15,24 @@
 
 @var color bg-main               "main background color"      #101010
 @var color bg-sub                "secondary background color" #222222
-@var color bg-extra              "tertiary background color"  #252525
+@var color bg-extra              "tertiary background color"  #1b1b1b
 @var color accent                "accent color"               #282d33
-@var color text-main             "main text color"            #f2f9ff
-@var color text-sub              "plain text color"           #c4d0e4
-@var color text-extra            "tertiary text color"        #8797af
-@var color link                  "links color"                #a189ff
+@var color text-main             "main text color"            #fff2ff
+@var color text-sub              "plain text color"           #fff2ff
+@var color text-extra            "tertiary text color"        #af9fbb
+@var color link                  "links color"                #937eff
 @var color main                  "main color"                 #4f44e5
 @var color secondary             "secondary color"            #0b804f
 @var color measure-current       "measure color"              rgba(240, 20, 20, 0.2)
 
-@var text  main-score-filter     "score filter"               "invert(90%) hue-rotate(180deg)"
+@var text  main-score-filter     "score filter"               "invert(95%) hue-rotate(180deg)"
 @var text  alt-score-filter      "alternative score filter"   "brightness(50%)"
 @var text  score-preview-filter  "score preview filter"       "brightness(50%)"
 @var text  discount-filter       "discount filter"            "brightness(40%)"
 @var text  ad-filter             "ad filter"                  "none"
 @var text  avatar-filter         "avatar filter"              "brightness(80%)"
 @var text  cover-filter          "cover filter"               "brightness(80%)"
-@var text  svg-filter            "svg filter"                 "invert(90%) hue-rotate(185deg) brightness(80%) saturate(180%)"
+@var text  svg-filter            "svg filter"                 "brightness(120%) saturate(95%)"
 
 ==/UserStyle== */
 
@@ -41,7 +41,7 @@
 
   /* original colors
   @bg-main: #ffffff;
-  @bg-sub: #ffffff; #f4f9ff; #f9fafb;
+  @bg-sub: #f7f9fc; #f4f9ff; #f9fafb;
   @bg-extra: f2f2f2;
   @bg-peculiar: #f4f5f7, #f7f9fc;
   @accent: #e2e8f0; #dbe3e9, #e2e9ef;
@@ -53,8 +53,8 @@
   @link-hover: #4f44e5; #5c51f2; #123569;
   @main: #6b5dfe; #1f74bd;
   @main-hover: #4f44e5; #0e5a94;
-  @main-transparent: #f5eeff;
-  @main-inactive: #a4cafe;
+  @main-transparent: #f3f1f4;
+  @main-inactive: #8f8993;
   @main-magic: #f5eeff;
   @secondary: #21b275; #3ac696;
   @secondary-hover: #0b804f;
@@ -65,6 +65,7 @@
   @border-main: #cfd8e3;
   @border-sub: #d2d6dc; #b1bac2;
   @border-sub-hover: #94a0b0; #97a6ba;
+  @border-bright: #a7a4a9;
   @border-magic: #a4cafe;
   */
 
@@ -81,25 +82,30 @@
   );
 
   @main-hover: if(@is-dark-scheme = 1, lighten(@main, 10%), darken(@main, 10%));
+
+  @main-inactive: if(
+    @is-dark-scheme = 1,
+    desaturate(darken(@main, 78%, relative), 86%, relative),
+    saturate(lighten(@main, 35%), 20%, relative)
+  );
+
+  @main-transparent: if(
+    @is-dark-scheme = 1,
+    desaturate(darken(@main, 72%, relative), 92%, relative),
+    hsl(hue(@main), 94%, 94%)
+  );
+
   @main-transparent-hover: if(
     @is-dark-scheme = 1,
     lighten(@main-transparent, 6%),
     darken(@main-transparent, 6%)
   );
 
-  @main-inactive: if(
-    @is-dark-scheme = 1,
-    desaturate(darken(@main, 13%), 60%, relative),
-    saturate(lighten(@main, 35%), 20%, relative)
-  );
-
-  @main-transparent: if(
+  @main-magic: if(
     @is-dark-scheme = 1,
     desaturate(darken(@main, 70%, relative), 80%, relative),
     hsl(hue(@main), 94%, 94%)
   );
-
-  @main-magic: @main-transparent;
 
   @secondary-hover: if(
     @is-dark-scheme = 1,
@@ -115,9 +121,15 @@
   @gray-medium: if(@is-dark-scheme = 1, #888, #777);
   @gray-faint: if(@is-dark-scheme = 1, #333, #ddd);
 
-  @advanced: if(@is-dark-scheme = 1, #d1333b, #f05252);
-  @intermediate: if(@is-dark-scheme = 1, #dd8600, #f19e38);
-  @beginner: if(@is-dark-scheme = 1, #00804e, #11965e);
+  @advanced: if(@is-dark-scheme = 1, #552c2a, #ffb8aa);
+  @advanced-text: if(@is-dark-scheme = 1, #ffb8aa, #3c0915);
+
+  @intermediate: if(@is-dark-scheme = 1, #5a4525, #f9c66d);
+  @intermediate-text: if(@is-dark-scheme = 1, #f9c66d, #410b00);
+
+  @beginner: if(@is-dark-scheme = 1, #1d4034, #95e7d3);
+  @beginner-text: if(@is-dark-scheme = 1, #95e7d3, #00271c);
+
   @acc-transcr: if(@is-dark-scheme = 1, #313c37, #def7ec);
 
   @text-add: if(
@@ -168,6 +180,8 @@
     )
   );
 
+  @border-bright: if(@is-dark-scheme = 1, #545454, #a7a7a7);
+
   @bg-add: @bg-extra;
   @bg-peculiar: @bg-extra;
 
@@ -194,6 +208,10 @@
   }
 
   /*** Common styles ***/
+  /** logo **/
+  .KYj8I {
+    filter: @svg-filter;
+  }
 
   /** text **/
 
@@ -369,13 +387,14 @@
   /* transparent main buttons, Follow button */
   .tDPQ9.nOTLW,
   .GCNL2 {
-    background: @bg-extra;
+    background: @main-transparent;
     color: @text-main;
   }
 
   .tDPQ9.nOTLW:hover,
   .GCNL2:hover {
-    background-color: @gray-faint;
+    background-color: @main-transparent-hover;
+    color: @text-main;
   }
 
   /* invite button */
@@ -441,7 +460,7 @@
   /* textarea */
   .NvccO {
     background-color: @bg-main;
-    border-color: @border-main;
+    border-color: @border-bright;
   }
 
   ._ZikE {
@@ -463,11 +482,6 @@
   ._Mpht {
     color: @text-main;
     border-color: @border-sub;
-  }
-
-  /** tables **/
-  table tr:nth-child(odd) td {
-    background-color: @bg-sub;
   }
 
   /** selector **/
@@ -561,7 +575,7 @@
   }
 
   .ic0KS {
-    border-color: @gray-faint;
+    border-color: @border-bright;
   }
 
   .ic0KS.EGfQI {
@@ -600,7 +614,7 @@
   .AU7yR.nOTLW {
     background-color: @bg-main;
     color: @text-sub;
-    border-color: @accent;
+    border-color: @border-bright;
   }
 
   .HFvdW:not(.wSWus) svg path {
@@ -696,7 +710,7 @@
 
   /* "original" sign */
   .JnqFx {
-    background: @main-transparent;
+    background: @main-magic;
     color: @link;
   }
 
@@ -712,16 +726,19 @@
   /* "Advanced" sign */
   .a0naR {
     background: @advanced;
+    color: @advanced-text;
   }
 
   /* "Intermediate" sign */
   .Al3lQ {
     background: @intermediate;
+    color: @intermediate-text;
   }
 
   /* "Beginner" sign */
   .Au_pg {
     background: @beginner;
+    color: @beginner-text;
   }
 
   /* "Accurate Transcription" sign*/
@@ -797,7 +814,14 @@
   /***************************/
   /*** SIDEBAR ***/
 
-  aside,
+  .tJH3Q,
+  .qHlJa {
+    background-color: @bg-main !important;
+    border-color: @border-main !important;
+  }
+
+  .gdARp,
+  .GFu0K,
   .BxFu3 {
     background-color: @bg-sub !important;
     border-color: @border-main !important;
@@ -831,8 +855,8 @@
   /* "Explore sheet music" exception */
   .pDYxK,
   .pDYxK path {
-    fill: #e82c2c;
-    color: #e82c2c;
+    fill: if(@is-dark-scheme = 1, #e61919, #f51e1e);
+    color: if(@is-dark-scheme = 1, #e61919, #f51e1e);
   }
 
   .tUVo_ path {
@@ -854,7 +878,7 @@
 
   /* score visibility box */
   .xhN57 {
-    background-color: @main-transparent;
+    background-color: @main-magic;
   }
 
   /* "Add the missing information" button */
@@ -896,7 +920,7 @@
 
   /** toolbar **/
   .Nw3SK {
-    background-color: @bg-sub;
+    background-color: @bg-main;
   }
 
   #jmuse-layout .plVkZ.O9yD2 {
@@ -971,7 +995,7 @@
   }
 
   .vBIaU {
-    background-color: @bg-sub;
+    background-color: @bg-main;
   }
 
   .hKxIH,
@@ -1109,7 +1133,7 @@
 
   /* info */
   .T3FEN.T3FEN {
-    background-color: @accent;
+    background-color: @main-magic;
   }
 
   .T3FEN.Kaa9U {
@@ -1234,6 +1258,10 @@
 
   .I3QFq {
     fill: @text-main;
+  }
+
+  .UugmH {
+    fill: if(@is-dark-scheme = 1, #ff3347, #b51c36);
   }
 
   /*** SETTINGS PAGE ***/
@@ -1564,7 +1592,7 @@
 
   /* best fit */
   .r2T2w {
-    background-color: @main-transparent;
+    background-color: @main-magic;
     border-color: @border-main;
   }
 
@@ -1667,7 +1695,13 @@
 
   /** upbar **/
   .jNRNN {
-    background-color: @main;
+    background-color: @bg-main;
+  }
+  .qLE0M svg,
+  .qLE0M svg path,
+  .HzKaa svg {
+    fill: @text-main;
+    color: @text-main;
   }
 
   /** sidebar **/
