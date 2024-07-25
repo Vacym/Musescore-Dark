@@ -11,11 +11,12 @@ Musescore Dark is a customizable dark theme for musescore.com, designed to enhan
 
 ### Installation
 
-To use Musescore Dark, install the Stylus browser extension. If you don't have it, follow the [Stylus Wiki](https://github.com/openstyles/stylus/wiki/Usercss#how-do-i-install-usercss) for installation instructions.
+To use Musescore Dark, install the _Stylus_ browser extension. If you don't have it, follow the [Stylus Wiki](https://github.com/openstyles/stylus/wiki/Usercss#how-do-i-install-usercss) for installation instructions.  
+After that, install the style from the [style page](https://userstyles.world/style/12110/musescore-dark) on _userstyles.world_
 
 ### Limitations
 
-- **Not Supported on Pro Pages:** Please note that the dark theme is not supported on pages requiring a pro subscription, including Music Courses.
+- **Not Supported on Pro Pages:** Please note that the dark theme is not supported on pages requiring a pro subscription, including Music Courses and Songbooks.
 
 ### Contribution
 

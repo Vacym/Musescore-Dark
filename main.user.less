@@ -1,7 +1,7 @@
 /* ==UserStyle==text
 @name           Musescore dark
 @namespace      https://github.com/Vacym
-@version        1.2.2
+@version        1.3.0
 @description    Dark theme for musescore.com with score inverting and customizable colors
 @author         Vacym
 @license        MIT
@@ -11,6 +11,7 @@
 
 @var checkbox is-dark-scheme      "is dark scheme"               1
 @var checkbox is-alt-score-filter "use alternative score filter" 0
+@var checkbox apply-fixes         "apply fixes"                  1
 
 @var color bg-main               "main background color"      #101010
 @var color bg-sub                "secondary background color" #222222
@@ -31,7 +32,7 @@
 @var text  ad-filter             "ad filter"                  "none"
 @var text  avatar-filter         "avatar filter"              "brightness(80%)"
 @var text  cover-filter          "cover filter"               "brightness(80%)"
-@var text  svg-filter            "svg filter"                 "hue-rotate(5deg) brightness(120%) saturate(95%)"
+@var text  svg-filter            "svg filter"                 "invert(90%) hue-rotate(185deg) brightness(80%) saturate(180%)"
 
 ==/UserStyle== */
 
@@ -305,6 +306,10 @@
     color: @text-sub;
   }
 
+  .kYRNn {
+    color: @text-extra;
+  }
+
   /* header text, "Difficulty level", "Main Info", numbers, popup text */
   .V4kyC,
   .CypfN,
@@ -576,6 +581,12 @@
 
   .OHeqn {
     background-color: @bg-sub;
+  }
+
+  @media (max-width: 959px) {
+    .hzbdu {
+      background: @main;
+    }
   }
 
   /* search icon */
@@ -1780,5 +1791,34 @@
 @-moz-document domain("musescore.com") {
   /* Fixes */
 
-  /* No fixes */
+  & when (@apply-fixes = 1) {
+    /** horizontal scrollbar on user page **/
+    /* views count */
+    .kAl0e:not(:empty) {
+      margin-right: 0px;
+    }
+
+    /* search button */
+    .vek7w .Cl2SE.V5cJq {
+      padding-right: 6px;
+      padding-left: 6px;
+    }
+
+    /* footer */
+    .ms-footer--container {
+      margin-right: 0;
+    }
+
+    @media (max-width: 767px) {
+      .ms-footer--section {
+        &:nth-child(2n + 1) {
+          width: 57%;
+        }
+
+        &:nth-child(2n) {
+          width: 43%;
+        }
+      }
+    }
+  }
 }
