@@ -1,7 +1,7 @@
 /* ==UserStyle==text
 @name           Musescore dark
 @namespace      https://github.com/Vacym
-@version        1.3.0
+@version        1.4.0
 @description    Dark theme for musescore.com with score inverting and customizable colors
 @author         Vacym
 @license        MIT
@@ -302,7 +302,8 @@
   /* plain text, special text */
   .DIiWA,
   .ZYtYj,
-  .LuX7k {
+  .LuX7k,
+  .iKiHk {
     color: @text-sub;
   }
 
@@ -332,6 +333,7 @@
   .PWGaj,
   .a_IJV,
   .MuxLs,
+  .GGUVZ,
   .PriGL > a,
   .cuYtG.O9yD2,
   .RsovW.TQzQH {
@@ -1275,18 +1277,20 @@
 
   /*** FILE UPLOAD ***/
   /* file choose */
-  .qIyhT {
-    background-color: @bg-sub;
-  }
-
-  .SGoND {
+  .O99sQ {
     background-color: @bg-sub;
     border-color: @border-main;
   }
 
-  /* file name */
-  .SZinB .iURGe {
+  /* file upload background panels */
+  .VYMBF {
     background-color: @bg-main;
+    border-color: @border-main;
+  }
+
+  /* file name */
+  .pLCSX {
+    color: @text-main;
   }
 
   /* upload score preview */
@@ -1296,30 +1300,23 @@
   }
 
   /* upload date */
-  .AIjmp {
-    background: @accent;
-    color: @link;
+  .Jp3wB {
+    color: @text-extra;
   }
 
-  /* process bar */
-  .ws02l {
+  /* upload replace file popup */
+  .u5B8N {
+    background-color: @bg-main;
+    box-shadow: 0 4px 20px 0 fade(@opposite, 20%);
+    color: @text-main;
+  }
+  .tRVqR {
     background-color: @bg-main;
   }
 
-  .SZinB.ws02l {
-    border-color: @accent;
-  }
-
-  ._RqxF.ws02l {
-    border-color: @main;
-  }
-
-  ._RqxF .iURGe {
-    background-color: @main-transparent;
-  }
-
-  ._RqxF .SEF42 {
-    color: @link;
+  /* score in processing rotating loading background */
+  .CMEKN {
+    background-color: @bg-main;
   }
 
   /*** DIRECT MESSAGES ***/
