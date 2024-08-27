@@ -1,7 +1,7 @@
 /* ==UserStyle==text
 @name           Musescore dark
 @namespace      https://github.com/Vacym
-@version        1.4.0
+@version        1.4.1
 @description    Dark theme for musescore.com with score inverting and customizable colors
 @author         Vacym
 @license        MIT
@@ -1033,8 +1033,7 @@
     filter: @score-filter;
   }
 
-  #jmuse-scroller-component > div,
-  #jmuse-scroller-component > section > div {
+  #jmuse-scroller-component > div {
     background-color: @bg-sub;
   }
 
@@ -1061,8 +1060,16 @@
   }
 
   /* discount */
+  .s3Wga {
+    background: @bg-sub;
+  }
+
   .s3Wga .tbdq7 {
     filter: @discount-filter;
+  }
+
+  .s3Wga.dhyJp:after {
+    background: @bg-main;
   }
 
   /***************************/
