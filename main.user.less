@@ -1,7 +1,7 @@
 /* ==UserStyle==text
 @name           Musescore dark
 @namespace      https://github.com/Vacym
-@version        2.1.0
+@version        2.1.1
 @description    Dark theme for musescore.com with score inverting and customizable colors
 @author         Vacym
 @license        MIT
@@ -13,8 +13,8 @@
 @var checkbox is-alt-score-filter "use alternative score filter" 0
 @var checkbox apply-fixes         "apply fixes"                  1
 
-@var color bg-main               "main background color"      #101010
-@var color bg-sub                "secondary background color" #222222
+@var color bg-main               "main background color"      #181818
+@var color bg-sub                "secondary background color" #202020
 @var color bg-extra              "tertiary background color"  #1b1b1b
 @var color accent                "accent color"               #282d33
 @var color text-main             "main text color"            #fff2ff
@@ -41,7 +41,7 @@
 
   /* original colors
   @bg-main: #ffffff;
-  @bg-sub: #f7f9fc; #f4f9ff; #f9fafb;
+  @bg-sub: #f7f9fc; #f4f9ff; #f9fafb #f9f7fa;
   @bg-extra: f2f2f2;
   @bg-peculiar: #f4f5f7, #f7f9fc;
   @accent: #e2e8f0; #dbe3e9, #e2e9ef;
@@ -53,7 +53,7 @@
   @link-hover: #4f44e5; #5c51f2; #123569;
   @main: #6b5dfe; #1f74bd;
   @main-hover: #4f44e5; #0e5a94;
-  @main-transparent: #f3f1f4;
+  @main-transparent: #f3f1f4; #e7e5e8;
   @main-inactive: #8f8993;
   @main-magic: #f5eeff;
   @secondary: #21b275; #3ac696;
@@ -91,7 +91,7 @@
 
   @main-transparent: if(
     @is-dark-scheme = 1,
-    desaturate(darken(@main, 72%, relative), 92%, relative),
+    desaturate(darken(@main, 70%, relative), 95%, relative),
     hsl(hue(@main), 94%, 94%)
   );
 
@@ -816,7 +816,7 @@
 
   .tJH3Q,
   .qHlJa {
-    background-color: @bg-main !important;
+    background-color: @bg-sub !important;
     border-color: @border-main !important;
   }
 
