@@ -1,7 +1,7 @@
 /* ==UserStyle==text
 @name           Musescore dark
 @namespace      https://github.com/Vacym
-@version        1.4.2
+@version        1.4.3
 @description    Dark theme for musescore.com with score inverting and customizable colors
 @author         Vacym
 @license        MIT
@@ -63,7 +63,7 @@
   @measure-current: rgba(255,0,0,.2);
   @measure-hover: rgba(255,0,0,.05);
   
-  @border-main: #cfd8e3;
+  @border-main: #cfd8e3; #a5b1c1;
   @border-sub: #d2d6dc; #b1bac2;
   @border-sub-hover: #94a0b0; #97a6ba;
   @border-magic: #a4cafe;
@@ -125,6 +125,7 @@
   @measure-hover: fadeout(@measure-current, 75%, relative);
 
   @opposite: if(@is-dark-scheme = 1, white, black);
+  @opposite-soft: if(@is-dark-scheme = 1, #d4d4d4, #2b2b2b);
   @same: if(@is-dark-scheme = 1, black, white);
   @gray: if(@is-dark-scheme = 1, #ccc, #444);
   @gray-medium: if(@is-dark-scheme = 1, #888, #777);
@@ -334,6 +335,7 @@
   .a_IJV,
   .MuxLs,
   .GGUVZ,
+  .te2Oc,
   .PriGL > a,
   .cuYtG.O9yD2,
   .RsovW.TQzQH {
@@ -499,7 +501,8 @@
   }
 
   /** checkbox **/
-  .T2luU:before {
+  .T2luU:before,
+  .HiVeL {
     background-color: @bg-main;
     border-color: @border-main;
   }
@@ -510,20 +513,24 @@
   }
 
   /** radio button **/
-  .WY0tX {
+  .WY0tX,
+  .QABXC {
     background-color: @bg-main;
     color: @bg-main;
     border-color: @border-main;
   }
 
-  .oyc_A.hSiSi .WY0tX {
-    background: @main;
+  .oyc_A.hSiSi .WY0tX,
+  .QABXC:checked,
+  .QABXC:checked:hover {
+    background-color: @main;
     border-color: @main;
     color: @main;
   }
 
   .WY0tX:after,
-  .oyc_A.hSiSi .WY0tX:after {
+  .oyc_A.hSiSi .WY0tX:after,
+  .QABXC:checked::before {
     background-color: @bg-main;
   }
 
@@ -531,7 +538,40 @@
     background-color: @bg-main;
   }
 
+  /** "Explore sheet music" selectors **/
+  /* buttons */
+  .EDcFD,
+  .r0sA3 {
+    background-color: @same;
+    border-color: @border-main;
+  }
+
+  .n2qQ2 {
+    background-color: @opposite-soft;
+    color: @same;
+  }
+
+  .l1ErA {
+    background-color: @main-transparent;
+    color: @text-main;
+  }
+
+  .lySzE {
+    background-color: @opposite-soft;
+    color: @same;
+  }
+
+  /* selectors */
+  .qRgwn,
+  .eHxdI {
+    background-color: @same;
+  }
+
   /** main navbar **/
+
+  .NnZeV {
+    border-bottom: 1px solid @border-main;
+  }
 
   .xlHp4 {
     background-color: @main;
