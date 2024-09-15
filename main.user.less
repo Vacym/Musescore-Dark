@@ -1,7 +1,7 @@
 /* ==UserStyle==text
 @name           Musescore dark
 @namespace      https://github.com/Vacym
-@version        1.4.3
+@version        1.4.4
 @description    Dark theme for musescore.com with score inverting and customizable colors
 @author         Vacym
 @license        MIT
@@ -933,6 +933,14 @@
     filter: @discount-filter;
   }
 
+  /* "The best way to learn and play" block */
+  .VQlJ3 {
+    background-color: @bg-sub;
+    .GADon {
+      background-color: @same;
+    }
+  }
+
   /***************************/
   /*** SHEETS OVERVIEW ***/
 
@@ -1169,6 +1177,7 @@
   /* info */
   .T3FEN.T3FEN {
     background-color: @accent;
+    color: @text-main;
   }
 
   .T3FEN.Kaa9U {
