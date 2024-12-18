@@ -1,7 +1,7 @@
 /* ==UserStyle==text
 @name           Musescore dark
 @namespace      https://github.com/Vacym
-@version        2.1.4
+@version        2.2.0
 @description    Dark theme for musescore.com with score inverting and customizable colors
 @author         Vacym
 @license        MIT
@@ -951,13 +951,6 @@
   }
 
   /* 3-dot button */
-  .MZ7fT,
-  .MZ7fT path {
-    color: @text-main;
-    fill: @text-main;
-  }
-
-  /* 3-dot button new */
   .dZTPE > svg > path {
     fill: @text-main;
   }
@@ -1850,6 +1843,69 @@
       background-color: @opposite;
       color: @same;
     }
+  }
+
+  /*** FORCED DARK COLORS IN LIGHT THEME ***/
+  /* (Should be removed when they give you the ability to switch the theme in the settings) */
+
+  [data-theme="light"] {
+    --mu-color-accent-primary-brand: #8b77ff;
+    --mu-color-accent-secondary-brand: #54ecf1;
+    --mu-color-accent-brand-contrast: #fff;
+    --mu-color-action-controls-default: #f2f2f5;
+    --mu-color-action-controls-hovered: #eaeaed;
+    --mu-color-action-controls-pressed: #d9d9dc;
+    --mu-color-action-float-default: rgba(13, 13, 16, 0.9);
+    --mu-color-action-float-hovered: #1a1a1d;
+    --mu-color-action-float-pressed: #141417;
+    --mu-color-action-primary-default: #8b77ff;
+    --mu-color-action-primary-hovered: #7c6aff;
+    --mu-color-action-primary-pressed: #6b5dfe;
+    --mu-color-action-secondary-default: hsla(0, 0%, 100%, 0.1);
+    --mu-color-action-secondary-hovered: hsla(0, 0%, 100%, 0.15);
+    --mu-color-action-secondary-pressed: hsla(0, 0%, 100%, 0.2);
+    --mu-color-additional-default: #6b5dfe;
+    --mu-color-additional-default-subdued: #f5eeff;
+    --mu-color-additional-beginner: #00271c;
+    --mu-color-additional-beginner-subdued: #95e7d3;
+    --mu-color-additional-intermediate-subdued: #f9c66d;
+    --mu-color-additional-intermediate: #410b00;
+    --mu-color-additional-advanced: #3c0915;
+    --mu-color-additional-advanced-subdued: #ffb8aa;
+    --mu-color-additional-favorite: #ff3542;
+    --mu-color-additional-staff: #666669;
+    --mu-color-additional-rating: #ffa52f;
+    --mu-color-background-default: #0d0d10;
+    --mu-color-background-highlight: #141417;
+    --mu-color-background-inactive: #1a1a1d;
+    --mu-color-background-disabled: hsla(0, 0%, 100%, 0.1);
+    --mu-color-background-none: transparent;
+    --mu-color-content-primary: #f2f2f5;
+    --mu-color-content-secondary: #a6a6a9;
+    --mu-color-content-tertiary: #8c8c8f;
+    --mu-color-content-inactive: #737376;
+    --mu-color-exception-constant-light: #fff;
+    --mu-color-exception-constant-dark: #0d0d10;
+    --mu-color-exception-inverse-dark: #0d0d10;
+    --mu-color-exception-inverse-light: #f9f7fa;
+    --mu-color-exception-modal: #262629;
+    --mu-color-form-default: #404043;
+    --mu-color-form-hovered: #545455;
+    --mu-color-form-active: #fff;
+    --mu-color-form-disabled: #262629;
+    --mu-color-overlay-image: rgba(0, 0, 0, 0.05);
+    --mu-color-overlay-modal: rgba(0, 0, 0, 0.4);
+    --mu-color-overlay-float: rgba(0, 0, 0, 0.8);
+    --mu-color-status-default: #8b77ff;
+    --mu-color-status-default-subdued: #260c44;
+    --mu-color-status-success: #019025;
+    --mu-color-status-success-subdued: #001407;
+    --mu-color-status-error: #d32139;
+    --mu-color-status-error-subdued: #1e040b;
+    --mu-color-status-warning: #d65600;
+    --mu-color-status-warning-subdued: #230400;
+    --mu-color-stroke-default: hsla(0, 0%, 100%, 0.1);
+    --mu-color-stroke-decorative: #fff;
   }
 }
 
