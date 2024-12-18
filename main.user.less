@@ -1,7 +1,7 @@
 /* ==UserStyle==text
 @name           Musescore dark
 @namespace      https://github.com/Vacym
-@version        2.2.0
+@version        2.2.1
 @description    Dark theme for musescore.com with score inverting and customizable colors
 @author         Vacym
 @license        MIT
@@ -190,12 +190,6 @@
   html {
     color-scheme: if(@is-dark-scheme = 1, dark, light);
     background-color: @bg-main;
-    color: @text-main;
-  }
-
-  body,
-  button {
-    color: @text-main;
   }
 
   main,
@@ -216,150 +210,19 @@
 
   /** text **/
 
-  /* main links */
-  a,
-  .Dhs0s,
-  .EXa5J,
-  .Ggd5G,
-  .eANU2,
-  .KOP5e,
-  .oz9dW,
-  .TGAsX,
-  .NvZOY,
-  .fXlrf,
-  .z5wmd,
-  .z5wmd a {
-    color: @link;
-  }
-
-  a:focus,
-  a:hover,
-  .u_VDg.Dhs0s.O9yD2:hover,
-  .Dhs0s.O9yD2:active,
-  .Dhs0s.O9yD2:hover,
-  .EXa5J:hover,
-  .Ggd5G:hover,
-  .eANU2:hover,
-  .u_VDg.Dhs0s.wXNik:hover,
-  .Dhs0s.wXNik:active,
-  .oz9dW:hover {
-    color: @link-hover;
-  }
-
-  .diP_e.iCnHA:hover button {
-    color: @text-main;
-  }
-
-  /* white links */
-  .RsvsB {
-    color: @text-extra;
-  }
-
-  .RsvsB.hxVnv,
-  .RsvsB.O9yD2.u_VDg:hover {
-    color: @text-sub;
-  }
-
-  .RsvsB.nIsQu:after {
-    border-color: @accent;
-  }
-
-  .RsvsB.nIsQu.u_VDg:hover {
-    border-color: @text-add;
-    color: @text-add;
-  }
-
-  /* high contrast text */
-  .J8pNU,
-  .XhWTP {
-    color: @opposite;
-  }
-
-  /* additional text */
-  h4,
-  .CuFrh.g82qd,
-  .KPcif.YkBjH,
-  .YkBjH,
-  .SsZVp {
-    color: @text-add;
-  }
-
-  /* extra text */
-  .WJGhZ,
-  .CuFrh,
-  .A8YmZ,
   .njnZK,
-  .QxBxN,
-  .gaVbJ,
-  .u778z,
-  .YST90,
-  .AmlGR,
-  .BaucG,
-  .NSJni,
-  .U9oHr,
-  .pzVsO,
-  .NSIzH path,
-  .NSJni path,
-  .AyWMK > a {
-    color: @text-extra;
+  .i9jw9 {
+    color: var(--mu-color-content-tertiary);
   }
 
-  /* plain text, special text */
-  .DIiWA,
-  .ZYtYj,
-  .LuX7k,
-  .iKiHk {
-    color: @text-sub;
-  }
-
-  .kYRNn {
-    color: @text-extra;
-  }
-
-  /* header text, "Difficulty level", "Main Info", numbers, popup text */
-  .V4kyC,
-  .CypfN,
-  .nFRPI,
   .J0qIH,
-  .rsfUn,
-  .FHjkC,
-  .Ldf02,
-  .mtQ2J,
-  .qgEgI,
-  .m_eHc,
-  .IgMdr,
-  .aR8EV,
-  .rgQ9P,
-  .kC8ua,
-  .mBsU8,
-  .oco96,
-  .i3hv8,
-  .GxpAQ,
-  .PWGaj,
-  .a_IJV,
   .MuxLs,
-  .GGUVZ,
-  .te2Oc,
-  .PriGL > a,
-  .cuYtG.O9yD2,
-  .RsovW.TQzQH {
-    color: @text-main;
+  .GGUVZ {
+    color: var(--mu-color-content-primary);
   }
 
   .kYRNn {
-    color: @text-extra;
-  }
-
-  .qFBnv {
-    color: inherit;
-  }
-
-  /* svg on buttons and links */
-  .n3ERC,
-  .n3ERC circle,
-  .n3ERC path {
-    fill: @link;
-    color: @link;
+    color: var(--mu-color-content-secondary);
   }
 
   /** buttons **/
@@ -788,19 +651,21 @@
   }
 
   /* sign popup */
+  /* TODO: something with popup */
+
   .dwVOQ,
   .U8wvj {
-    background-color: @same;
+    background-color: @opposite;
   }
 
   .xFow5,
   .x6Vqy {
-    background-color: @same;
+    background-color: @opposite;
   }
 
   .MKeqF .dwVOQ,
   .U8wvj {
-    box-shadow: 0 4px 12px fade(@opposite, 17);
+    box-shadow: 0 4px 12px fade(@same, 17);
   }
 
   /* avatars */
@@ -893,17 +758,6 @@
   .pDYxK path {
     fill: if(@is-dark-scheme = 1, #e61919, #f51e1e);
     color: if(@is-dark-scheme = 1, #e61919, #f51e1e);
-  }
-
-  .tUVo_ path {
-    fill: currentColor;
-    color: currentColor;
-  }
-
-  .iqM7z,
-  .iqM7z path {
-    fill: @text-sub;
-    color: @text-sub;
   }
 
   /* Difficulty level */
@@ -1224,11 +1078,6 @@
   /*** MY SCORES ***/
   .V2I3c .jd4he {
     background-color: @bg-main;
-  }
-
-  /* score name */
-  .qvkQr .thXCZ {
-    color: @text-main;
   }
 
   /* score toolbar */
@@ -1763,19 +1612,6 @@
   /* line */
   .V_OIw {
     background-color: @border-main;
-  }
-
-  /*** Score view ***/
-  /* "It's easier to view scores in app" */
-  .d90OC,
-  .QlWvk {
-    background-color: @bg-main;
-  }
-
-  .NSJni,
-  .NSJni path {
-    fill: @text-add;
-    color: @text-add;
   }
 
   /* Page selection */
