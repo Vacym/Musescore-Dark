@@ -1,7 +1,7 @@
 /* ==UserStyle==text
 @name           Musescore dark
 @namespace      https://github.com/Vacym
-@version        2.2.1
+@version        2.2.2
 @description    Dark theme for musescore.com with score inverting and customizable colors
 @author         Vacym
 @license        MIT
@@ -81,7 +81,8 @@
     desaturate(darken(@link, 60%, relative), 20%, relative)
   );
 
-  @main-hover: if(@is-dark-scheme = 1, lighten(@main, 10%), darken(@main, 10%));
+  @main: if(@is-dark-scheme = 1, #4f44e5, #6b5dfe);
+  @main-hover: if(@is-dark-scheme = 1, #6b5dfe, #4f44e5);
 
   @main-inactive: if(
     @is-dark-scheme = 1,
@@ -186,28 +187,12 @@
   @bg-add: @bg-extra;
   @bg-peculiar: @bg-extra;
 
-  body,
   html {
+    background-color: var(--mu-color-background-highlight);
     color-scheme: if(@is-dark-scheme = 1, dark, light);
-    background-color: @bg-main;
-  }
-
-  main,
-  .OWn3l {
-    background-color: @bg-main;
-  }
-
-  body.maintenance-page,
-  body.page-boxed-content {
-    background-color: @bg-sub;
   }
 
   /*** Common styles ***/
-  /** logo **/
-  .KYj8I {
-    filter: @svg-filter;
-  }
-
   /** text **/
 
   .njnZK,
@@ -229,99 +214,26 @@
 
   /** buttons **/
   /* main buttons */
-  .form-actions .form-submit,
+  /* main buttons uses vars --mu-color-action-primary.
+  it is ok for links, but not for buttons */
   .Dhs0s.nOTLW,
   .qVgEp {
     background-color: @main;
   }
 
-  .form-submit:hover,
   .u_VDg.Dhs0s.nOTLW:hover,
-  .qVgEp:hover,
-  .Dhs0s:hover {
+  .Dhs0s:hover,
+  .qVgEp:hover {
     background: @main-hover;
   }
 
-  .qVgEp:disabled {
-    background-color: @bg-extra;
-  }
-
-  /* inactive main */
-  .Dhs0s.nOTLW.UlZjN {
-    background: @main-inactive;
-  }
-
-  /* transparent main buttons, Follow button */
-  .tDPQ9.nOTLW,
-  .GCNL2 {
-    background: @main-transparent;
-    color: @text-main;
-  }
-
-  .tDPQ9.nOTLW:hover,
-  .GCNL2:hover {
-    background-color: @main-transparent-hover;
-    color: @text-main;
-  }
-
-  /* invite button */
-  .YJltQ[disabled] {
-    background-color: @accent;
-    color: @text-add;
-  }
-
   /* white buttons */
-  .plVkZ.nIsQu,
-  .GCNL2.pRBsn {
-    background: @bg-main;
-    color: @text-main;
-    border-color: @border-sub;
-  }
-
-  .plVkZ.nIsQu:hover,
-  .GCNL2.pRBsn:hover {
-    color: @text-main;
-    border-color: @border-sub-hover;
-  }
-
-  .GCNL2.pRBsn:active {
-    color: @border-sub;
-    border-color: @border-sub;
-  }
-
-  .GCNL2.pRBsn:disabled {
-    background: @bg-main;
-    color: @text-add;
-    border-color: @border-sub;
-  }
-
   .plVkZ.nIsQu:after {
     border-color: @border-main;
   }
 
   .plVkZ.nIsQu:hover:after {
     border-color: @border-sub-hover;
-  }
-
-  .plVkZ.nIsQu svg path {
-    fill: currentColor;
-  }
-
-  /* transparent buttons */
-  .Tf9QF .mMxym {
-    background-color: transparent;
-    color: @text-main;
-    border-color: fade(@text-main, 10.2%);
-  }
-
-  /* other buttons */
-  .N0P7K {
-    color: @text-extra;
-  }
-
-  .u_VDg.N0P7K.O9yD2:hover {
-    fill: @text-sub;
-    color: @text-sub;
   }
 
   /* textarea */
@@ -1078,18 +990,6 @@
   }
 
   /*** MY SCORES ***/
-  .V2I3c .jd4he {
-    background-color: @bg-main;
-  }
-
-  /* score toolbar */
-  .JVNmZ {
-    background-color: @bg-main;
-  }
-
-  .TW7p7 {
-    transition: opacity 0.5s;
-  }
 
   /* info boxes */
   .jQgT5:hover .TW7p7 {
