@@ -1,7 +1,7 @@
 /* ==UserStyle==text
 @name           Musescore dark
 @namespace      https://github.com/Vacym
-@version        2.2.2
+@version        2.2.3
 @description    Dark theme for musescore.com with score inverting and customizable colors
 @author         Vacym
 @license        MIT
@@ -229,78 +229,31 @@
 
   /* white buttons */
   .plVkZ.nIsQu:after {
-    border-color: @border-main;
+    border-color: var(--mu-color-form-default);
   }
 
   .plVkZ.nIsQu:hover:after {
-    border-color: @border-sub-hover;
-  }
-
-  /* textarea */
-  .NvccO {
-    background-color: @bg-main;
-    border-color: @border-bright;
-  }
-
-  ._ZikE {
-    border-left-color: @border-main;
-  }
-
-  .bkmfh {
-    color: @text-sub;
-  }
-
-  input.bkmfh::-webkit-input-placeholder,
-  input.bkmfh::placeholder,
-  textarea::-webkit-input-placeholder,
-  textarea::placeholder {
-    color: @text-add;
-  }
-
-  /* textarea 2 */
-  ._Mpht {
-    color: @text-main;
-    border-color: @border-sub;
+    border-color: var(--mu-color-form-hovered);
   }
 
   /** selector **/
   .FMkpa {
-    background-color: @bg-main;
-    fill: @text-extra;
-    border-color: @border-main;
+    fill: var(--mu-color-content-primary);
+    background-color: var(--mu-color-background-highlight);
   }
 
   .FMkpa > select {
-    color: @text-extra;
     background-color: inherit;
   }
 
-  .FMkpa > select option,
-  .FMkpa > select optgroup {
-    color: @text-sub;
-    background-color: @bg-sub;
-  }
-
   /** checkbox **/
-  .T2luU:before,
-  .HiVeL {
-    background-color: @bg-main;
-    border-color: @border-main;
-  }
-
+  /* activated */
   .T2luU.wTCVi:before {
     background-color: @main;
     border-color: @main;
   }
 
   /** radio button **/
-  .WY0tX,
-  .QABXC {
-    background-color: @bg-main;
-    color: @bg-main;
-    border-color: @border-main;
-  }
-
   .oyc_A.hSiSi .WY0tX,
   .QABXC:checked,
   .QABXC:checked:hover {
@@ -312,11 +265,7 @@
   .WY0tX:after,
   .oyc_A.hSiSi .WY0tX:after,
   .QABXC:checked::before {
-    background-color: @bg-main;
-  }
-
-  .z7aOQ {
-    background-color: @bg-main;
+    background-color: var(--mu-color-background-highlight);
   }
 
   /** "Explore sheet music" selectors **/
@@ -1648,6 +1597,12 @@
     /* old color fixes */
 
     --color-text-default: var(--mu-color-content-primary);
+  }
+
+  /* root colors to dark theme */
+  :root {
+    --color-action-primary-default-disabled: #2d2d2f;
+    --color-text-disabled: #4a4b56;
   }
 }
 
