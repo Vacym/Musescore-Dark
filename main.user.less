@@ -1,7 +1,7 @@
 /* ==UserStyle==text
 @name           Musescore dark
 @namespace      https://github.com/Vacym
-@version        2.2.3
+@version        2.2.4
 @description    Dark theme for musescore.com with score inverting and customizable colors
 @author         Vacym
 @license        MIT
@@ -298,27 +298,6 @@
   }
 
   /** main navbar **/
-
-  .NnZeV {
-    border-bottom: 1px solid @border-main;
-  }
-
-  .xlHp4 {
-    background-color: @bg-main;
-  }
-
-  .yImAZ,
-  .yImAZ:hover {
-    color: @text-main !important;
-  }
-
-  .plVkZ.O9yD2 {
-    color: @text-main;
-  }
-  .plVkZ.O9yD2:hover {
-    color: @gray;
-  }
-
   /* nav discount */
   .lQmTM {
     filter: @discount-filter;
@@ -326,50 +305,25 @@
 
   /* nav ad */
   .etnW4 {
-    background-color: @bg-sub;
+    background-color: var(--mu-color-background-disabled);
   }
 
   /** search **/
-
-  .ic0KS,
-  .LMYIU {
-    background-color: @bg-main;
-  }
-
-  .ic0KS {
-    border-color: @border-bright;
-  }
-
   .ic0KS.EGfQI {
-    border-color: @border-main;
-  }
-
-  .Yf0HJ {
-    background: transparent !important;
+    border-color: var(--mu-color-form-default);
   }
 
   /* search icon */
-  .ic0KS .OHeqn button svg path {
-    fill: @text-main;
+  .OHeqn svg path {
+    fill: var(--mu-color-content-primary) !important;
   }
 
   /* tips */
   .ifsT0 {
-    background-color: @bg-main;
-    border-top: @border-main;
     box-shadow:
       0 0 0 1px fade(@opposite, 5%),
       0 10px 15px -3px fade(@opposite, 10%),
       0 4px 6px -2px fade(@opposite, 5%);
-  }
-
-  .JmUrW {
-    color: @text-main;
-  }
-
-  ._8AVJ,
-  .JmUrW:hover {
-    background-color: @bg-sub;
   }
 
   /** custom selector **/
