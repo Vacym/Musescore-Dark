@@ -1,7 +1,7 @@
 /* ==UserStyle==text
 @name           Musescore dark
 @namespace      https://github.com/Vacym
-@version        2.2.5
+@version        2.2.6
 @description    Dark theme for musescore.com with score inverting and customizable colors
 @author         Vacym
 @license        MIT
@@ -123,17 +123,6 @@
   @gray-medium: if(@is-dark-scheme = 1, #888, #777);
   @gray-faint: if(@is-dark-scheme = 1, #333, #ddd);
 
-  @advanced: if(@is-dark-scheme = 1, #552c2a, #ffb8aa);
-  @advanced-text: if(@is-dark-scheme = 1, #ffb8aa, #3c0915);
-
-  @intermediate: if(@is-dark-scheme = 1, #5a4525, #f9c66d);
-  @intermediate-text: if(@is-dark-scheme = 1, #f9c66d, #410b00);
-
-  @beginner: if(@is-dark-scheme = 1, #1d4034, #95e7d3);
-  @beginner-text: if(@is-dark-scheme = 1, #95e7d3, #00271c);
-
-  @acc-transcr: if(@is-dark-scheme = 1, #313c37, #def7ec);
-
   @text-add: if(
     @is-dark-scheme = 1,
     desaturate(darken(@text-extra, 25%, relative), 60%, relative),
@@ -222,7 +211,6 @@
   }
 
   .u_VDg.Dhs0s.nOTLW:hover,
-  .Dhs0s:hover,
   .qVgEp:hover {
     background: @main-hover;
   }
@@ -342,23 +330,9 @@
 
   /** score preview */
   .T_xXu,
-  .wtKHS,
-  .gLt3K,
-  .ySV7C {
+  .mI6CB {
     filter: @score-preview-filter;
     background: white;
-  }
-
-  .T_xXu {
-    border-color: @border-main;
-  }
-
-  .T_xXu:hover {
-    border-color: @border-sub-hover;
-  }
-
-  .KM6bP {
-    fill: @text-extra;
   }
 
   /** signs **/
@@ -370,71 +344,15 @@
   }
 
   /* "Official Scores" sign */
-  .uB6NV,
-  .uB6NV path {
-    fill: @secondary;
-    color: @secondary;
-  }
-
-  /* "original" sign */
-  .JnqFx {
-    background: @main-magic;
-    color: @link;
-  }
-
-  /* "public domain" sign */
   .o1QE0 {
     background-color: @main;
   }
 
-  .zeFu4.o1QE0 {
-    color: @main;
-  }
-
-  /* "Advanced" sign */
-  .a0naR {
-    background: @advanced;
-    color: @advanced-text;
-  }
-
-  /* "Intermediate" sign */
-  .Al3lQ {
-    background: @intermediate;
-    color: @intermediate-text;
-  }
-
-  /* "Beginner" sign */
-  .Au_pg {
-    background: @beginner;
-    color: @beginner-text;
-  }
-
-  /* "Accurate Transcription" sign*/
-  .XnSm_ {
-    color: @text-main;
-    background-color: @acc-transcr;
-  }
-
-  .XxyZ8 {
-    fill: @text-main;
-  }
-
-  /* sign popup */
-  /* TODO: something with popup */
-
-  .dwVOQ,
-  .U8wvj {
-    background-color: @opposite;
-  }
-
-  .xFow5,
-  .x6Vqy {
-    background-color: @opposite;
-  }
-
-  .MKeqF .dwVOQ,
-  .U8wvj {
-    box-shadow: 0 4px 12px fade(@same, 17);
+  /* "original" sign */
+  .JnqFx .n3ERC,
+  .JnqFx .n3ERC path {
+    color: var(--mu-color-additional-default);
+    fill: var(--mu-color-additional-default);
   }
 
   /* avatars */
@@ -1508,6 +1426,14 @@
   /* my color changes */
   [data-theme="light"] {
     --mu-color-exception-modal: #111111;
+    --mu-color-additional-default: #d1c8ff;
+    --mu-color-additional-default-subdued: #3b3266;
+    --mu-color-additional-beginner: #95e7d3;
+    --mu-color-additional-beginner-subdued: #1d4034;
+    --mu-color-additional-intermediate: #f9c66d;
+    --mu-color-additional-intermediate-subdued: #5a4525;
+    --mu-color-additional-advanced: #ffb8aa;
+    --mu-color-additional-advanced-subdued: #552c2a;
   }
 
   /* root colors to dark theme */
