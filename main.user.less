@@ -1,7 +1,7 @@
 /* ==UserStyle==text
 @name           Musescore dark
 @namespace      https://github.com/Vacym
-@version        2.2.4
+@version        2.2.5
 @description    Dark theme for musescore.com with score inverting and customizable colors
 @author         Vacym
 @license        MIT
@@ -327,12 +327,6 @@
   }
 
   /** custom selector **/
-  .AU7yR.nOTLW {
-    background-color: @bg-main;
-    color: @text-sub;
-    border-color: @border-bright;
-  }
-
   .HFvdW:not(.wSWus) svg path {
     fill: currentColor;
   }
@@ -340,52 +334,10 @@
   /* drop-down menu */
   .ZcIR_.g3QeU .MfuCz,
   .ZcIR_.SRzzT .MfuCz {
-    background-color: @bg-main;
     box-shadow:
-      0 0 0 1px fade(@opposite, 5),
-      0 10px 15px -3px fade(@opposite, 10),
-      0 4px 6px -2px fade(@opposite, 5);
-  }
-
-  .uBrVm.OX2Fm:hover,
-  .uBrVm.cMYM6,
-  .m5M4W,
-  .jCQkk:hover:not(.s9xvp),
-  .cdgCo:hover {
-    background-color: @main;
-  }
-
-  .uBrVm.OX2Fm {
-    color: @text-main !important;
-  }
-
-  .gU2P9.gU2P9.gU2P9.gU2P9,
-  .gU2P9.gU2P9.gU2P9.gU2P9:hover {
-    background-color: @accent;
-    color: @text-main !important;
-  }
-
-  .GgGe4.ehbCW + .GgGe4 {
-    border-top-color: @bg-sub;
-  }
-
-  /** popup notifications **/
-  .R0wae {
-    background-color: @bg-main;
-    border-color: @accent;
-  }
-
-  .FPzhg,
-  .WRH37 {
-    border-bottom-color: @accent;
-  }
-
-  .FPzhg:hover {
-    background-color: @bg-sub;
-  }
-
-  .YmBV2.xIk5_ path {
-    fill: @main;
+      0 0 0 1px fade(@opposite, 5%),
+      0 10px 15px -3px fade(@opposite, 10%),
+      0 4px 6px -2px fade(@opposite, 5%);
   }
 
   /** score preview */
@@ -1551,6 +1503,11 @@
     /* old color fixes */
 
     --color-text-default: var(--mu-color-content-primary);
+  }
+
+  /* my color changes */
+  [data-theme="light"] {
+    --mu-color-exception-modal: #111111;
   }
 
   /* root colors to dark theme */
