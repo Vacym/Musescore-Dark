@@ -1,7 +1,7 @@
 /* ==UserStyle==text
 @name           Musescore dark
 @namespace      https://github.com/Vacym
-@version        2.2.6
+@version        2.2.7
 @description    Dark theme for musescore.com with score inverting and customizable colors
 @author         Vacym
 @license        MIT
@@ -32,7 +32,7 @@
 @var text  ad-filter             "ad filter"                  "none"
 @var text  avatar-filter         "avatar filter"              "brightness(85%)"
 @var text  cover-filter          "cover filter"               "brightness(85%)"
-@var text  svg-filter            "svg filter"                 "brightness(120%) saturate(95%)"
+@var text  svg-filter            "svg filter"                 "none"
 
 ==/UserStyle== */
 
@@ -356,25 +356,23 @@
   }
 
   /* avatars */
-  .CrCMp,
-  .UIlkK .seCWY.T3UE8 .xIlNZ img {
+  .CrCMp {
     filter: @avatar-filter;
   }
 
   .kH0xm {
-    border-color: @accent;
+    border-color: var(--mu-color-stroke-default);
   }
 
   .nzGkj {
-    border-color: @bg-main;
+    border-color: var(--mu-color-background-default);
   }
 
   /* profile cover */
-
   .Zf301.K8vI0,
   .WGuoB.zFW_9,
   .zFW_9 {
-    background-color: @main;
+    background-color: transparent;
   }
 
   .Zf301.K8vI0[style*="background-image"][style*="cache"]:not(
@@ -392,11 +390,6 @@
     z-index: 2; /* strange behavior at 1 */
 
     backdrop-filter: @cover-filter;
-  }
-
-  /* additional section */
-  .ASx44.hQ6hq {
-    background-color: @bg-sub;
   }
 
   /***************************/
