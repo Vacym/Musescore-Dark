@@ -1,7 +1,7 @@
 /* ==UserStyle==text
 @name           Musescore dark
 @namespace      https://github.com/Vacym
-@version        2.2.7
+@version        2.2.8
 @description    Dark theme for musescore.com with score inverting and customizable colors
 @author         Vacym
 @license        MIT
@@ -181,6 +181,11 @@
     color-scheme: if(@is-dark-scheme = 1, dark, light);
   }
 
+  body,
+  button {
+    color: var(--mu-color-content-primary);
+  }
+
   /*** Common styles ***/
   /** text **/
 
@@ -315,7 +320,7 @@
   }
 
   /** custom selector **/
-  .HFvdW:not(.wSWus) svg path {
+  .O9yD2.Cl2SE:not(.wSWus) svg path {
     fill: currentColor;
   }
 
@@ -408,130 +413,40 @@
   /***************************/
   /*** SHEETS OVERVIEW ***/
 
-  #jmuse-layout {
-    background-color: @bg-extra;
-    color: @text-main !important;
-  }
-
-  /* 3-dot button */
-  .dZTPE > svg > path {
-    fill: @text-main;
-  }
-
   /** toolbar **/
-  .Nw3SK {
-    background-color: @bg-main;
-  }
-
-  #jmuse-layout .plVkZ.O9yD2 {
-    color: @text-main;
-  }
-
-  /* buttons svg main*/
-  #jmuse-layout .HFvdW:not(.wSWus) svg path[fill="#364152"] {
-    fill: @text-sub;
-  }
-
-  /* buttons hover */
-  .vI1Jl.vI1Jl:active,
-  .vI1Jl.vI1Jl:focus,
-  .vI1Jl.vI1Jl:hover {
-    color: @text-sub;
-  }
-
-  .vI1Jl.vI1Jl:hover:before {
-    background-color: @accent;
-  }
-
-  /* buttons active */
-  .Q7LVH:before {
-    background-color: @accent;
-  }
-
-  /* text */
-  .frGa8 {
-    color: @text-sub;
-  }
-
-  /* speed text, plus minus */
-  .sJkYA,
-  .GIjQb {
-    color: @text-main;
-  }
-
-  /* bpm frame */
-  .Np_8H {
-    border-color: fadeout(@text-main, 90%);
-  }
-
-  .Np_8H button {
-    color: @text-extra;
-  }
-
   /* zoom popup */
   .Mn7Mm {
-    background-color: @bg-main;
+    background-color: var(--mu-color-exception-constant-dark);
   }
 
   .Sk9tP {
-    background-color: @bg-main;
+    background-color: var(--mu-color-exception-constant-dark);
   }
 
   .Mn7Mm {
-    box-shadow: 0 4px 20px fade(@opposite, 20);
+    box-shadow: 0 4px 20px fade(@opposite, 20%);
   }
 
   .txUKH {
-    color: @text-main;
+    color: var(--mu-color-exception-constant-light);
   }
 
   .RrD5q path {
-    fill: @link;
+    fill: var(--mu-color-exception-constant-light);
   }
 
-  /* playback bar */
-  .ZGQOx._va4s {
-    background-color: fade(@border-main, 75%);
+  .RrD5q:hover {
+    background-color: @main-hover !important;
   }
 
-  .vBIaU {
-    background-color: @bg-main;
-  }
-
-  .hKxIH,
-  .j9sb8._va4s,
-  .FwRCf:before {
-    background-color: @main;
-  }
-
-  .FwRCf {
-    background-color: @accent;
-  }
-
-  /* speed bar */
-  .HI02X .hKxIH,
-  .HI02X .j9sb8 {
-    background-color: @text-sub;
-  }
-
-  /* videoplayer */
-  .KhcJt {
-    background-color: @bg-extra;
-    border-color: @gray-faint;
-  }
-
-  /* row resize */
+  /* videoplayer row resize */
   .Fjl2q {
-    background-color: @bg-main;
-  }
-
-  .Fjl2q path {
-    fill: @text-extra;
+    background-color: var(--mu-color-exception-inverse-dark);
   }
 
   /** sheet images **/
-  #jmuse-scroller-component {
-    background-color: @bg-extra;
+  .w6All {
+    background-color: var(--mu-color-background-highlight);
   }
 
   #jmuse-scroller-component img {
@@ -539,7 +454,7 @@
   }
 
   #jmuse-scroller-component .EEnGW {
-    background-color: @bg-sub;
+    background-color: var(--mu-color-exception-inverse-dark);
   }
 
   /* current measure */
@@ -552,21 +467,14 @@
     background-color: @measure-hover;
   }
 
-  /* rate score popup */
-  .KkvbQ {
-    background-color: @bg-main !important;
-    border-color: @accent;
-  }
-
   /* right-click menu */
   .zcY04 {
-    background-color: @bg-main;
     box-shadow: 0 4px 20px 0 fade(@opposite, 20%);
   }
 
   /* discount */
   .s3Wga {
-    background: @bg-sub;
+    background: var(--mu-color-background-inactive);
   }
 
   .s3Wga .tbdq7 {
@@ -574,7 +482,7 @@
   }
 
   .s3Wga.dhyJp:after {
-    background: @bg-main;
+    background: var(--mu-color-background-inactive);
   }
 
   /***************************/
@@ -752,11 +660,6 @@
   /** setting sections **/
   .dhE8S {
     color: @text-main;
-  }
-
-  /* Browsing History svg */
-  .HFvdW:not(.wSWus) svg path[stroke="#364152"] {
-    stroke: currentColor;
   }
 
   /* parameters table */
