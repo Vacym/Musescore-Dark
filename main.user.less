@@ -1,7 +1,7 @@
 /* ==UserStyle==text
 @name           Musescore dark
 @namespace      https://github.com/Vacym
-@version        2.2.8
+@version        2.2.9
 @description    Dark theme for musescore.com with score inverting and customizable colors
 @author         Vacym
 @license        MIT
@@ -433,6 +433,15 @@
 
   .RrD5q:hover {
     background-color: @main-hover !important;
+  }
+
+  /* playback bar download */
+  .FwRCf:before {
+    background-color: var(--mu-color-action-primary-default);
+  }
+
+  .FwRCf {
+    background-color: var(--mu-color-stroke-default);
   }
 
   /* videoplayer row resize */
