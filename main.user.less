@@ -1,7 +1,7 @@
 /* ==UserStyle==text
 @name           Musescore dark
 @namespace      https://github.com/Vacym
-@version        2.2.12
+@version        2.2.13
 @description    Dark theme for musescore.com with score inverting and customizable colors
 @author         Vacym
 @license        MIT
@@ -328,10 +328,32 @@
   }
 
   /** score preview */
-  .T_xXu,
-  .mI6CB {
+  .ZR78a {
+    background: white;
+    position: relative;
+  }
+
+  .ZR78a::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+
+    display: block;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+
+    backdrop-filter: @score-preview-filter;
+  }
+
+  .T_xXu {
     filter: @score-preview-filter;
     background: white;
+  }
+
+  .hP0mL img {
+    filter: @score-preview-filter;
   }
 
   /** signs **/
@@ -643,19 +665,19 @@
   }
 
   /* like preview button */
-  .GIzQC {
+  .d5IID {
     background-color: @bg-main;
   }
 
-  .GIzQC:hover {
+  .d5IID:hover {
     background-color: @bg-sub;
   }
 
-  .I3QFq {
+  .d5IID svg {
     fill: @text-main;
   }
 
-  .UugmH {
+  .VTBgH svg {
     fill: if(@is-dark-scheme = 1, #ff3347, #b51c36);
   }
 
@@ -1251,6 +1273,7 @@
     --mu-color-additional-intermediate-subdued: #5a4525;
     --mu-color-additional-advanced: #ffb8aa;
     --mu-color-additional-advanced-subdued: #552c2a;
+    --color-edge-control-default: #505968;
   }
 
   /* root colors to dark theme */
